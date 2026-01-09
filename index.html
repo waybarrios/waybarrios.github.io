@@ -1,185 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/6794828?v=4">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Wayner Barrios - PhD Candidate in Computer Science at Dartmouth College, specializing in Computer Vision, Video Understanding, and Deep Learning">
-  <title>Wayner Barrios</title>
+  <meta name="description" content="Wayner Barrios - PhD Candidate at Dartmouth College specializing in Multimodal AI, Video Understanding, and Deep Learning">
+  <title>Wayner Barrios | AI Researcher</title>
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/6794828?v=4">
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="grayscale">
-  <div id="header">
-    <img src="https://avatars.githubusercontent.com/u/6794828?v=4" alt="Wayner Barrios" style="width:200px">
-    <h1><a href="/">Wayner Barrios</a></h1>
-    <p class="subtitle">PhD Candidate · Computer Science · Dartmouth College</p>
-    <p class="nav">
-      <a href="/">home</a>
-      <a href="https://github.com/waybarrios">github</a>
-      <a href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en">scholar</a>     
-      <a href="https://www.wiqonn.com/" target="_blank">wiqonn</a>
-      <a href="https://discord.com/users/waybarrios" target="_blank">discord</a>
-    </p>
-    <hr>
-  </div>
-  
-  <div id="main">
-    <section id="about">
-      <h2>About</h2>
-      <p>I'm a PhD researcher in Computer Science at <a href="https://home.dartmouth.edu/" target="_blank">Dartmouth College</a>, advised by <a href="https://souyoungjin.github.io/" target="_blank">SouYoung Jin</a>. My research focuses on <strong>Multimodal Large Language Models (MLLMs)</strong> and <strong>computer vision</strong>, with emphasis on evaluation, step-verified reasoning, and improved multimodal fusion through learnable masks, cross-modal alignment, and guidance mechanisms for long-video understanding.</p>
-      
-      <p>I have extensive experience in <strong>video understanding</strong> and building <strong>AI datasets end-to-end</strong>—from specifications and tooling development to quality assurance and benchmark release. As a <strong>Python open-source contributor</strong>, I've contributed to projects that advance the computer vision and geospatial communities.</p>
+<body>
+  <div class="bg-orbs"></div>
+  <div class="noise-overlay"></div>
 
-      <p>During Winter 2025, I was a research intern at <strong>Samsung Research America</strong>, working on <strong>Reinforcement Learning</strong> and <strong>Multimodal Large Language Models</strong>.</p>
-
-      <p>Beyond research, I support <strong>US and Latin American clients</strong> on data and business analytics (KPI decisions, market forecasting) and automation of AI/ML pipelines. I've delivered real-world systems that process <strong>large-scale, real-time data</strong> for many concurrent users, leveraging distributed training and inference.</p>
-    </section>
-
-    <section id="research-interests">
-      <h2>Research Interests</h2>
-      <ul>
-        <li>Multimodal Large Language Models (MLLMs) & Vision-Language Models</li>
-        <li>Evaluation & Step-Verified Reasoning in AI Systems</li>
-        <li>Multimodal Fusion: Learnable Masks & Cross-Modal Alignment</li>
-        <li>Video Understanding & Long-Video Guidance Mechanisms</li>
-        <li>Temporal Reasoning & Activity Recognition</li>
-        <li>Deep Learning & Neural Architectures</li>
-      </ul>
-    </section>
-
-    <section id="technical-expertise">
-      <h2>Technical Expertise</h2>
-      <div class="skills-grid">
-        <div class="skill-category">
-          <h3>Deep Learning Frameworks</h3>
-          <p>PyTorch • JAX • TensorFlow</p>
+  <main class="container">
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-content">
+        <div class="avatar-wrapper">
+          <img src="https://avatars.githubusercontent.com/u/6794828?v=4" alt="Wayner Barrios" class="avatar">
+          <div class="avatar-ring"></div>
         </div>
-        <div class="skill-category">
-          <h3>Model Development</h3>
-          <p>Pretraining • Post-training • Fine-tuning • RLHF</p>
-        </div>
-        <div class="skill-category">
-          <h3>Distributed Systems</h3>
-          <p>Distributed Training • Distributed Inference • Large-Scale Data Processing</p>
-        </div>
-        <div class="skill-category">
-          <h3>AI Infrastructure</h3>
-          <p>Real-time Systems • ML Pipeline Automation • Production Deployment</p>
-        </div>
-        <div class="skill-category">
-          <h3>Data & Analytics</h3>
-          <p>Dataset Engineering • KPI Analysis • Market Forecasting • Business Intelligence</p>
-        </div>
-        <div class="skill-category">
-          <h3>Software Engineering</h3>
-          <p>Python • Open Source Contributions • API Development • System Architecture</p>
+        <div class="hero-text">
+          <p class="hero-label">PhD Researcher in AI</p>
+          <h1 class="hero-name">Wayner Barrios</h1>
+          <p class="hero-tagline">Teaching machines to see, understand, and reason like humans</p>
         </div>
       </div>
-    </section>
 
-    <section id="publications">
-      <h2>Selected Publications</h2>
-      
-      <div class="publication">
-        <p class="pub-title"><a href="https://arxiv.org/abs/2506.01850">MoDA: Modulation Adapter for Fine-Grained Visual Grounding in Instructional MLLMs</a></p>
-        <p class="pub-authors"><strong>Wayner Barrios</strong>, Andrés Villa, Juan León Alcázar, SouYoung Jin, Bernard Ghanem</p>
-        <p class="pub-venue">arXiv preprint, 2025</p>
-        <p class="pub-description">Proposes a lightweight module designed to refine pre-aligned visual features through instruction-guided modulation. MoDA employs a Transformer-based cross-attention mechanism to generate modulation masks over aligned visual tokens, emphasizing semantically relevant embedding dimensions based on language instructions. This enhances fine-grained visual grounding capabilities in Multimodal Large Language Models.</p>
+      <nav class="nav-links">
+        <a href="https://github.com/waybarrios" target="_blank" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en" target="_blank" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>
+          <span>Scholar</span>
+        </a>
+        <a href="https://www.wiqonn.com/" target="_blank" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          <span>Wiqonn</span>
+        </a>
+        <a href="mailto:way.gr@dartmouth.edu" class="nav-link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span>Contact</span>
+        </a>
+      </nav>
+    </header>
+
+    <!-- Bento Grid -->
+    <div class="bento-grid">
+
+      <!-- About Card - Large -->
+      <article class="bento-card card-about">
+        <div class="card-label">About</div>
+        <h2>Researching the intersection of vision & language</h2>
+        <p>I work at the frontier where machines learn to see, reason, and understand the world like we do.</p>
+        <p>PhD candidate at <a href="https://home.dartmouth.edu/" target="_blank">Dartmouth College</a>, advised by <a href="https://souyoungjin.github.io/" target="_blank">SouYoung Jin</a>. Thesis co-advised by <a href="https://www.cs.dartmouth.edu/~soroush/" target="_blank">Soroush Vosoughi</a>, <a href="https://nsingh1.host.dartmouth.edu/" target="_blank">Nikhil Singh</a>, and <a href="https://niebles.net" target="_blank">Juan Carlos Niebles</a>. My work focuses on <strong>Multimodal Large Language Models</strong>, evaluation, step-verified reasoning, and multimodal fusion through learnable masks and cross-modal alignment.</p>
+        <p>I've built AI and machine learning systems for enterprise and government clients, including computer vision pipelines, large-scale data processing, and real-time analytics. Research collaborations with DARPA/IARPA, CMU, KAUST, Adobe Research, Samsung Research, Northeastern University, Mount Sinai, Lunenfeld Institute, Universidad del Norte, EAFIT, Universidad CES, Universidad de Antioquia, among others. Founder of <a href="https://wiqonn.com" target="_blank"><strong>Wiqonn</strong></a>, a LATAM-based initiative delivering research-backed AI solutions for real-world impact.</p>
+        <p>For details about my recent research, visit <a href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en" target="_blank">Google Scholar</a>. For previous work experience, <a href="mailto:way.gr@dartmouth.edu">get in touch</a>.</p>
+      </article>
+
+      <!-- Research Interests Card -->
+      <article class="bento-card card-research">
+        <div class="card-label">Research Focus</div>
+        <div class="research-tags">
+          <span class="tag tag-primary">Multimodal AI</span>
+          <span class="tag tag-primary">Deep Learning</span>
+          <span class="tag tag-secondary">LLMs</span>
+          <span class="tag tag-secondary">Video Understanding</span>
+          <span class="tag tag-tertiary">Post-Training Alignment</span>
+          <span class="tag tag-tertiary">Large-Scale Pretraining</span>
+          <span class="tag tag-quaternary">Efficient Models</span>
+          <span class="tag tag-quaternary">Multimodal Reasoning</span>
+        </div>
+      </article>
+
+      <!-- Featured Publication 1 - MoDA 2025 -->
+      <article class="bento-card card-paper card-paper-featured">
+        <div class="card-label">Latest Paper</div>
+        <div class="paper-venue">arXiv 2025</div>
+        <h3><a href="https://arxiv.org/abs/2506.01850" target="_blank">MoDA: Modulation Adapter for Fine-Grained Visual Grounding in Instructional MLLMs</a></h3>
+        <p class="paper-authors"><strong>W. Barrios</strong>, A. Villa, J. L. Alcázar, S. Jin, B. Ghanem</p>
+        <p class="paper-desc">Lightweight module for instruction-guided modulation in MLLMs using Transformer-based cross-attention for fine-grained visual grounding.</p>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2506.01850" target="_blank" class="paper-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Paper
+          </a>
+        </div>
+      </article>
+
+      <!-- Publication 2 - FT2TF WACV 2025 -->
+      <article class="bento-card card-paper">
+        <div class="paper-venue">WACV 2025</div>
+        <h3><a href="https://arxiv.org/abs/2312.05430" target="_blank">FT2TF: First-Person Statement Text-To-Talking Face Generation</a></h3>
+        <p class="paper-authors">X. Diao, M. Cheng, <strong>W. Barrios</strong>, S. Jin</p>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2312.05430" target="_blank" class="paper-link">Paper</a>
+        </div>
+      </article>
+
+      <!-- Publication 3 - LAM 2024 -->
+      <article class="bento-card card-paper">
+        <div class="paper-venue">arXiv 2024</div>
+        <h3><a href="https://arxiv.org/abs/2406.02761" target="_blank">Multi-layer Learnable Attention Mask for Multimodal Tasks</a></h3>
+        <p class="paper-authors"><strong>W. Barrios</strong>, S. Jin</p>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2406.02761" target="_blank" class="paper-link">Paper</a>
+        </div>
+      </article>
+
+      <!-- Publication 4 - ICCV 2023 -->
+      <article class="bento-card card-paper">
+        <div class="paper-venue">ICCV 2023</div>
+        <h3><a href="https://arxiv.org/abs/2302.13372" target="_blank">Localizing Moments in Long Video Via Multimodal Guidance</a></h3>
+        <p class="paper-authors"><strong>W. Barrios</strong>, M. Soldan, A. M. Ceballos-Arroyo, F. Caba, B. Ghanem</p>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2302.13372" target="_blank" class="paper-link">Paper</a>
+          <a href="https://github.com/waybarrios/guidance-based-video-grounding" target="_blank" class="paper-link">Code</a>
+        </div>
+      </article>
+
+      <!-- Publication 5 - Bladder Cancer 2022 -->
+      <article class="bento-card card-paper">
+        <div class="paper-venue">J. Pathology Informatics 2022</div>
+        <h3><a href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en" target="_blank">Bladder Cancer Prognosis Using Deep Neural Networks and Histopathology Images</a></h3>
+        <p class="paper-authors"><strong>W. Barrios</strong>, B. Abdollahi, M. Goyal, Q. Song, et al.</p>
+        <div class="paper-links">
+          <a href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en" target="_blank" class="paper-link">Paper</a>
+        </div>
+      </article>
+
+      <!-- Publication 6 - SCC CVPR 2017 -->
+      <article class="bento-card card-paper card-paper-classic">
+        <div class="paper-venue">CVPR 2017</div>
+        <h3><a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Caba_Heilbron_SCC_Semantic_Context_CVPR_2017_paper.pdf" target="_blank">SCC: Semantic Context Cascade for Efficient Action Detection</a></h3>
+        <p class="paper-authors">F. Caba, <strong>W. Barrios</strong>, V. Escorcia, B. Ghanem</p>
+        <p class="paper-citations">112 citations</p>
+      </article>
+
+      <!-- All Papers Link -->
+      <article class="bento-card card-more-papers">
+        <a href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en" target="_blank" class="more-link">
+          <span>View all publications</span>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </article>
+
+      <!-- Projects Section Header -->
+      <div class="section-header">
+        <h2>Open Source Projects</h2>
       </div>
 
-      <div class="publication">
-        <p class="pub-title"><a href="https://arxiv.org/abs/2312.05430">FT2TF: First-Person Statement Text-To-Talking Face Generation</a></p>
-        <p class="pub-authors">Xingjian Diao, Ming Cheng, <strong>Wayner Barrios</strong>, SouYoung Jin</p>
-        <p class="pub-venue">WACV 2025</p>
-        <p class="pub-description">Addresses the challenge of generating realistic talking face videos from first-person statements, contributing to the advancement of multimodal generation systems.</p>
-      </div>
+      <!-- Project 1 - vLLM-MLX -->
+      <article class="bento-card card-project card-project-large">
+        <div class="project-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3M15 1v3M9 20v3M15 20v3M1 9h3M1 15h3M20 9h3M20 15h3"/></svg>
+        </div>
+        <h3><a href="https://github.com/waybarrios/vllm-mlx" target="_blank">vLLM-MLX</a></h3>
+        <p>OpenAI-compatible server for Apple Silicon. Run LLMs and vision-language models (Llama, Qwen-VL, LLaVA) with continuous batching, MCP tool calling, and multimodal support on M1/M2/M3/M4 chips.</p>
+        <div class="project-tags">
+          <span>Apple Silicon</span>
+          <span>MLX</span>
+          <span>LLM Inference</span>
+          <span>Multimodal</span>
+        </div>
+      </article>
 
-      <div class="publication">
-        <p class="pub-title"><a href="https://arxiv.org/abs/2406.02761">Multi-layer Learnable Attention Mask for Multimodal Tasks</a></p>
-        <p class="pub-authors"><strong>Wayner Barrios</strong>, SouYoung Jin</p>
-        <p class="pub-venue">arXiv preprint, 2024</p>
-        <p class="pub-description">Introduces a learnable attention mask (LAM) mechanism that optimizes attention maps and focuses on critical tokens across multiple layers of Transformer networks. Leveraging self-attention modules in BERT-like architectures, LAM accommodates varied information aspects embedded at each layer. Experimental validation on MADv2, QVHighlights, ImageNet 1K, and MSRVTT demonstrates effectiveness in enhancing model performance while reducing redundant computations, particularly for complex multimodal scenarios including movie understanding.</p>
-      </div>
+      <!-- Project 2 - DGX Spark Fine-tune -->
+      <article class="bento-card card-project">
+        <div class="project-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3><a href="https://github.com/waybarrios/dgx-spark-finetune-llm" target="_blank">DGX Spark Fine-tune LLM</a></h3>
+        <p>LLM fine-tuning with LoRA + NVFP4/MXFP8 quantization on NVIDIA DGX Spark (Blackwell GB10).</p>
+        <div class="project-tags">
+          <span>Blackwell</span>
+          <span>LoRA</span>
+          <span>Quantization</span>
+        </div>
+      </article>
 
-      <div class="publication">
-        <p class="pub-title"><a href="https://arxiv.org/abs/2302.13372">Localizing Moments in Long Video Via Multimodal Guidance</a></p>
-        <p class="pub-authors"><strong>Wayner Barrios</strong>, Mattia Soldan, Alberto Mario Ceballos-Arroyo, Fabian Caba Heilbron, Bernard Ghanem</p>
-        <p class="pub-venue">ICCV 2023</p>
-        <p class="pub-description">Proposes a novel approach for temporal localization of specific moments in long-form videos using multimodal guidance, addressing challenges in video understanding and moment retrieval.</p>
-      </div>
+      <!-- Project 3 - Guidance Video Grounding -->
+      <article class="bento-card card-project">
+        <div class="project-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"/><line x1="7" y1="2" x2="7" y2="22"/><line x1="17" y1="2" x2="17" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+        </div>
+        <h3><a href="https://github.com/waybarrios/guidance-based-video-grounding" target="_blank">Guidance Video Grounding</a></h3>
+        <p>Official PyTorch implementation of ICCV 2023 paper on moment retrieval in long videos.</p>
+        <div class="project-tags">
+          <span>ICCV 2023</span>
+          <span>PyTorch</span>
+          <span>Video</span>
+        </div>
+      </article>
 
+      <!-- Project 4 - ActivityNet -->
+      <article class="bento-card card-project">
+        <div class="project-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        </div>
+        <h3><a href="https://activity-net.org" target="_blank">ActivityNet</a></h3>
+        <p>Large-scale benchmark for human activity understanding in videos.</p>
+        <div class="project-tags">
+          <span>Benchmark</span>
+          <span>Dataset</span>
+        </div>
+      </article>
 
-      <div class="publication">
-        <p class="pub-title"><a href="https://openaccess.thecvf.com/content_cvpr_2017/papers/Caba_Heilbron_SCC_Semantic_Context_CVPR_2017_paper.pdf">SCC: Semantic Context Cascade for Efficient Action Detection</a></p>
-        <p class="pub-authors">Fabian Caba Heilbron, <strong>Wayner Barrios</strong>, Victor Escorcia, Bernard Ghanem</p>
-        <p class="pub-venue">CVPR 2017</p>
-      </div>
+      <!-- Project 5 - GeoNode -->
+      <article class="bento-card card-project">
+        <div class="project-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </div>
+        <h3><a href="https://github.com/GeoNode/geonode" target="_blank">GeoNode</a></h3>
+        <p>Open source geospatial platform. Contributed to service virtualization and networking.</p>
+        <div class="project-tags">
+          <span>Open Source</span>
+          <span>GIS</span>
+        </div>
+      </article>
 
-      <p class="more-pubs">→ Full list on <a href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en">Google Scholar</a></p>
-    </section>
+      <!-- GitHub Card -->
+      <article class="bento-card card-github">
+        <a href="https://github.com/waybarrios" target="_blank" class="github-link">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          <span>@waybarrios</span>
+          <span class="github-cta">View all repositories</span>
+        </a>
+      </article>
 
-    <section id="projects">
-      <h2>Selected Projects</h2>
-      
-      <div class="project">
-        <p class="project-title"><a href="https://activity-net.org">ActivityNet</a></p>
-        <p>Large-scale benchmark for human activity understanding in videos. Developed algorithms and interfaces for video collection, temporal annotation, QA processes, and evaluation infrastructure.</p>
-      </div>
+      <!-- Skills Card -->
+      <article class="bento-card card-skills">
+        <div class="card-label">Tech Stack</div>
+        <div class="skills-list">
+          <div class="skill-group">
+            <span class="skill-title">Languages & Frameworks</span>
+            <span class="skill-items">Python · C++ · PyTorch · JAX · MLX</span>
+          </div>
+          <div class="skill-group">
+            <span class="skill-title">Acceleration</span>
+            <span class="skill-items">CUDA · ROCm · FPGA (HLS/Vitis)</span>
+          </div>
+          <div class="skill-group">
+            <span class="skill-title">Distributed Training</span>
+            <span class="skill-items">FSDP · DeepSpeed · Dynamo · Mixed Precision</span>
+          </div>
+          <div class="skill-group">
+            <span class="skill-title">Optimization</span>
+            <span class="skill-items">Quantization · Pruning · Distillation</span>
+          </div>
+          <div class="skill-group">
+            <span class="skill-title">Infrastructure</span>
+            <span class="skill-items">K8s · Docker · AWS · GCP · Vector DBs</span>
+          </div>
+        </div>
+      </article>
 
-      <div class="project">
-        <p class="project-title"><a href="https://www.iarpa.gov/index.php/research-programs/diva">Deep Intermodal Video Analytics (DIVA)</a></p>
-        <p>IARPA-funded program for automated activity detection in multi-camera streaming video. Designed computer vision algorithms for complex activity recognition across diverse camera viewpoints. Participated in the ActEv Challenge at CVPR'19 ActivityNet workshop with CMU team.</p>
-      </div>
+      <!-- Personal Card -->
+      <article class="bento-card card-personal">
+        <div class="card-label">Beyond Research</div>
+        <div class="personal-items">
+          <span>Dog lover: Tala, Luna, Raissa & Naia</span>
+          <span>Passionate traveler</span>
+          <span>Audiophile & musician</span>
+          <span>Water sports enthusiast</span>
+        </div>
+      </article>
 
-      <div class="project">
-        <p class="project-title"><a href="https://github.com/GeoNode/geonode">GeoNode - Open Source Geospatial Platform</a></p>
-        <p>Contributed to GeoNode, an open source platform that facilitates the creation, sharing, and collaborative use of geospatial data. My contributions focused on service virtualization, inter-service networking communications, and advancing open source GIS technology for the global community.</p>
-      </div>
+      <!-- Contact Card -->
+      <article class="bento-card card-contact">
+        <div class="card-label">Get in Touch</div>
+        <div class="contact-links">
+          <a href="mailto:way.gr@dartmouth.edu" class="contact-item">
+            <span class="contact-type">Academic</span>
+            <span class="contact-value">way.gr@dartmouth.edu</span>
+          </a>
+          <a href="mailto:waybarrios@gmail.com" class="contact-item">
+            <span class="contact-type">Personal</span>
+            <span class="contact-value">waybarrios@gmail.com</span>
+          </a>
+          <a href="mailto:wbarriosq@wiqonn.com" class="contact-item">
+            <span class="contact-type">Business</span>
+            <span class="contact-value">wbarriosq@wiqonn.com</span>
+          </a>
+        </div>
+      </article>
 
-      <div class="project">
-        <p class="project-title"><a href="https://github.com/cga-harvard/worldmap">Harvard WorldMap</a></p>
-        <p>Open source geospatial data platform developed to lower barriers for scholars working with geospatial information. Optimized large-scale workloads for production, developed visualization tools for big geospatial data, and managed complex migration processes.</p>
-      </div>
+    </div>
 
-      <div class="project">
-        <p class="project-title"><a href="https://vivamed.com.co/humathcurie/">VivaMed - HUMATH: Telemedicine Pneumonia Detection</a></p>
-        <p>COVID-19 detection system using medical imaging for Colombian hospitals. Led ML model deployment, computer vision architecture, and data privacy implementation. Sponsored by Colombian Ministry of Science, Technology and Innovation.</p>
-      </div>
-    </section>
-
-    <section id="entrepreneurship">
-      <h2>Entrepreneurship</h2>
-      <p>I founded <a href="https://wiqonn.com" target="_blank"><strong>Wiqonn</strong></a>, a technology startup based in Latin America, specializing in artificial intelligence, data analysis, and software development solutions.</p>
-    </section>
-
-    <section id="personal">
-      <h2>Beyond Research</h2>
-      <ul>
-        <li>🐕 Dog lover: Tala, Luna, Raissa & Naia</li>
-        <li>🌍 Passionate traveler exploring cultures worldwide</li>
-        <li>🎵 Audiophile & amateur musician</li>
-        <li>🌊 Water sports enthusiast — always better near the sea</li>
-        <li>🔧 Tech tinkerer with interest in reverse engineering</li>
-      </ul>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <ul>
-        <li>Academic: <a href="mailto:way.gr@dartmouth.edu">way.gr@dartmouth.edu</a></li>
-        <li>Personal: <a href="mailto:waybarrios@gmail.com">waybarrios@gmail.com</a></li>
-        <li>Business: <a href="mailto:wbarriosq@wiqonn.com">wbarriosq@wiqonn.com</a></li>
-        <li>GitHub: <a href="https://github.com/waybarrios">waybarrios</a></li>
-        <li>Scholar: <a href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en">Google Scholar</a></li>
-      </ul>
-    </section>
-  </div>
-
-  <div id="footer">
-    <hr>
-    <p>© 2025 Wayner Barrios · Last updated: November 2025</p>
-  </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <p>© 2025 Wayner Barrios</p>
+    </footer>
+  </main>
 </body>
 </html>
-
