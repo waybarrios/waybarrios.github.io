@@ -22,9 +22,9 @@
           <div class="avatar-ring"></div>
         </div>
         <div class="hero-text">
-          <p class="hero-label">PhD Researcher in AI</p>
+          <p class="hero-label">Researcher · Builder · Multimodal AI</p>
           <h1 class="hero-name">Wayner Barrios</h1>
-          <p class="hero-tagline">Teaching machines to see, understand, and reason like humans</p>
+          <p class="hero-tagline">Teaching AI to see the world and explain what it understands</p>
         </div>
       </div>
 
@@ -54,11 +54,10 @@
       <!-- About Card - Large -->
       <article class="bento-card card-about">
         <div class="card-label">About</div>
-        <h2>Researching the intersection of vision & language</h2>
-        <p>I work at the frontier where machines learn to see, reason, and understand the world like we do.</p>
-        <p>Ph.D. expected Winter 2026 at <a href="https://home.dartmouth.edu/" target="_blank">Dartmouth College</a>, advised by <a href="https://souyoungjin.github.io/" target="_blank">SouYoung Jin</a>. Dissertation committee: <a href="https://www.cs.dartmouth.edu/~soroush/" target="_blank">Soroush Vosoughi</a>, <a href="https://nsingh1.host.dartmouth.edu/" target="_blank">Nikhil Singh</a>, and <a href="https://niebles.net" target="_blank">Juan Carlos Niebles</a>. My work focuses on <strong>Multimodal Large Language Models</strong>, evaluation, multimodal reasoning, and multimodal fusion through learnable masks and cross-modal alignment.</p>
-        <p>I've built AI and machine learning systems for enterprise and government clients, including computer vision pipelines, large-scale data processing, and real-time analytics. Research collaborations with DARPA/IARPA, CMU, KAUST, Adobe Research, Samsung Research, Northeastern University, Mount Sinai, Lunenfeld Institute, Universidad del Norte, EAFIT, Universidad CES, Universidad de Antioquia, among others. Founder of <a href="https://wiqonn.com" target="_blank"><strong>Wiqonn</strong></a>, a LATAM-based initiative delivering research-backed AI solutions for real-world impact.</p>
-        <p>For details about my recent research, visit <a href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en" target="_blank">Google Scholar</a>. For previous work experience, <a href="mailto:way.gr@dartmouth.edu">get in touch</a>.</p>
+        <p>I started my research making sense of what happens in videos: detecting actions, localizing moments, understanding temporal structure. That work took me through collaborations with <strong>CMU</strong>, <strong>KAUST</strong>, and teams at <strong>DARPA/IARPA</strong>, with publications at top-tier venues in computer vision and AI.</p>
+        <p>Over time I moved from "what is happening" to "does the model actually understand why", working on multimodal fusion, cross-modal alignment, and learnable attention masks. My most recent work, <a href="https://arxiv.org/abs/2603.13099" target="_blank"><strong>CRYSTAL</strong></a>, shows that even the best multimodal models can't maintain coherent reasoning for more than a few steps.</p>
+        <p>I also care about making things work in practice. I built <a href="https://github.com/waybarrios/vllm-mlx" target="_blank"><strong>vLLM-MLX</strong></a> to run LLMs and vision-language models efficiently on Apple Silicon, and I've shipped production ML systems for enterprise and government through work with <strong>Adobe Research</strong>, <strong>Samsung Research</strong>, <strong>Northeastern University</strong>, <strong>Mount Sinai</strong>, <strong>Lunenfeld Institute</strong>, <strong>Universidad del Norte</strong>, <strong>EAFIT</strong>, <strong>Universidad CES</strong>, and <strong>Universidad de Antioquia</strong>. I founded <a href="https://wiqonn.com" target="_blank"><strong>Wiqonn</strong></a> to bring serious AI research to Latin America.</p>
+        <p>Currently finishing my Ph.D. at <a href="https://home.dartmouth.edu/" target="_blank">Dartmouth College</a> (expected Winter 2026), advised by <a href="https://souyoungjin.github.io/" target="_blank">SouYoung Jin</a>, with <a href="https://www.cs.dartmouth.edu/~soroush/" target="_blank">Soroush Vosoughi</a>, <a href="https://nsingh1.host.dartmouth.edu/" target="_blank">Nikhil Singh</a>, and <a href="https://niebles.net" target="_blank">Juan Carlos Niebles</a> on my committee. Open to research and engineering roles, <a href="mailto:way.gr@dartmouth.edu">let's talk</a>.</p>
       </article>
 
       <!-- Research Interests Card -->
@@ -67,27 +66,38 @@
         <div class="research-tags">
           <span class="tag tag-primary">Multimodal AI</span>
           <span class="tag tag-primary">Deep Learning</span>
-          <span class="tag tag-secondary">LLMs</span>
-          <span class="tag tag-secondary">Video Understanding</span>
-          <span class="tag tag-tertiary">Post-Training Alignment</span>
-          <span class="tag tag-tertiary">Large-Scale Pretraining</span>
-          <span class="tag tag-quaternary">Efficient Models</span>
-          <span class="tag tag-quaternary">Multimodal Reasoning</span>
+          <span class="tag tag-primary">LLMs</span>
+          <span class="tag tag-primary">Video Understanding</span>
+          <span class="tag tag-secondary">Post-Training Alignment</span>
+          <span class="tag tag-secondary">Large-Scale Pretraining</span>
+          <span class="tag tag-secondary">Efficient Models</span>
+          <span class="tag tag-secondary">Multimodal Reasoning</span>
         </div>
       </article>
 
-      <!-- Featured Publication 1 - vLLM-MLX 2026 -->
+      <!-- Featured Publication 1 - CRYSTAL 2026 -->
       <article class="bento-card card-paper card-paper-featured">
         <div class="card-label">Latest Paper</div>
         <div class="paper-venue">arXiv 2026</div>
-        <h3><a href="https://arxiv.org/abs/2601.19139" target="_blank">Native LLM and MLLM Inference at Scale on Apple Silicon</a></h3>
-        <p class="paper-authors"><strong>W. Barrios</strong></p>
-        <p class="paper-desc">vllm-mlx: A framework delivering 21-87% higher throughput than llama.cpp on Apple Silicon, with content-based prefix caching for multimodal workloads and up to 525 tokens/sec.</p>
+        <h3><a href="https://arxiv.org/abs/2603.13099" target="_blank">Beyond Final Answers: CRYSTAL Benchmark for Transparent Multimodal Reasoning Evaluation</a></h3>
+        <p class="paper-authors"><strong>W. Barrios</strong>, S. Jin</p>
+        <p class="paper-desc">CRYSTAL is a 6,372-instance benchmark that evaluates multimodal reasoning by checking every intermediate step, not just the final answer. Testing 20 models revealed that none can maintain over 60% step accuracy in the right order. We propose Causal Process Reward, a training approach that improves step-level consistency by 32% without manual annotations.</p>
         <div class="paper-links">
-          <a href="https://arxiv.org/abs/2601.19139" target="_blank" class="paper-link">
+          <a href="https://arxiv.org/abs/2603.13099" target="_blank" class="paper-link">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             Paper
           </a>
+          <a href="https://github.com/waybarrios/crystal-benchmark" target="_blank" class="paper-link">Code</a>
+        </div>
+      </article>
+
+      <!-- Publication 2 - vLLM-MLX 2026 -->
+      <article class="bento-card card-paper">
+        <div class="paper-venue">arXiv 2026</div>
+        <h3><a href="https://arxiv.org/abs/2601.19139" target="_blank">Native LLM and MLLM Inference at Scale on Apple Silicon</a></h3>
+        <p class="paper-authors"><strong>W. Barrios</strong></p>
+        <div class="paper-links">
+          <a href="https://arxiv.org/abs/2601.19139" target="_blank" class="paper-link">Paper</a>
           <a href="https://github.com/waybarrios/vllm-mlx" target="_blank" class="paper-link">Code</a>
         </div>
       </article>

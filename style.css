@@ -384,15 +384,15 @@ body::after {
 }
 
 .tag-tertiary {
-  background: rgba(16, 185, 129, 0.12);
-  color: #34d399;
-  border-color: rgba(16, 185, 129, 0.2);
+  background: rgba(139, 92, 246, 0.08);
+  color: #a78bfa;
+  border-color: rgba(139, 92, 246, 0.15);
 }
 
 .tag-quaternary {
-  background: rgba(244, 63, 94, 0.12);
-  color: #fb7185;
-  border-color: rgba(244, 63, 94, 0.2);
+  background: rgba(59, 130, 246, 0.08);
+  color: #93c5fd;
+  border-color: rgba(59, 130, 246, 0.15);
 }
 
 .tag:hover {
