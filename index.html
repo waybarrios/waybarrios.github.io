@@ -4,7 +4,21 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Wayner Barrios is an AI researcher working on multimodal reasoning, video understanding, and efficient inference systems. Ph.D., Dartmouth College, 2026.">
+  <meta name="color-scheme" content="light">
   <meta name="theme-color" content="#f5f3ed">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.dataset.theme = 'dark';
+          var m = document.querySelector('meta[name="color-scheme"]');
+          if (m) m.content = 'dark';
+          var t = document.querySelector('meta[name="theme-color"]');
+          if (t) t.content = '#171613';
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="canonical" href="https://waybarrios.com/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://waybarrios.com/">
@@ -17,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260731-6">
+  <link rel="stylesheet" href="style.css?v=20260801-4">
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"Person","name":"Wayner Barrios","url":"https://waybarrios.com/","image":"https://avatars.githubusercontent.com/u/6794828?v=4","jobTitle":"AI Researcher","alumniOf":[{"@type":"CollegeOrUniversity","name":"Dartmouth College"},{"@type":"CollegeOrUniversity","name":"Universidad del Norte"}],"sameAs":["https://github.com/waybarrios","https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en","https://orcid.org/0009-0005-1013-5130"],"knowsAbout":["Multimodal artificial intelligence","Video understanding","Multimodal reasoning","Large language model inference"]}
   </script>
@@ -29,6 +43,10 @@
     <a class="wordmark" href="/" aria-label="Wayner Barrios, home"><img src="brand-mark.svg?v=2" alt="" width="34" height="27"></a>
     <nav aria-label="Primary navigation">
       <a href="#about">About</a><a href="#research">Research</a><a href="#projects">Open source</a><a href="mailto:waybarrios@gmail.com">Contact</a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M14 9.3A6 6 0 1 1 6.7 2 4.8 4.8 0 0 0 14 9.3Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3.1"/><path d="M8 1.2v1.5M8 13.3v1.5M1.2 8h1.5M13.3 8h1.5M3 3l1.1 1.1M11.9 11.9 13 13M13 3l-1.1 1.1M4.1 11.9 3 13"/></svg>
+      </button>
     </nav>
   </header>
 
@@ -50,8 +68,8 @@
         </div>
       </div>
       <figure class="portrait">
-        <img src="https://avatars.githubusercontent.com/u/6794828?v=4" alt="Portrait of Wayner Barrios" width="360" height="360">
-        <figcaption><span>Dartmouth College</span><span>Ph.D. · 2026</span></figcaption>
+        <span class="portrait-media"><img src="https://avatars.githubusercontent.com/u/6794828?v=4" alt="Portrait of Wayner Barrios" width="360" height="360"></span>
+        <figcaption><span>Dartmouth College</span><span>Ph.D.</span></figcaption>
       </figure>
     </section>
 
@@ -110,12 +128,20 @@
     </section>
 
     <section class="content-section projects" id="projects" aria-labelledby="projects-title">
-      <div class="section-heading"><p class="section-index">03 / Open source</p><h2 id="projects-title"><span class="section-title-line"><span>Research that</span></span><span class="section-title-line"><span>runs.</span></span></h2><p class="section-note">Inference, evaluation, post-training, and tools for AI developers.</p></div>
+      <div class="section-heading"><p class="section-index">03 / Open source</p><h2 id="projects-title"><span class="section-title-line"><span>Research that</span></span><span class="section-title-line"><span>runs.</span></span></h2><p class="section-note">Projects I build, plus contributions to major open-source communities — inference, evaluation, and geospatial infrastructure.</p></div>
       <div class="project-list">
         <a class="project" href="https://github.com/waybarrios/vllm-mlx" target="_blank" rel="noopener"><span class="project-number">01</span><span class="project-copy"><strong>vLLM-MLX</strong><span>High-throughput, OpenAI- and Anthropic-compatible LLM and MLLM inference for Apple Silicon, with continuous batching, tool calling, vision, audio, and video support.</span></span><span class="project-proof"><strong>1.5k+</strong><small>stars</small><strong>400+</strong><small>tok/s</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-        <a class="project" href="https://github.com/waybarrios/opencode-power-pack" target="_blank" rel="noopener"><span class="project-number">02</span><span class="project-copy"><strong>OpenCode Power Pack</strong><span>Production workflows for code review, security, feature development, frontend design, and project memory, ported from Claude Code to OpenCode.</span></span><span class="project-proof"><strong>11</strong><small>skills</small><strong>450+</strong><small>stars</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-        <a class="project" href="https://github.com/SEE-AI-Lab/crystal" target="_blank" rel="noopener"><span class="project-number">03</span><span class="project-copy"><strong>CRYSTAL</strong><span>ECCV 2026 benchmark, dataset, and pip-installable metrics for evaluating ordered reasoning traces and training with process rewards.</span></span><span class="project-proof"><strong>6,372</strong><small>instances</small><strong>pip</strong><small>package</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-        <a class="project" href="https://github.com/waybarrios/dgx-spark-finetune-llm" target="_blank" rel="noopener"><span class="project-number">04</span><span class="project-copy"><strong>DGX Spark Fine-tune LLM</strong><span>An experimental end-to-end pipeline for LoRA fine-tuning, NVFP4/MXFP8 quantization, TensorRT-LLM export, and OpenAI-compatible serving on Blackwell GB10.</span></span><span class="project-proof"><strong>4/8</strong><small>bit training</small><strong>GB10</strong><small>Blackwell</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/nomic-ai/gpt4all" target="_blank" rel="noopener"><span class="project-number">02</span><span class="project-copy"><strong>GPT4All <span class="project-tag">Contribution</span></strong><span>Merged a dataset-handling fix into GPT4All's local LLM runtime (77k+ stars) — the most widely adopted on-device LLM stack.</span></span><span class="project-proof"><strong>77k</strong><small>stars</small><strong>1</strong><small>merged PR</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/GeoNode/geonode" target="_blank" rel="noopener"><span class="project-number">03</span><span class="project-copy"><strong>GeoNode <span class="project-tag">Contribution</span></strong><span>GeoNode, the leading open-source geospatial platform. I contributed Docker/GeoServer OAuth2 integration and the notification refactor (3 merged PRs), plus the Dockerized project skeleton (33 commits) and fixes across the GeoNode Docker stack.</span></span><span class="project-proof"><strong>1.7k</strong><small>stars</small><strong>3</strong><small>merged PRs</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/waybarrios/opencode-power-pack" target="_blank" rel="noopener"><span class="project-number">04</span><span class="project-copy"><strong>OpenCode Power Pack</strong><span>Production workflows for code review, security, feature development, frontend design, and project memory, ported from Claude Code to OpenCode.</span></span><span class="project-proof"><strong>11</strong><small>skills</small><strong>450+</strong><small>stars</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/mapproxy/mapproxy" target="_blank" rel="noopener"><span class="project-number">05</span><span class="project-copy"><strong>MapProxy <span class="project-tag">Contribution</span></strong><span>Added dimension-layer caching for WMS and WMTS to MapProxy — the tile cache and WMS proxy at the core of OpenStreetMap infrastructure.</span></span><span class="project-proof"><strong>666</strong><small>stars</small><strong>10</strong><small>commits</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/SEE-AI-Lab/crystal" target="_blank" rel="noopener"><span class="project-number">06</span><span class="project-copy"><strong>CRYSTAL</strong><span>ECCV 2026 benchmark, dataset, and pip-installable metrics for evaluating ordered reasoning traces and training with process rewards.</span></span><span class="project-proof"><strong>6,372</strong><small>instances</small><strong>pip</strong><small>package</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/waybarrios/MoDA" target="_blank" rel="noopener"><span class="project-number">07</span><span class="project-copy"><strong>MoDA</strong><span>Official implementation of MoDA (ICML 2026) — instruction-guided channel modulation for fine-grained visual grounding in instructional MLLMs, with under 1% additional FLOPs.</span></span><span class="project-proof"><strong>ICML</strong><small>2026</small><strong>&lt;1%</strong><small>extra FLOPs</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/waybarrios/guidance-based-video-grounding" target="_blank" rel="noopener"><span class="project-number">08</span><span class="project-copy"><strong>Localizing Moments</strong><span>Official PyTorch implementation of "Localizing Moments in Long Video Via Multimodal Guidance" (ICCV 2023) — identifies describable windows and prunes irrelevant segments before matching a query.</span></span><span class="project-proof"><strong>ICCV</strong><small>2023</small><strong>23</strong><small>stars</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/cga-harvard/Hypermap-Registry" target="_blank" rel="noopener"><span class="project-number">09</span><span class="project-copy"><strong>Hypermap Registry <span class="project-tag">Contribution</span></strong><span>ElasticSearch API, aggregations, and time faceting for Harvard CGA's Hypermap Registry — remote map services made easy for spatial data infrastructures.</span></span><span class="project-proof"><strong>15</strong><small>PRs</small><strong>9</strong><small>merged</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/cga-harvard/worldmap" target="_blank" rel="noopener"><span class="project-number">10</span><span class="project-copy"><strong>WorldMap <span class="project-tag">Contribution</span></strong><span>Harvard CGA's WorldMap. I maintained the GeoNode 2.6-based platform: Django migrations, Dataverse/DataTables integration, and Dockerized deployment — 66 commits and 6 merged PRs.</span></span><span class="project-proof"><strong>66</strong><small>commits</small><strong>6</strong><small>PRs merged</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/activitynet/activitynet.github.io" target="_blank" rel="noopener"><span class="project-number">11</span><span class="project-copy"><strong>ActivityNet <span class="project-tag">Contribution</span></strong><span>Built and maintained the official ActivityNet challenge website — evaluation server, leaderboard, and GPU awards — for the leading video understanding benchmark.</span></span><span class="project-proof"><strong>114</strong><small>commits</small><strong>2016</strong><small>challenge site</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/waybarrios/dgx-spark-finetune-llm" target="_blank" rel="noopener"><span class="project-number">12</span><span class="project-copy"><strong>DGX Spark Fine-tune LLM</strong><span>An experimental end-to-end pipeline for LoRA fine-tuning, NVFP4/MXFP8 quantization, TensorRT-LLM export, and OpenAI-compatible serving on Blackwell GB10.</span></span><span class="project-proof"><strong>4/8</strong><small>bit training</small><strong>GB10</strong><small>Blackwell</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
       </div>
     </section>
 
@@ -136,6 +162,12 @@
       var navSections = [];
       var frame = 0;
       var i;
+      var supportsScrollTimeline = typeof CSS !== 'undefined' && CSS.supports && CSS.supports('animation-timeline: scroll()');
+      var supportsViewTimeline = typeof CSS !== 'undefined' && CSS.supports && CSS.supports('animation-timeline: view()');
+      var root = document.documentElement;
+      var themeToggle = document.getElementById('theme-toggle');
+      var colorSchemeMeta = document.querySelector('meta[name="color-scheme"]');
+      var themeColorMeta = document.querySelector('meta[name="theme-color"]');
 
       if (!reducedMotion) {
         for (i = 0; i < targets.length; i += 1) targets[i].classList.add('reveal');
@@ -146,18 +178,21 @@
         if (section) navSections.push({ link: navLinks[i], section: section });
       }
 
+      var revealCounters = {};
+      for (i = 0; i < targets.length; i += 1) {
+        var revealSection = targets[i].closest('.content-section, .availability');
+        var revealKey = revealSection ? (revealSection.id || revealSection.classList[0]) : 'root';
+        revealCounters[revealKey] = (revealCounters[revealKey] || 0) + 1;
+        targets[i].style.setProperty('--reveal-order', String(Math.min(revealCounters[revealKey] - 1, 4)));
+      }
+
       function updateHero(ratio) {
+        if (supportsViewTimeline) return;
         var compact = window.innerWidth <= 620;
         var values = compact
-          ? { oneX: -24, oneScale: .015, twoX: 14, twoScale: 0, copyY: -18, copyFade: .34, portraitX: 0, portraitY: -18, portraitScale: .055, portraitFade: .16 }
-          : { oneX: -64, oneScale: .035, twoX: 42, twoScale: .02, copyY: -38, copyFade: .68, portraitX: -28, portraitY: -34, portraitScale: .12, portraitFade: .16 };
+          ? { portraitX: 0, portraitY: -14, portraitScale: .04, portraitFade: .1 }
+          : { portraitX: -18, portraitY: -26, portraitScale: .08, portraitFade: .12 };
         hero.style.setProperty('--hero-scroll', ratio.toFixed(3));
-        hero.style.setProperty('--title-one-x', (ratio * values.oneX).toFixed(2) + 'px');
-        hero.style.setProperty('--title-one-scale', (1 + ratio * values.oneScale).toFixed(4));
-        hero.style.setProperty('--title-two-x', (ratio * values.twoX).toFixed(2) + 'px');
-        hero.style.setProperty('--title-two-scale', (1 + ratio * values.twoScale).toFixed(4));
-        hero.style.setProperty('--hero-copy-y', (ratio * values.copyY).toFixed(2) + 'px');
-        hero.style.setProperty('--hero-copy-opacity', (1 - ratio * values.copyFade).toFixed(4));
         hero.style.setProperty('--portrait-x', (ratio * values.portraitX).toFixed(2) + 'px');
         hero.style.setProperty('--portrait-y', (ratio * values.portraitY).toFixed(2) + 'px');
         hero.style.setProperty('--portrait-scale', (1 + ratio * values.portraitScale).toFixed(4));
@@ -192,12 +227,52 @@
         var distance = document.documentElement.scrollHeight - window.innerHeight;
         var pageRatio = distance > 0 ? window.scrollY / distance : 0;
         var heroRatio = hero ? Math.min(1, Math.max(0, window.scrollY / Math.max(1, hero.offsetHeight))) : 0;
-        if (progress) progress.style.transform = 'scaleX(' + Math.min(1, Math.max(0, pageRatio)) + ')';
+        if (progress && !supportsScrollTimeline) progress.style.transform = 'scaleX(' + Math.min(1, Math.max(0, pageRatio)) + ')';
         if (!reducedMotion && hero) updateHero(heroRatio);
         if (!reducedMotion) updateReveals();
         updateNavigation();
         frame = 0;
       }
+
+      function syncThemeToggle() {
+        var isDark = root.dataset.theme === 'dark';
+        if (themeToggle) {
+          themeToggle.setAttribute('aria-pressed', String(isDark));
+          themeToggle.setAttribute('aria-label', isDark ? 'Switch to light theme' : 'Switch to dark theme');
+        }
+      }
+
+      function applyTheme(next) {
+        root.dataset.theme = next;
+        try { localStorage.setItem('theme', next); } catch (e) {}
+        if (colorSchemeMeta) colorSchemeMeta.content = next === 'dark' ? 'dark' : 'light';
+        if (themeColorMeta) themeColorMeta.content = next === 'dark' ? '#171613' : '#f5f3ed';
+        syncThemeToggle();
+      }
+
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function () {
+          var next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+          if (reducedMotion || !document.startViewTransition) { applyTheme(next); return; }
+          var cleanup = function () { root.classList.remove('theme-transitioning'); };
+          root.classList.add('theme-transitioning');
+          var transition = document.startViewTransition(function () { applyTheme(next); });
+          if (transition.finished) transition.finished.then(cleanup, cleanup); else setTimeout(cleanup, 700);
+          if (transition.ready) {
+            transition.ready.then(function () {
+              var rect = themeToggle.getBoundingClientRect();
+              var x = rect.left + rect.width / 2;
+              var y = rect.top + rect.height / 2;
+              var radius = Math.hypot(Math.max(x, window.innerWidth - x), Math.max(y, window.innerHeight - y));
+              root.animate(
+                { clipPath: ['circle(0px at ' + x + 'px ' + y + 'px)', 'circle(' + radius + 'px at ' + x + 'px ' + y + 'px)'] },
+                { duration: 540, easing: 'ease-in-out', pseudoElement: '::view-transition-new(root)' }
+              );
+            }).catch(function () {});
+          }
+        });
+      }
+      syncThemeToggle();
 
       function schedule() {
         if (!frame) frame = window.requestAnimationFrame(render);
