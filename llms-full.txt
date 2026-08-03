@@ -1,0 +1,122 @@
+# Wayner Barrios
+
+> Multimodal AI researcher building models that perceive and reason about the world more like we do — from transparent reasoning benchmarks to production-grade inference engines on Apple Silicon.
+> Updated: 2026-08-03
+
+## Quick facts
+
+- Name: Wayner Barrios
+- Role: AI researcher — multimodal reasoning, video understanding, visual grounding, efficient inference
+- Education: Ph.D. in Computer Science, Dartmouth College (2026); B.Sc. Universidad del Norte, Colombia
+- Based in: Colombia
+- Experience: Samsung Research America (reinforcement-learning post-training for multimodal video reasoning)
+- Founder: Wiqonn, an AI lab growing ambitious AI work in Latin America
+- Languages: English, Spanish
+- Status: Open to research scientist and research engineering roles in multimodal AI, video understanding, post-training, and inference systems
+- ORCID: 0009-0005-1013-5130
+- LinkedIn: https://www.linkedin.com/in/waybarrios/
+
+## About
+
+Wayner Barrios is an AI researcher who develops models that connect perception with higher-level understanding: following events through time, grounding language in visual evidence, integrating multiple modalities, and learning coherent reasoning strategies.
+
+He recently completed his Ph.D. in Computer Science at Dartmouth College, advised by SouYoung Jin. His research spans video understanding, visual grounding, reinforcement-learning post-training, and transparent reasoning evaluation. Recent projects include CRYSTAL, a benchmark and training framework for evaluating intermediate reasoning steps; MoDA, for fine-grained grounding in instructional multimodal models; and learnable attention mechanisms for aligning information across modalities.
+
+He also builds high-performance AI infrastructure. He created vLLM-MLX, an OpenAI- and Anthropic-compatible inference server for Apple Silicon that reaches more than 400 tokens per second, and at Samsung Research America he worked on reinforcement-learning post-training for multimodal video reasoning.
+
+His work has appeared at CVPR, ICCV, ECCV, ICML, WACV, and other leading venues, as well as in PLOS Digital Health, the Journal of Pathology Informatics, Frontiers in Medical Technology, and other journals. He has collaborated with DARPA/IARPA, Adobe Research, Samsung Research, Carnegie Mellon University, KAUST, Northeastern University, Mount Sinai, Lunenfeld Institute, Universidad del Norte, EAFIT, Universidad CES, and Universidad de Antioquia. He founded Wiqonn to grow ambitious AI work in Latin America.
+
+## What I'm known for
+
+- **CRYSTAL** (ECCV 2026): benchmark and training framework for transparent multimodal reasoning evaluation — 6,372 instances, every intermediate step checked across 20 models (none maintained more than 60% ordered step accuracy); Causal Process Reward improves step-level consistency by 32% without manual annotations.
+- **vLLM-MLX**: OpenAI- and Anthropic-compatible LLM/MLLM inference server for Apple Silicon — 400+ tokens per second, 1.5k+ GitHub stars, continuous batching, tool calling, vision, audio, and video support.
+- **MoDA** (ICML 2026): instruction-guided channel modulation for fine-grained visual grounding in instructional MLLMs — better grounding across 3 MLLM families and 12 benchmarks with less than 1% additional FLOPs.
+- **Native MLX inference at scale**: 525 tokens per second with multimodal prefix caching (28x faster repeated image queries on M4 Max).
+
+## Research areas
+
+- Multimodal AI and reasoning
+- Video understanding and visual grounding
+- Transparent reasoning evaluation
+- Reinforcement-learning post-training
+- Efficient LLM and MLLM inference
+- Medical AI (multimodal biomarkers, histopathology, weakly-supervised CT)
+
+## Publications
+
+### Selected research
+
+1. **Beyond Final Answers: CRYSTAL Benchmark for Transparent Multimodal Reasoning Evaluation** — ECCV 2026. Wayner Barrios, SouYoung Jin. arXiv:2603.13099.
+   Abstract: A 6,372-instance benchmark that checks every intermediate step. Across 20 models, none maintained more than 60% step accuracy in the correct order; Causal Process Reward improves step-level consistency by 32% without manual annotations.
+   Links: Paper https://arxiv.org/abs/2603.13099 · Code https://github.com/SEE-AI-Lab/crystal
+2. **Native LLM and MLLM Inference at Scale on Apple Silicon** — 2026. Wayner Barrios. arXiv:2601.19139.
+   Abstract: Introduces native MLX inference with continuous batching and multimodal prefix caching, reaching up to 525 tokens per second and 28x faster repeated image queries on M4 Max.
+   Links: Paper https://arxiv.org/abs/2601.19139 · Code https://github.com/waybarrios/vllm-mlx
+3. **MoDA: Modulation Adapter for Fine-Grained Visual Grounding in Instructional MLLMs** — ICML 2026. Wayner Barrios, A. Villa, J. L. Alcázar, SouYoung Jin, B. Ghanem. arXiv:2506.01850.
+   Abstract: Uses instruction-guided channel modulation to improve fine-grained visual grounding across three MLLM families and 12 benchmarks with less than 1% additional FLOPs.
+   Link: Paper https://arxiv.org/abs/2506.01850
+4. **Exploratory Association Between Multimodal AI-Derived Digital Biomarkers and In-Hospital Mortality in Adult Patients with Pneumonia** — PLOS Digital Health 2026. A. Hernández-Arango, D. Mejía Arrieta, C. A. Díaz León, et al., Wayner Barrios, et al., O. L. Quintero. DOI:10.1371/journal.pdig.0000960.
+   Abstract: Combines AI biomarkers from chest radiographs, clinical notes, and ECG signals to study pneumonia mortality using routinely collected hospital data.
+   Link: https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000960
+5. **FT2TF: First-Person Statement Text-To-Talking Face Generation** — WACV 2025. X. Diao, M. Cheng, Wayner Barrios, SouYoung Jin. arXiv:2312.05430.
+   Abstract: Generates talking faces directly from first-person text in a one-stage pipeline, without requiring audio, landmarks, or pose during inference.
+   Link: https://arxiv.org/abs/2312.05430
+6. **Multi-layer Learnable Attention Mask for Multimodal Tasks** — 2024. Wayner Barrios, SouYoung Jin. arXiv:2406.02761.
+   Abstract: Introduces multi-layer learnable attention masks that prioritize informative tokens across transformer layers while reducing redundant computation.
+   Link: https://arxiv.org/abs/2406.02761
+7. **Localizing Moments in Long Video Via Multimodal Guidance** — ICCV 2023. Wayner Barrios, M. Soldan, A. M. Ceballos-Arroyo, F. Caba, B. Ghanem. arXiv:2302.13372.
+   Abstract: Improves language grounding in long videos by identifying describable windows and pruning irrelevant segments before matching a query.
+   Links: Paper https://arxiv.org/abs/2302.13372 · Code https://github.com/waybarrios/guidance-based-video-grounding
+
+### Earlier publications
+
+8. **Bladder Cancer Prognosis Using Deep Neural Networks and Histopathology Images** — Journal of Pathology Informatics 2022. Wayner Barrios, B. Abdollahi, M. Goyal, Q. Song, et al.
+   Abstract: Introduces Bladder4Net to classify whole-slide histopathology images into low-risk and high-risk bladder cancer groups for prognosis support.
+   Link: https://pubmed.ncbi.nlm.nih.gov/36268091/
+9. **Medical Decision Support System Using Weakly-Labeled Lung CT Scans** — Frontiers in Medical Technology 2022. A. Murillo-González, D. González, L. Jaramillo, et al., Wayner Barrios, et al., O. L. Quintero. DOI:10.3389/fmedt.2022.980735.
+   Abstract: Builds a weakly supervised CT pipeline for COVID-19 classification, lesion segmentation, and quantification from scan-level labels.
+   Link: https://www.frontiersin.org/journals/medical-technology/articles/10.3389/fmedt.2022.980735/full
+10. **Minding the Gaps in a Video Action Analysis Pipeline** — WACV Workshop 2019. J. Chen, J. Liu, J. Liang, T. Y. Hu, W. Ke, Wayner Barrios, D. Huang, A. G. Hauptmann.
+    Abstract: Analyzes the training and testing gaps between proposal, classification, and localization modules in event detection pipelines, then introduces practical fixes.
+    Link: https://ieeexplore.ieee.org/abstract/document/8638326/
+11. **SCC: Semantic Context Cascade for Efficient Action Detection** — CVPR 2017. F. Caba, Wayner Barrios, V. Escorcia, B. Ghanem.
+    Abstract: Uses object and scene semantics to generate class-specific action proposals and prune unrelated activities in real time on ActivityNet.
+    Link: https://ieeexplore.ieee.org/abstract/document/8099821
+
+Complete publication record: https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en
+
+## Open source
+
+1. **vLLM-MLX** — https://github.com/waybarrios/vllm-mlx — High-throughput, OpenAI- and Anthropic-compatible LLM and MLLM inference for Apple Silicon, with continuous batching, tool calling, vision, audio, and video support. 1.5k+ stars, 400+ tok/s.
+2. **GPT4All** (Contribution) — https://github.com/nomic-ai/gpt4all — Merged a dataset-handling fix into GPT4All's local LLM runtime (77k+ stars) — the most widely adopted on-device LLM stack. 1 merged PR.
+3. **GeoNode** (Contribution) — https://github.com/GeoNode/geonode — Docker/GeoServer OAuth2 integration and notification refactor (3 merged PRs), Dockerized project skeleton (33 commits), and fixes across the GeoNode Docker stack. 1.7k stars.
+4. **OpenCode Power Pack** — https://github.com/waybarrios/opencode-power-pack — Production workflows for code review, security, feature development, frontend design, and project memory, ported from Claude Code to OpenCode. 11 skills, 450+ stars.
+5. **MapProxy** (Contribution) — https://github.com/mapproxy/mapproxy — Added dimension-layer caching for WMS and WMTS to MapProxy — the tile cache and WMS proxy at the core of OpenStreetMap infrastructure. 666 stars, 10 commits.
+6. **CRYSTAL** — https://github.com/SEE-AI-Lab/crystal — ECCV 2026 benchmark, dataset, and pip-installable metrics for evaluating ordered reasoning traces and training with process rewards. 6,372 instances.
+7. **MoDA** — https://github.com/waybarrios/MoDA — Official implementation of MoDA (ICML 2026) — instruction-guided channel modulation for fine-grained visual grounding in instructional MLLMs, with under 1% additional FLOPs.
+8. **Localizing Moments** — https://github.com/waybarrios/guidance-based-video-grounding — Official PyTorch implementation of "Localizing Moments in Long Video Via Multimodal Guidance" (ICCV 2023). 23 stars.
+9. **Hypermap Registry** (Contribution) — https://github.com/cga-harvard/Hypermap-Registry — ElasticSearch API, aggregations, and time faceting for Harvard CGA's Hypermap Registry. 15 PRs, 9 merged.
+10. **WorldMap** (Contribution) — https://github.com/cga-harvard/worldmap — Maintained the GeoNode 2.6-based platform: Django migrations, Dataverse/DataTables integration, Dockerized deployment. 66 commits, 6 merged PRs.
+11. **ActivityNet** (Contribution) — https://github.com/activitynet/activitynet.github.io — Built and maintained the official ActivityNet challenge website — evaluation server, leaderboard, and GPU awards — for the leading video understanding benchmark. 114 commits.
+12. **DGX Spark Fine-tune LLM** — https://github.com/waybarrios/dgx-spark-finetune-llm — End-to-end pipeline for LoRA fine-tuning, NVFP4/MXFP8 quantization, TensorRT-LLM export, and OpenAI-compatible serving on Blackwell GB10. 4/8-bit training.
+
+## Experience highlights
+
+- Samsung Research America: reinforcement-learning post-training for multimodal video reasoning.
+- Collaborations: DARPA/IARPA, Adobe Research, Samsung Research, Carnegie Mellon University, KAUST, Northeastern University, Mount Sinai, Lunenfeld Institute, Universidad del Norte, EAFIT, Universidad CES, Universidad de Antioquia.
+- Advisor: SouYoung Jin (Dartmouth College).
+- Publications at CVPR, ICCV, ECCV, ICML, WACV, PLOS Digital Health, Journal of Pathology Informatics, Frontiers in Medical Technology.
+
+## Contact
+
+- Email: waybarrios@gmail.com
+- LinkedIn: https://www.linkedin.com/in/waybarrios/
+- Google Scholar: https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en
+- GitHub: https://github.com/waybarrios
+- ORCID: https://orcid.org/0009-0005-1013-5130
+- Wiqonn: https://www.wiqonn.com
+
+## Files
+
+- Portfolio: https://waybarrios.com/
+- This file: https://waybarrios.com/llms-full.txt

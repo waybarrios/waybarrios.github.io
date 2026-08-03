@@ -1,0 +1,19 @@
+# Backup / scratch files that must never be published
+*.original
+*~
+website_claude.txt
+website_*.txt
+
+# Editor / agent session artifacts
+.claude/
+.remember/
+.idea/
+.vscode/
+
+# Python (tests)
+__pycache__/
+*.pyc
+.venv/
+
+# Local render artifacts
+.brand-render-test.html

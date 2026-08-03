@@ -1,6 +1,7 @@
 # Wayner Barrios
 
 > Multimodal AI researcher building models that perceive and reason about the world more like we do — from transparent reasoning benchmarks to production-grade inference engines on Apple Silicon.
+> Updated: 2026-08-03
 
 ## Quick facts
 
@@ -13,6 +14,16 @@
 - Languages: English, Spanish
 - Status: Open to research scientist and research engineering roles
 - ORCID: 0009-0005-1013-5130
+
+## About
+
+Wayner Barrios is an AI researcher who develops models that connect perception with higher-level understanding: following events through time, grounding language in visual evidence, integrating multiple modalities, and learning coherent reasoning strategies.
+
+He recently completed his Ph.D. in Computer Science at Dartmouth College, advised by SouYoung Jin. His research spans video understanding, visual grounding, reinforcement-learning post-training, and transparent reasoning evaluation. Recent projects include CRYSTAL, a benchmark and training framework for evaluating intermediate reasoning steps; MoDA, for fine-grained grounding in instructional multimodal models; and learnable attention mechanisms for aligning information across modalities.
+
+He also builds high-performance AI infrastructure. He created vLLM-MLX, an OpenAI- and Anthropic-compatible inference server for Apple Silicon that reaches more than 400 tokens per second, and at Samsung Research America he worked on reinforcement-learning post-training for multimodal video reasoning.
+
+His work has appeared at CVPR, ICCV, ECCV, ICML, WACV, and other leading venues, as well as in PLOS Digital Health, the Journal of Pathology Informatics, Frontiers in Medical Technology, and other journals. He has collaborated with DARPA/IARPA, Adobe Research, Samsung Research, Carnegie Mellon University, KAUST, Northeastern University, Mount Sinai, Lunenfeld Institute, Universidad del Norte, EAFIT, Universidad CES, and Universidad de Antioquia. He founded Wiqonn to grow ambitious AI work in Latin America.
 
 ## What I'm known for
 
@@ -63,6 +74,7 @@
 ## Contact
 
 - Email: waybarrios@gmail.com
+- LinkedIn: https://www.linkedin.com/in/waybarrios/
 - Google Scholar: https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en
 - GitHub: https://github.com/waybarrios
 - ORCID: https://orcid.org/0009-0005-1013-5130
@@ -71,3 +83,4 @@
 ## Files
 
 - [Portfolio](https://waybarrios.com/): about, selected research, and open source.
+- [Full text](https://waybarrios.com/llms-full.txt): complete site content for LLM ingestion.
