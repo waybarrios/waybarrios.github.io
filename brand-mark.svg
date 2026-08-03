@@ -1,4 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 64" role="img" aria-labelledby="title">
-  <title id="title">Wayner Barrios</title>
-  <path fill="#171816" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 64" role="img" aria-labelledby="title">
+  <title id="title">Wayner Barrios — Converging Frames</title>
+  <style>
+    .trace { fill: #1746d1; }
+    .final { fill: #171816; }
+    @media (prefers-color-scheme: dark) {
+      .trace { fill: #8fa9ff; }
+      .final { fill: #eae7dd; }
+    }
+  </style>
+  <path class="trace" opacity=".16" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+  <path class="trace" opacity=".38" transform="translate(8)" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+  <path class="final" transform="translate(15)" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
 </svg>

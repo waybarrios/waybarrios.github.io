@@ -57,7 +57,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .site-header { position: sticky; top: 0; z-index: 20; min-height: 92px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--ink); background: var(--header-bg); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 .scroll-progress { position: fixed; top: 0; right: 0; left: 0; z-index: 30; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; }
 .wordmark { display: flex; align-items: center; color: var(--ink); text-decoration: none; }
-.wordmark img { display: block; width: 34px; height: auto; }
+.brand-mark { display: block; width: 44px; height: auto; overflow: visible; }
+.brand-mark path { transform-box: view-box; transform-origin: center; }
+.brand-trace { fill: var(--accent); transition: opacity 600ms var(--ease-decel), transform 600ms var(--ease-decel); }
+.brand-trace-back { opacity: .16; transform: translateX(0); }
+.brand-trace-mid { opacity: .38; transform: translateX(8px); }
+.brand-final { fill: var(--ink); transform: translateX(15px); transition: fill var(--dur-moderate) ease; }
+.wordmark:hover .brand-trace-back, .wordmark:focus-visible .brand-trace-back { opacity: 0; transform: translateX(15px); }
+.wordmark:hover .brand-trace-mid, .wordmark:focus-visible .brand-trace-mid { opacity: 0; transform: translateX(15px); }
 .site-header nav { display: flex; align-items: center; gap: clamp(18px, 3.2vw, 42px); }
 .site-header nav a { position: relative; color: var(--muted); font-size: .78rem; font-weight: 600; letter-spacing: .03em; text-decoration: none; transition: color var(--dur-fast) ease; }
 .site-header nav a::after { content: ""; position: absolute; right: 0; bottom: -5px; left: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: right; transition: transform var(--dur-moderate) var(--ease-standard); }
