@@ -1,3 +1,5 @@
+import hashlib
+import re
 import subprocess
 import tempfile
 import unittest
@@ -61,6 +63,14 @@ def render_page(dark=False):
 
 
 class BrandTests(unittest.TestCase):
+    def test_stylesheet_url_changes_with_css_content(self):
+        css_hash = hashlib.sha256((ROOT / "style.css").read_bytes()).hexdigest()[:12]
+        html = (ROOT / "index.html").read_text()
+        stylesheet = re.search(r'href="(style\.css\?v=[^"]+)"', html)
+
+        self.assertIsNotNone(stylesheet, "page must include a versioned stylesheet URL")
+        self.assertEqual(stylesheet.group(1), f"style.css?v={css_hash}")
+
     def assert_logo_visible(self, dark):
         image = render_page(dark=dark)
         # The 1120px header is centered in a 1200px viewport, placing the mark near x=40.

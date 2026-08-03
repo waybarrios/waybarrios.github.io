@@ -56,7 +56,7 @@
 ## Experience highlights
 
 - Samsung Research America: reinforcement-learning post-training for multimodal video reasoning.
-- Collaborations: DARPA/IARPA, Adobe Research, Samsung Research, Meta AI, Carnegie Mellon University, KAUST, Northeastern University, Mount Sinai, Lunenfeld Institute, Universidad del Norte, EAFIT, Universidad CES, Universidad de Antioquia.
+- Collaborations: DARPA/IARPA, Adobe Research, Samsung Research, Carnegie Mellon University, KAUST, Northeastern University, Mount Sinai, Lunenfeld Institute, Universidad del Norte, EAFIT, Universidad CES, Universidad de Antioquia.
 - Advisor: SouYoung Jin (Dartmouth College).
 - Publications at CVPR, ICCV, ECCV, ICML, WACV, PLOS Digital Health, Journal of Pathology Informatics, Frontiers in Medical Technology.
 
