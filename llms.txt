@@ -1,0 +1,73 @@
+# Wayner Barrios
+
+> Multimodal AI researcher building models that perceive and reason about the world more like we do — from transparent reasoning benchmarks to production-grade inference engines on Apple Silicon.
+
+## Quick facts
+
+- Name: Wayner Barrios
+- Role: AI researcher — multimodal reasoning, video understanding, visual grounding, efficient inference
+- Education: Ph.D. in Computer Science, Dartmouth College (2026); B.Sc. Universidad del Norte, Colombia
+- Based in: Colombia
+- Experience: Samsung Research America (reinforcement-learning post-training for multimodal video reasoning)
+- Founder: Wiqonn, an AI lab growing ambitious AI work in Latin America
+- Languages: English, Spanish
+- Status: Open to research scientist and research engineering roles
+- ORCID: 0009-0005-1013-5130
+
+## What I'm known for
+
+- **CRYSTAL** (ECCV 2026): benchmark and training framework for transparent multimodal reasoning evaluation — 6,372 instances, every intermediate step checked across 20 models (none maintained more than 60% ordered step accuracy); Causal Process Reward improves step-level consistency by 32% without manual annotations.
+- **vLLM-MLX**: OpenAI- and Anthropic-compatible LLM/MLLM inference server for Apple Silicon — 400+ tokens per second, 1.5k+ GitHub stars, continuous batching, tool calling, vision, audio, and video support.
+- **MoDA** (ICML 2026): instruction-guided channel modulation for fine-grained visual grounding in instructional MLLMs — better grounding across 3 MLLM families and 12 benchmarks with less than 1% additional FLOPs.
+- **Native MLX inference at scale**: 525 tokens per second with multimodal prefix caching (28x faster repeated image queries on M4 Max).
+
+## Research areas
+
+- Multimodal AI and reasoning
+- Video understanding and visual grounding
+- Transparent reasoning evaluation
+- Reinforcement-learning post-training
+- Efficient LLM and MLLM inference
+- Medical AI (multimodal biomarkers, histopathology, weakly-supervised CT)
+
+## Publications
+
+- [Beyond Final Answers: CRYSTAL Benchmark for Transparent Multimodal Reasoning Evaluation](https://arxiv.org/abs/2603.13099) — ECCV 2026, arXiv:2603.13099
+- [Native LLM and MLLM Inference at Scale on Apple Silicon](https://arxiv.org/abs/2601.19139) — 2026, arXiv:2601.19139
+- [MoDA: Modulation Adapter for Fine-Grained Visual Grounding in Instructional MLLMs](https://arxiv.org/abs/2506.01850) — ICML 2026, arXiv:2506.01850
+- [Exploratory Association Between Multimodal AI-Derived Digital Biomarkers and In-Hospital Mortality in Adult Patients with Pneumonia](https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000960) — PLOS Digital Health 2026, DOI:10.1371/journal.pdig.0000960
+- [FT2TF: First-Person Statement Text-To-Talking Face Generation](https://arxiv.org/abs/2312.05430) — WACV 2025, arXiv:2312.05430
+- [Multi-layer Learnable Attention Mask for Multimodal Tasks](https://arxiv.org/abs/2406.02761) — 2024, arXiv:2406.02761
+- [Localizing Moments in Long Video Via Multimodal Guidance](https://arxiv.org/abs/2302.13372) — ICCV 2023, arXiv:2302.13372
+- [Bladder Cancer Prognosis Using Deep Neural Networks and Histopathology Images](https://pubmed.ncbi.nlm.nih.gov/36268091/) — Journal of Pathology Informatics 2022
+- [Medical Decision Support System Using Weakly-Labeled Lung CT Scans](https://www.frontiersin.org/journals/medical-technology/articles/10.3389/fmedt.2022.980735/full) — Frontiers in Medical Technology 2022, DOI:10.3389/fmedt.2022.980735
+- [Minding the Gaps in a Video Action Analysis Pipeline](https://ieeexplore.ieee.org/abstract/document/8638326/) — WACV Workshop 2019
+- [SCC: Semantic Context Cascade for Efficient Action Detection](https://ieeexplore.ieee.org/abstract/document/8099821) — CVPR 2017
+
+## Open source
+
+- [vLLM-MLX](https://github.com/waybarrios/vllm-mlx): high-throughput OpenAI/Anthropic-compatible inference for Apple Silicon — continuous batching, tool calling, vision, audio, video; 1.5k+ stars, 400+ tok/s.
+- [CRYSTAL](https://github.com/SEE-AI-Lab/crystal): ECCV 2026 benchmark, dataset, and pip-installable metrics for ordered reasoning traces and process-reward training.
+- [MoDA](https://github.com/waybarrios/MoDA): official ICML 2026 implementation — instruction-guided channel modulation for visual grounding.
+- [Localizing Moments](https://github.com/waybarrios/guidance-based-video-grounding): official ICCV 2023 implementation — describable windows and segment pruning for long-video grounding.
+- [DGX Spark Fine-tune LLM](https://github.com/waybarrios/dgx-spark-finetune-llm): LoRA fine-tuning, NVFP4/MXFP8 quantization, TensorRT-LLM export, OpenAI-compatible serving on Blackwell GB10.
+- Contributions: GPT4All (77k+ stars), GeoNode (3 merged PRs), MapProxy (dimension-layer caching, 10 commits), Harvard CGA Hypermap Registry (9 merged PRs) and WorldMap (66 commits, 6 PRs), ActivityNet (114 commits), OpenCode Power Pack.
+
+## Experience highlights
+
+- Samsung Research America: reinforcement-learning post-training for multimodal video reasoning.
+- Collaborations: DARPA/IARPA, Adobe Research, Samsung Research, Meta AI, Carnegie Mellon University, KAUST, Northeastern University, Mount Sinai, Lunenfeld Institute, Universidad del Norte, EAFIT, Universidad CES, Universidad de Antioquia.
+- Advisor: SouYoung Jin (Dartmouth College).
+- Publications at CVPR, ICCV, ECCV, ICML, WACV, PLOS Digital Health, Journal of Pathology Informatics, Frontiers in Medical Technology.
+
+## Contact
+
+- Email: waybarrios@gmail.com
+- Google Scholar: https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en
+- GitHub: https://github.com/waybarrios
+- ORCID: https://orcid.org/0009-0005-1013-5130
+- Wiqonn: https://www.wiqonn.com
+
+## Files
+
+- [Portfolio](https://waybarrios.com/): about, selected research, and open source.
