@@ -1,15 +1,21 @@
 {
-    "icons": [{
+  "name": "Wayner Barrios",
+  "short_name": "Wayner",
+  "description": "Multimodal AI researcher — portfolio of Wayner Barrios.",
+  "icons": [
+    {
       "src": "img/icon.png",
       "sizes": "32x32",
       "type": "image/png"
-    },{
-        "src": "img/icon-192.png",
-        "sizes": "192x192",
-        "type": "image/png"
-    }],
-    "display": "standalone",
-    "start_url": "./?utm_source=web_app_manifest",
-    "theme_color": "#f5f3ed",
-    "background_color": "#f5f3ed"
+    },
+    {
+      "src": "img/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#f5f3ed",
+  "background_color": "#f5f3ed"
 }
