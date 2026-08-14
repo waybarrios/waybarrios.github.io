@@ -62,7 +62,7 @@ His work has appeared at CVPR, ICCV, ECCV, ICML, WACV, and other leading venues,
 - [MoDA](https://github.com/waybarrios/MoDA): official ICML 2026 implementation — instruction-guided channel modulation for visual grounding.
 - [Localizing Moments](https://github.com/waybarrios/guidance-based-video-grounding): official ICCV 2023 implementation — describable windows and segment pruning for long-video grounding.
 - [DGX Spark Fine-tune LLM](https://github.com/waybarrios/dgx-spark-finetune-llm): LoRA fine-tuning, NVFP4/MXFP8 quantization, TensorRT-LLM export, OpenAI-compatible serving on Blackwell GB10.
-- Contributions: GPT4All (77k+ stars), GeoNode (3 merged PRs), MapProxy (dimension-layer caching, 10 commits), Harvard CGA Hypermap Registry (9 merged PRs) and WorldMap (66 commits, 6 PRs), ActivityNet (114 commits), OpenCode Power Pack.
+- Contributions: GPT4All (77k+ stars), GeoNode (3 merged PRs), MapProxy (dimension-layer caching, 10 commits), Harvard CGA Hypermap Registry (9 merged PRs) and WorldMap (66 commits, 6 PRs), ActivityNet (114 commits, video filtering and annotation QA), OpenCode Power Pack (skills.waybarrios.com).
 
 ## Experience highlights
 
