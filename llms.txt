@@ -12,7 +12,6 @@
 - Experience: Samsung Research America (reinforcement-learning post-training for multimodal video reasoning)
 - Founder: Wiqonn, an AI lab growing ambitious AI work in Latin America
 - Languages: English, Spanish
-- Status: Open to research scientist and research engineering roles
 - ORCID: 0009-0005-1013-5130
 
 ## About
