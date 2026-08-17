@@ -385,7 +385,7 @@
         document.querySelectorAll('.prose p').forEach(function (paragraph) {
           var fragment = document.createDocumentFragment();
           var wordEls = [];
-          Array.prototype.forEach.call(paragraph.childNodes, function (node) {
+          Array.prototype.slice.call(paragraph.childNodes).forEach(function (node) {
             if (node.nodeType === 3) {
               var parts = node.textContent.split(/(\s+)/);
               parts.forEach(function (part) {
