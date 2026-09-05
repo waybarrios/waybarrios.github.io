@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore AI research publications by Wayner Barrios on multimodal reasoning, video understanding, visual grounding, medical AI, and efficient inference.">
+  <meta name="author" content="Wayner Barrios">
+  <meta name="robots" content="index, follow">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f5f3ed">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.dataset.theme = 'dark';
+          var m = document.querySelector('meta[name="color-scheme"]');
+          if (m) m.content = 'dark';
+          var t = document.querySelector('meta[name="theme-color"]');
+          if (t) t.content = '#171613';
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="canonical" href="https://waybarrios.com/research/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://waybarrios.com/research/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Wayner Barrios">
+  <meta property="og:title" content="AI Research Publications | Wayner Barrios">
+  <meta property="og:description" content="Explore AI research publications by Wayner Barrios on multimodal reasoning, video understanding, visual grounding, medical AI, and efficient inference.">
+  <meta property="og:image" content="https://waybarrios.com/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wayner Barrios — AI researcher working on multimodal reasoning and video understanding">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Research Publications | Wayner Barrios">
+  <meta name="twitter:description" content="Explore AI research publications by Wayner Barrios on multimodal reasoning, video understanding, visual grounding, medical AI, and efficient inference.">
+  <meta name="twitter:image" content="https://waybarrios.com/img/og.jpg">
+  <title>AI Research Publications | Wayner Barrios</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+  <link rel="apple-touch-icon" href="/img/icon-192.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=68cd60239a94">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://waybarrios.com/#website",
+          "url": "https://waybarrios.com/",
+          "name": "Wayner Barrios",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://waybarrios.com/research/#page",
+          "url": "https://waybarrios.com/research/",
+          "name": "AI Research Publications | Wayner Barrios",
+          "description": "Explore AI research publications by Wayner Barrios on multimodal reasoning, video understanding, visual grounding, medical AI, and efficient inference.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://waybarrios.com/#website"
+          },
+          "about": {
+            "@id": "https://waybarrios.com/#wayner"
+          },
+          "mainEntity": {
+            "@id": "https://waybarrios.com/research/#list"
+          },
+          "breadcrumb": {
+            "@id": "https://waybarrios.com/research/#breadcrumbs"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://waybarrios.com/#wayner",
+          "name": "Wayner Barrios",
+          "url": "https://waybarrios.com/",
+          "image": "https://waybarrios.com/img/me.webp",
+          "jobTitle": "Multimodal AI Researcher",
+          "description": "AI researcher working on multimodal reasoning, video understanding, and efficient inference systems.",
+          "alumniOf": [
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "Dartmouth College",
+              "sameAs": "https://www.dartmouth.edu/"
+            },
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "Universidad del Norte",
+              "sameAs": "https://www.uninorte.edu.co/"
+            }
+          ],
+          "memberOf": {
+            "@type": "Organization",
+            "name": "Wiqonn",
+            "url": "https://www.wiqonn.com/"
+          },
+          "sameAs": [
+            "https://github.com/waybarrios",
+            "https://www.linkedin.com/in/waybarrios/",
+            "https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en",
+            "https://orcid.org/0009-0005-1013-5130"
+          ],
+          "knowsAbout": [
+            "Multimodal artificial intelligence",
+            "Video understanding",
+            "Multimodal reasoning",
+            "Large language model inference",
+            "Reinforcement learning post-training",
+            "Efficient AI systems"
+          ],
+          "knowsLanguage": [
+            "en",
+            "es"
+          ],
+          "nationality": {
+            "@type": "Country",
+            "name": "Colombia"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://waybarrios.com/#profile"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://waybarrios.com/research/#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://waybarrios.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "AI research publications",
+              "item": "https://waybarrios.com/research/"
+            }
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://waybarrios.com/research/#list",
+          "name": "AI research publications",
+          "numberOfItems": 11,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "ScholarlyArticle",
+                "headline": "Beyond Final Answers: CRYSTAL Benchmark for Transparent Multimodal Reasoning Evaluation",
+                "url": "https://arxiv.org/abs/2603.13099",
+                "author": [
+                  {
+                    "@type": "Person",
+                    "name": "Wayner Barrios",
+                    "@id": "https://waybarrios.com/#wayner"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "SouYoung Jin"
+                  }
+                ],
+                "datePublished": "2026",
+                "isPartOf": {
+                  "@type": "CreativeWork",
+                  "name": "ECCV 2026 Proceedings"
+                },
+                "identifier": [
+                  {
+                    "@type": "PropertyValue",
+                    "propertyID": "arXiv",
+                    "value": "2603.13099"
+                  }
+                ],
+                "@id": "https://arxiv.org/abs/2603.13099#article",
+                "abstract": "A 6,372-instance benchmark that checks every intermediate step. Across 20 models, none maintained more than 60% step accuracy in the correct order; Causal Process Reward improves step-level consistency by 32% without manual annotations."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "ScholarlyArticle",
+                "headline": "Native LLM and MLLM Inference at Scale on Apple Silicon",
+                "url": "https://arxiv.org/abs/2601.19139",
+                "author": [
+                  {
+                    "@type": "Person",
+                    "name": "Wayner Barrios",
+                    "@id": "https://waybarrios.com/#wayner"
+                  }
+                ],
+                "datePublished": "2026",
+                "isPartOf": {
+                  "@type": "WebSite",
+                  "name": "arXiv",
+                  "url": "https://arxiv.org/"
+                },
+                "identifier": [
+                  {
+                    "@type": "PropertyValue",
+                    "propertyID": "arXiv",
+                    "value": "2601.19139"
+                  }
+                ],
+                "@id": "https://arxiv.org/abs/2601.19139#article",
+                "abstract": "Introduces native MLX inference with continuous batching and multimodal prefix caching, reaching up to 525 tokens per second and 28x faster repeated image queries on M4 Max."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "ScholarlyArticle",
+                "headline": "MoDA: Modulation Adapter for Fine-Grained Visual Grounding in Instructional MLLMs",
+                "url": "https://arxiv.org/abs/2506.01850",
+                "author": [
+                  {
+                    "@type": "Person",
+                    "name": "Wayner Barrios",
+                    "@id": "https://waybarrios.com/#wayner"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "A. Villa"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "J. L. Alcázar"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "SouYoung Jin"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "B. Ghanem"
+                  }
+                ],
+                "datePublished": "2025",
+                "isPartOf": {
+                  "@type": "CreativeWork",
+                  "name": "ICML 2026 Proceedings"
+                },
+                "identifier": [
+                  {
+                    "@type": "PropertyValue",
+                    "propertyID": "arXiv",
+                    "value": "2506.01850"
+                  }
+                ],
+                "@id": "https://arxiv.org/abs/2506.01850#article",
+                "abstract": "Uses instruction-guided channel modulation to improve fine-grained visual grounding across three MLLM families and 12 benchmarks with less than 1% additional FLOPs."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "ScholarlyArticle",
+                "headline": "Exploratory Association Between Multimodal AI-Derived Digital Biomarkers and In-Hospital Mortality in Adult Patients with Pneumonia",
+                "url": "https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000960",
+                "author": [
+                  {
+                    "@type": "Person",
+                    "name": "A. Hernández-Arango"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "D. Mejía Arrieta"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "C. A. Díaz León"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "Wayner Barrios",
+                    "@id": "https://waybarrios.com/#wayner"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "O. L. Quintero"
+                  }
+                ],
+                "datePublished": "2026",
+                "isPartOf": {
+                  "@type": "Periodical",
+                  "name": "PLOS Digital Health"
+                },
+                "identifier": [
+                  {
+                    "@type": "PropertyValue",
+                    "propertyID": "DOI",
+                    "value": "10.1371/journal.pdig.0000960"
+                  }
+                ],
+                "@id": "https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000960#article",
+                "abstract": "Combines AI biomarkers from chest radiographs, clinical notes, and ECG signals to study pneumonia mortality using routinely collected hospital data."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@type": "ScholarlyArticle",
+                "headline": "FT2TF: First-Person Statement Text-To-Talking Face Generation",
+                "url": "https://arxiv.org/abs/2312.05430",
+                "author": [
+                  {
+                    "@type": "Person",
+                    "name": "X. Diao"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "M. Cheng"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "Wayner Barrios",
+                    "@id": "https://waybarrios.com/#wayner"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "SouYoung Jin"
+                  }
+                ],
+                "datePublished": "2025",
+                "isPartOf": {
+                  "@type": "CreativeWork",
+                  "name": "WACV 2025 Proceedings"
+                },
+                "identifier": [
+                  {
+                    "@type": "PropertyValue",
+                    "propertyID": "arXiv",
+                    "value": "2312.05430"
+                  }
+                ],
+                "@id": "https://arxiv.org/abs/2312.05430#article",
+                "abstract": "Generates talking faces directly from first-person text in a one-stage pipeline, without requiring audio, landmarks, or pose during inference."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "item": {
+                "@type": "ScholarlyArticle",
+                "headline": "Multi-layer Learnable Attention Mask for Multimodal Tasks",
+                "url": "https://arxiv.org/abs/2406.02761",
+                "author": [
+                  {
+                    "@type": "Person",
+                    "name": "Wayner Barrios",
+                    "@id": "https://waybarrios.com/#wayner"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "SouYoung Jin"
+                  }
+                ],
+                "datePublished": "2024",
+                "isPartOf": {
+                  "@type": "WebSite",
+                  "name": "arXiv",
+                  "url": "https://arxiv.org/"
+                },
+                "identifier": [
+                  {
+                    "@type": "PropertyValue",
+                    "propertyID": "arXiv",
+                    "value": "2406.02761"
+                  }
+                ],
+                "@id": "https://arxiv.org/abs/2406.02761#article",
+                "abstract": "Introduces multi-layer learnable attention masks that prioritize informative tokens across transformer layers while reducing redundant computation."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "item": {
+                "@type": "ScholarlyArticle",
+                "headline": "Localizing Moments in Long Video Via Multimodal Guidance",
+                "url": "https://arxiv.org/abs/2302.13372",
+                "author": [
+                  {
+                    "@type": "Person",
+                    "name": "Wayner Barrios",
+                    "@id": "https://waybarrios.com/#wayner"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "M. Soldan"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "A. M. Ceballos-Arroyo"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "F. Caba"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "B. Ghanem"
+                  }
+                ],
+                "datePublished": "2023",
+                "isPartOf": {
+                  "@type": "CreativeWork",
+                  "name": "ICCV 2023 Proceedings"
+                },
+                "identifier": [
+                  {
+                    "@type": "PropertyValue",
+                    "propertyID": "arXiv",
+                    "value": "2302.13372"
+                  }
+                ],
+                "@id": "https://arxiv.org/abs/2302.13372#article",
+                "abstract": "Improves language grounding in long videos by identifying describable windows and pruning irrelevant segments before matching a query."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "item": {
+                "@type": "ScholarlyArticle",
+                "headline": "Bladder Cancer Prognosis Using Deep Neural Networks and Histopathology Images",
+                "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9577122/",
+                "author": [
+                  {
+                    "@type": "Person",
+                    "name": "Wayner Barrios",
+                    "@id": "https://waybarrios.com/#wayner"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "B. Abdollahi"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "M. Goyal"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "Q. Song"
+                  }
+                ],
+                "datePublished": "2022",
+                "isPartOf": {
+                  "@type": "Periodical",
+                  "name": "Journal of Pathology Informatics"
+                },
+                "identifier": [
+                  {
+                    "@type": "PropertyValue",
+                    "propertyID": "PubMed",
+                    "value": "36268091"
+                  }
+                ],
+                "@id": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9577122/#article",
+                "abstract": "Introduces Bladder4Net to classify whole-slide histopathology images into low-risk and high-risk bladder cancer groups for prognosis support."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 9,
+              "item": {
+                "@type": "ScholarlyArticle",
+                "headline": "Medical Decision Support System Using Weakly-Labeled Lung CT Scans",
+                "url": "https://www.frontiersin.org/journals/medical-technology/articles/10.3389/fmedt.2022.980735/full",
+                "author": [
+                  {
+                    "@type": "Person",
+                    "name": "A. Murillo-González"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "D. González"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "L. Jaramillo"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "Wayner Barrios",
+                    "@id": "https://waybarrios.com/#wayner"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "O. L. Quintero"
+                  }
+                ],
+                "datePublished": "2022",
+                "isPartOf": {
+                  "@type": "Periodical",
+                  "name": "Frontiers in Medical Technology"
+                },
+                "identifier": [
+                  {
+                    "@type": "PropertyValue",
+                    "propertyID": "DOI",
+                    "value": "10.3389/fmedt.2022.980735"
+                  }
+                ],
+                "@id": "https://www.frontiersin.org/journals/medical-technology/articles/10.3389/fmedt.2022.980735/full#article",
+                "abstract": "Builds a weakly supervised CT pipeline for COVID-19 classification, lesion segmentation, and quantification from scan-level labels."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 10,
+              "item": {
+                "@type": "ScholarlyArticle",
+                "headline": "Minding the Gaps in a Video Action Analysis Pipeline",
+                "url": "https://publications.ri.cmu.edu/minding-the-gaps-in-a-video-action-analysis-pipeline",
+                "author": [
+                  {
+                    "@type": "Person",
+                    "name": "J. Chen"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "J. Liu"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "J. Liang"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "T. Y. Hu"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "W. Ke"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "Wayner Barrios",
+                    "@id": "https://waybarrios.com/#wayner"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "D. Huang"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "A. G. Hauptmann"
+                  }
+                ],
+                "datePublished": "2019",
+                "isPartOf": {
+                  "@type": "CreativeWork",
+                  "name": "WACV Workshop 2019 Proceedings"
+                },
+                "identifier": [
+                  {
+                    "@type": "PropertyValue",
+                    "propertyID": "IEEE",
+                    "value": "8638326"
+                  }
+                ],
+                "@id": "https://publications.ri.cmu.edu/minding-the-gaps-in-a-video-action-analysis-pipeline#article",
+                "abstract": "Analyzes the training and testing gaps between proposal, classification, and localization modules in event detection pipelines, then introduces practical fixes."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 11,
+              "item": {
+                "@type": "ScholarlyArticle",
+                "headline": "SCC: Semantic Context Cascade for Efficient Action Detection",
+                "url": "https://openaccess.thecvf.com/content_cvpr_2017/html/Heilbron_SCC_Semantic_Context_CVPR_2017_paper.html",
+                "author": [
+                  {
+                    "@type": "Person",
+                    "name": "F. Caba"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "Wayner Barrios",
+                    "@id": "https://waybarrios.com/#wayner"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "V. Escorcia"
+                  },
+                  {
+                    "@type": "Person",
+                    "name": "B. Ghanem"
+                  }
+                ],
+                "datePublished": "2017",
+                "isPartOf": {
+                  "@type": "CreativeWork",
+                  "name": "CVPR 2017 Proceedings"
+                },
+                "identifier": [
+                  {
+                    "@type": "PropertyValue",
+                    "propertyID": "IEEE",
+                    "value": "8099821"
+                  }
+                ],
+                "@id": "https://openaccess.thecvf.com/content_cvpr_2017/html/Heilbron_SCC_Semantic_Context_CVPR_2017_paper.html#article",
+                "abstract": "Uses object and scene semantics to generate class-specific action proposals and prune unrelated activities in real time on ActivityNet."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="wordmark" href="/" aria-label="Wayner Barrios, home">
+      <svg class="brand-mark" viewBox="0 0 95 64" aria-hidden="true" focusable="false">
+        <path class="brand-trace brand-trace-back" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+        <path class="brand-trace brand-trace-mid" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+        <path class="brand-final" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+      </svg>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="/#about">About</a><a href="/research/" class="is-active" aria-current="page">Research</a><a href="/open-source/">Open source</a><!--email_off--><a href="mailto:waybarrios@gmail.com">Contact</a><!--/email_off-->
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M14 9.3A6 6 0 1 1 6.7 2 4.8 4.8 0 0 0 14 9.3Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3.1"/><path d="M8 1.2v1.5M8 13.3v1.5M1.2 8h1.5M13.3 8h1.5M3 3l1.1 1.1M11.9 11.9 13 13M13 3l-1.1 1.1M4.1 11.9 3 13"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <header class="page-intro">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">AI research publications</span></nav>
+      <h1 id="page-title">AI research publications</h1>
+      <p>Research publications by Wayner Barrios, from multimodal reasoning and video understanding to visual grounding, medical AI, and efficient inference. Find papers, summaries, and links to the <a href="/open-source/">open source implementations</a>.</p>
+    </header>
+    <section class="content-section publications collection-section" id="research" aria-labelledby="research-title">
+      <div class="section-heading"><p class="section-index"><span class="idx-badge" aria-hidden="true">02</span>Publications</p><h2 id="research-title"><span class="section-title-line"><span>Research that</span></span><span class="section-title-line"><span>runs.</span></span></h2></div>
+      <div class="publication-list">
+        <article class="publication publication-featured">
+          <div class="publication-meta"><span class="venue">ECCV</span><span>2026</span></div>
+          <div class="publication-body"><p class="publication-kicker">Latest · Multimodal reasoning</p><h3><a href="https://arxiv.org/abs/2603.13099" target="_blank" rel="noopener">Beyond Final Answers: CRYSTAL Benchmark for Transparent Multimodal Reasoning Evaluation</a></h3><p class="authors"><span class="author-self">Wayner Barrios</span>, SouYoung Jin</p><p class="abstract">A 6,372-instance benchmark that checks every intermediate step. Across 20 models, none maintained more than 60% step accuracy in the correct order; Causal Process Reward improves step-level consistency by 32% without manual annotations.</p><div class="text-links"><a href="https://arxiv.org/abs/2603.13099" target="_blank" rel="noopener">Paper <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a><a href="https://github.com/SEE-AI-Lab/crystal" target="_blank" rel="noopener">Code <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a></div></div>
+        </article>
+        <article class="publication">
+          <div class="publication-meta"><span class="venue">arXiv</span><span>2026</span></div>
+          <div class="publication-body"><h3><a href="https://arxiv.org/abs/2601.19139" target="_blank" rel="noopener">Native LLM and MLLM Inference at Scale on Apple Silicon</a></h3><p class="authors"><span class="author-self">Wayner Barrios</span></p><p class="paper-summary">Introduces native MLX inference with continuous batching and multimodal prefix caching, reaching up to 525 tokens per second and 28x faster repeated image queries on M4 Max.</p><div class="text-links"><a href="https://arxiv.org/abs/2601.19139" target="_blank" rel="noopener">Paper <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a><a href="https://github.com/waybarrios/vllm-mlx" target="_blank" rel="noopener">Code <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a></div></div>
+        </article>
+        <article class="publication">
+          <div class="publication-meta"><span class="venue">ICML</span><span>2026</span></div>
+          <div class="publication-body"><h3><a href="https://arxiv.org/abs/2506.01850" target="_blank" rel="noopener">MoDA: Modulation Adapter for Fine-Grained Visual Grounding in Instructional MLLMs</a></h3><p class="authors"><span class="author-self">Wayner Barrios</span>, A. Villa, J. L. Alcázar, SouYoung Jin, B. Ghanem</p><p class="paper-summary">Uses instruction-guided channel modulation to improve fine-grained visual grounding across three MLLM families and 12 benchmarks with less than 1% additional FLOPs.</p><div class="text-links"><a href="https://arxiv.org/abs/2506.01850" target="_blank" rel="noopener">Paper <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a></div></div>
+        </article>
+        <article class="publication">
+          <div class="publication-meta"><span class="venue">PLOS DH</span><span>2026</span></div>
+          <div class="publication-body"><h3><a href="https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000960" target="_blank" rel="noopener">Exploratory Association Between Multimodal AI-Derived Digital Biomarkers and In-Hospital Mortality in Adult Patients with Pneumonia</a></h3><p class="authors">A. Hernández-Arango, D. Mejía Arrieta, C. A. Díaz León, et al., <span class="author-self">Wayner Barrios</span>, et al., O. L. Quintero</p><p class="paper-summary">Combines AI biomarkers from chest radiographs, clinical notes, and ECG signals to study pneumonia mortality using routinely collected hospital data.</p><div class="text-links"><a href="https://journals.plos.org/digitalhealth/article?id=10.1371/journal.pdig.0000960" target="_blank" rel="noopener">Paper <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a></div></div>
+        </article>
+        <article class="publication">
+          <div class="publication-meta"><span class="venue">WACV</span><span>2025</span></div>
+          <div class="publication-body"><h3><a href="https://arxiv.org/abs/2312.05430" target="_blank" rel="noopener">FT2TF: First-Person Statement Text-To-Talking Face Generation</a></h3><p class="authors">X. Diao, M. Cheng, <span class="author-self">Wayner Barrios</span>, SouYoung Jin</p><p class="paper-summary">Generates talking faces directly from first-person text in a one-stage pipeline, without requiring audio, landmarks, or pose during inference.</p><div class="text-links"><a href="https://arxiv.org/abs/2312.05430" target="_blank" rel="noopener">Paper <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a></div></div>
+        </article>
+        <article class="publication">
+          <div class="publication-meta"><span class="venue">arXiv</span><span>2024</span></div>
+          <div class="publication-body"><h3><a href="https://arxiv.org/abs/2406.02761" target="_blank" rel="noopener">Multi-layer Learnable Attention Mask for Multimodal Tasks</a></h3><p class="authors"><span class="author-self">Wayner Barrios</span>, SouYoung Jin</p><p class="paper-summary">Introduces multi-layer learnable attention masks that prioritize informative tokens across transformer layers while reducing redundant computation.</p><div class="text-links"><a href="https://arxiv.org/abs/2406.02761" target="_blank" rel="noopener">Paper <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a></div></div>
+        </article>
+        <article class="publication">
+          <div class="publication-meta"><span class="venue">ICCV</span><span>2023</span></div>
+          <div class="publication-body"><h3><a href="https://arxiv.org/abs/2302.13372" target="_blank" rel="noopener">Localizing Moments in Long Video Via Multimodal Guidance</a></h3><p class="authors"><span class="author-self">Wayner Barrios</span>, M. Soldan, A. M. Ceballos-Arroyo, F. Caba, B. Ghanem</p><p class="paper-summary">Improves language grounding in long videos by identifying describable windows and pruning irrelevant segments before matching a query.</p><div class="text-links"><a href="https://arxiv.org/abs/2302.13372" target="_blank" rel="noopener">Paper <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a><a href="https://github.com/waybarrios/guidance-based-video-grounding" target="_blank" rel="noopener">Code <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a></div></div>
+        </article>
+        <details class="publication-archive" open>
+          <summary>Earlier publications <span>4 papers</span></summary>
+          <article class="publication"><div class="publication-meta"><span class="venue">JPI</span><span>2022</span></div><div class="publication-body"><h3><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9577122/" target="_blank" rel="noopener">Bladder Cancer Prognosis Using Deep Neural Networks and Histopathology Images</a></h3><p class="authors"><span class="author-self">Wayner Barrios</span>, B. Abdollahi, M. Goyal, Q. Song, et al.</p><p class="paper-summary">Introduces Bladder4Net to classify whole-slide histopathology images into low-risk and high-risk bladder cancer groups for prognosis support.</p></div></article>
+          <article class="publication"><div class="publication-meta"><span class="venue">Frontiers</span><span>2022</span></div><div class="publication-body"><h3><a href="https://www.frontiersin.org/journals/medical-technology/articles/10.3389/fmedt.2022.980735/full" target="_blank" rel="noopener">Medical Decision Support System Using Weakly-Labeled Lung CT Scans</a></h3><p class="authors">A. Murillo-González, D. González, L. Jaramillo, et al., <span class="author-self">Wayner Barrios</span>, et al., O. L. Quintero</p><p class="paper-summary">Builds a weakly supervised CT pipeline for COVID-19 classification, lesion segmentation, and quantification from scan-level labels.</p></div></article>
+          <article class="publication"><div class="publication-meta"><span class="venue">WACVW</span><span>2019</span></div><div class="publication-body"><h3><a href="https://publications.ri.cmu.edu/minding-the-gaps-in-a-video-action-analysis-pipeline" target="_blank" rel="noopener">Minding the Gaps in a Video Action Analysis Pipeline</a></h3><p class="authors">J. Chen, J. Liu, J. Liang, T. Y. Hu, W. Ke, <span class="author-self">Wayner Barrios</span>, D. Huang, A. G. Hauptmann</p><p class="paper-summary">Analyzes the training and testing gaps between proposal, classification, and localization modules in event detection pipelines, then introduces practical fixes.</p></div></article>
+          <article class="publication"><div class="publication-meta"><span class="venue">CVPR</span><span>2017</span></div><div class="publication-body"><h3><a href="https://openaccess.thecvf.com/content_cvpr_2017/html/Heilbron_SCC_Semantic_Context_CVPR_2017_paper.html" target="_blank" rel="noopener">SCC: Semantic Context Cascade for Efficient Action Detection</a></h3><p class="authors">F. Caba, <span class="author-self">Wayner Barrios</span>, V. Escorcia, B. Ghanem</p><p class="paper-summary">Uses object and scene semantics to generate class-specific action proposals and prune unrelated activities in real time on ActivityNet.</p></div></article>
+        </details>
+        <a class="all-publications" href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&amp;hl=en" target="_blank" rel="noopener"><span>Complete publication record</span><span>Google Scholar <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+      </div>
+    </section>
+    <section class="availability" aria-label="Availability and contact">
+      <p><span class="availability-dot" aria-hidden="true"></span>Building Wiqonn and researching multimodal perception, video understanding, and efficient inference.</p>
+      <!--email_off--><a href="mailto:waybarrios@gmail.com">Get in touch <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a><!--/email_off-->
+    </section>
+  </main>
+
+  <footer class="site-footer"><p>© 2026 Wayner Barrios · Updated September 2026</p><div><a href="/research/">Research</a><a href="/open-source/">Open source</a><a href="https://github.com/waybarrios" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/waybarrios/" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a><a href="https://www.wiqonn.com/" target="_blank" rel="noopener">Wiqonn</a></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script src="/script.js?v=325b048b9adf"></script>
+</body>
+</html>

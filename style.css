@@ -166,7 +166,7 @@ html.lenis, html.lenis body { height: auto; }
 .publication-body h3 a { text-decoration: none; transition: color var(--dur-fast) ease; }
 .publication-body h3 a:hover { color: var(--accent); }
 .authors { margin: 10px 0 0; color: var(--muted); font-size: .78rem; line-height: 1.5; }
-.authors strong { color: var(--ink); font-weight: 600; }
+.authors .author-self { color: var(--ink); font-weight: 600; }
 .publication-kicker { margin-bottom: 12px; }
 .abstract { max-width: 660px; margin: 18px 0 0; color: var(--prose-soft); font-size: .86rem; line-height: 1.7; }
 .paper-summary { max-width: 650px; margin: 12px 0 0; color: var(--prose-soft); font-size: .82rem; line-height: 1.65; }
@@ -186,7 +186,7 @@ html.lenis, html.lenis body { height: auto; }
 .project:hover { color: var(--accent); }
 .project-number { color: var(--muted); font-family: var(--font-mono); font-size: .64rem; line-height: 1.5; text-transform: uppercase; }
 .project-copy { display: flex; flex-direction: column; gap: 8px; }
-.project-copy strong { font-size: .98rem; font-weight: 600; }
+.project-copy .project-name { font-size: .98rem; font-weight: 600; }
 .project-tag {
   display: inline-block;
   margin-left: 10px;
@@ -205,11 +205,11 @@ html.lenis, html.lenis body { height: auto; }
   transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease;
 }
 .project:hover .project-tag { background: var(--accent); color: var(--paper); }
-.project-copy > span { max-width: 500px; color: var(--muted); font-size: .8rem; line-height: 1.6; }
+.project-description { max-width: 500px; color: var(--muted); font-size: .8rem; line-height: 1.6; }
 .project-proof { display: grid; grid-template-columns: auto auto; gap: 2px 8px; min-width: 112px; align-items: baseline; text-align: right; }
-.project-proof strong { color: var(--ink); font-family: var(--font-mono); font-size: .72rem; font-weight: 500; }
+.project-proof .project-stat { color: var(--ink); font-family: var(--font-mono); font-size: .72rem; font-weight: 500; }
 .project-proof small { color: var(--muted); font-family: var(--font-mono); font-size: .55rem; letter-spacing: .03em; text-transform: uppercase; }
-.project:hover .project-proof strong { color: var(--accent); }
+.project:hover .project-proof .project-stat { color: var(--accent); }
 .arrow-icon { display: inline-block; width: .82em; height: .82em; margin-left: .38em; overflow: visible; vertical-align: -.03em; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: square; stroke-linejoin: miter; }
 .project-arrow { display: block; width: 18px; height: 18px; color: var(--accent); line-height: 1; transition: transform var(--dur-moderate) var(--ease-spring); }
 .project-arrow .arrow-icon { display: block; width: 100%; height: 100%; margin: 0; vertical-align: 0; }
@@ -232,7 +232,7 @@ html.lenis, html.lenis body { height: auto; }
 
 .site-footer { display: flex; justify-content: space-between; gap: 24px; padding: 26px 0 38px; border-top: 1px solid var(--ink); color: var(--muted); font-family: var(--font-mono); font-size: .65rem; text-transform: uppercase; }
 .site-footer p { margin: 0; }
-.site-footer div { display: flex; gap: 24px; }
+.site-footer div { display: flex; flex-wrap: wrap; gap: 12px 24px; }
 .site-footer a { text-decoration: none; }
 .site-footer a:hover { color: var(--accent); }
 
@@ -384,7 +384,7 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 .project { transition: color var(--dur-fast) ease; }
 .project-number { transition: color var(--dur-fast) ease; }
 .project:hover .project-number { color: var(--accent); }
-.project-proof strong { transition: color var(--dur-fast) ease; }
+.project-proof .project-stat { transition: color var(--dur-fast) ease; }
 
 /* Availability CTA: spring lift + haptic press + pulsing status dot */
 .availability a { transition: transform 400ms var(--ease-spring), color var(--dur-fast) ease; }
@@ -455,8 +455,8 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
 
 /* ─── Motion polish (2026 consensus: subtle, one pattern, transform/opacity only) ─── */
 /* Project rows: title slides as the arrow springs (P4 pattern) */
-.project-copy strong { transition: transform var(--dur-moderate) var(--ease-standard), color var(--dur-fast) ease; }
-.project:hover .project-copy strong, .project:focus-visible .project-copy strong { transform: translateX(5px); }
+.project-copy .project-name { transition: transform var(--dur-moderate) var(--ease-standard), color var(--dur-fast) ease; }
+.project:hover .project-copy .project-name, .project:focus-visible .project-copy .project-name { transform: translateX(5px); }
 
 /* Publication rows: quiet hover wash (excluded on the featured card which has its own wash) */
 :root { --row-hover: rgba(23, 70, 209, .04); }
@@ -467,3 +467,12 @@ html[data-theme="dark"] { --row-hover: rgba(143, 169, 255, .05); }
 @keyframes icon-in { from { opacity: 0; transform: rotate(-90deg) scale(.5); } to { opacity: 1; transform: rotate(0) scale(1); } }
 .theme-toggle .icon-moon { animation: icon-in 320ms var(--ease-spring) both; }
 html[data-theme="dark"] .theme-toggle .icon-sun { animation: icon-in 320ms var(--ease-spring) both; }
+
+/* Profile heading and linked publication/project collections. */
+.hero-role { display: block; margin-top: 24px; color: var(--accent); font-size: clamp(1rem, 1.7vw, 1.25rem); font-weight: 500; letter-spacing: -.015em; line-height: 1.4; }
+.page-intro { max-width: 800px; padding: 64px 0 72px; }
+.breadcrumbs { display: flex; flex-wrap: wrap; gap: 12px; color: var(--muted); font-family: var(--font-mono); font-size: .7rem; }
+.breadcrumbs a:hover { color: var(--accent); }
+.page-intro h1 { margin: 24px 0; font-size: clamp(2.3rem, 5.5vw, 4.5rem); font-weight: 500; letter-spacing: -.05em; line-height: 1.08; }
+.page-intro > p { margin: 0; color: var(--prose-body); font-size: 1rem; line-height: 1.75; }
+.collection-section { padding-top: 0; }

@@ -1,7 +1,7 @@
 # Wayner Barrios
 
 > Multimodal AI researcher building models that perceive and reason about the world more like we do — from transparent reasoning benchmarks to production-grade inference engines on Apple Silicon.
-> Updated: 2026-08-03
+> Updated: 2026-09-05
 
 ## Quick facts
 
@@ -49,10 +49,10 @@ His work has appeared at CVPR, ICCV, ECCV, ICML, WACV, and other leading venues,
 - [FT2TF: First-Person Statement Text-To-Talking Face Generation](https://arxiv.org/abs/2312.05430) — WACV 2025, arXiv:2312.05430
 - [Multi-layer Learnable Attention Mask for Multimodal Tasks](https://arxiv.org/abs/2406.02761) — 2024, arXiv:2406.02761
 - [Localizing Moments in Long Video Via Multimodal Guidance](https://arxiv.org/abs/2302.13372) — ICCV 2023, arXiv:2302.13372
-- [Bladder Cancer Prognosis Using Deep Neural Networks and Histopathology Images](https://pubmed.ncbi.nlm.nih.gov/36268091/) — Journal of Pathology Informatics 2022
+- [Bladder Cancer Prognosis Using Deep Neural Networks and Histopathology Images](https://pmc.ncbi.nlm.nih.gov/articles/PMC9577122/) — Journal of Pathology Informatics 2022
 - [Medical Decision Support System Using Weakly-Labeled Lung CT Scans](https://www.frontiersin.org/journals/medical-technology/articles/10.3389/fmedt.2022.980735/full) — Frontiers in Medical Technology 2022, DOI:10.3389/fmedt.2022.980735
-- [Minding the Gaps in a Video Action Analysis Pipeline](https://ieeexplore.ieee.org/abstract/document/8638326/) — WACV Workshop 2019
-- [SCC: Semantic Context Cascade for Efficient Action Detection](https://ieeexplore.ieee.org/abstract/document/8099821) — CVPR 2017
+- [Minding the Gaps in a Video Action Analysis Pipeline](https://publications.ri.cmu.edu/minding-the-gaps-in-a-video-action-analysis-pipeline) — WACV Workshop 2019
+- [SCC: Semantic Context Cascade for Efficient Action Detection](https://openaccess.thecvf.com/content_cvpr_2017/html/Heilbron_SCC_Semantic_Context_CVPR_2017_paper.html) — CVPR 2017
 
 ## Open source
 
@@ -80,6 +80,9 @@ His work has appeared at CVPR, ICCV, ECCV, ICML, WACV, and other leading venues,
 - Wiqonn: https://www.wiqonn.com
 
 ## Files
+
+- Research publications: https://waybarrios.com/research/
+- Open source projects: https://waybarrios.com/open-source/
 
 - [Portfolio](https://waybarrios.com/): about, selected research, and open source.
 - [Full text](https://waybarrios.com/llms-full.txt): complete site content for LLM ingestion.

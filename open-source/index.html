@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore open source AI projects and contributions by Wayner Barrios, including vLLM-MLX, CRYSTAL, MoDA, and tools for inference and model training.">
+  <meta name="author" content="Wayner Barrios">
+  <meta name="robots" content="index, follow">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f5f3ed">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.dataset.theme = 'dark';
+          var m = document.querySelector('meta[name="color-scheme"]');
+          if (m) m.content = 'dark';
+          var t = document.querySelector('meta[name="theme-color"]');
+          if (t) t.content = '#171613';
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="canonical" href="https://waybarrios.com/open-source/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://waybarrios.com/open-source/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Wayner Barrios">
+  <meta property="og:title" content="Open Source AI Projects | Wayner Barrios">
+  <meta property="og:description" content="Explore open source AI projects and contributions by Wayner Barrios, including vLLM-MLX, CRYSTAL, MoDA, and tools for inference and model training.">
+  <meta property="og:image" content="https://waybarrios.com/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wayner Barrios — AI researcher working on multimodal reasoning and video understanding">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Open Source AI Projects | Wayner Barrios">
+  <meta name="twitter:description" content="Explore open source AI projects and contributions by Wayner Barrios, including vLLM-MLX, CRYSTAL, MoDA, and tools for inference and model training.">
+  <meta name="twitter:image" content="https://waybarrios.com/img/og.jpg">
+  <title>Open Source AI Projects | Wayner Barrios</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+  <link rel="apple-touch-icon" href="/img/icon-192.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=68cd60239a94">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://waybarrios.com/#website",
+          "url": "https://waybarrios.com/",
+          "name": "Wayner Barrios",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "CollectionPage",
+          "@id": "https://waybarrios.com/open-source/#page",
+          "url": "https://waybarrios.com/open-source/",
+          "name": "Open Source AI Projects | Wayner Barrios",
+          "description": "Explore open source AI projects and contributions by Wayner Barrios, including vLLM-MLX, CRYSTAL, MoDA, and tools for inference and model training.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://waybarrios.com/#website"
+          },
+          "about": {
+            "@id": "https://waybarrios.com/#wayner"
+          },
+          "mainEntity": {
+            "@id": "https://waybarrios.com/open-source/#list"
+          },
+          "breadcrumb": {
+            "@id": "https://waybarrios.com/open-source/#breadcrumbs"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://waybarrios.com/#wayner",
+          "name": "Wayner Barrios",
+          "url": "https://waybarrios.com/",
+          "image": "https://waybarrios.com/img/me.webp",
+          "jobTitle": "Multimodal AI Researcher",
+          "description": "AI researcher working on multimodal reasoning, video understanding, and efficient inference systems.",
+          "alumniOf": [
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "Dartmouth College",
+              "sameAs": "https://www.dartmouth.edu/"
+            },
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "Universidad del Norte",
+              "sameAs": "https://www.uninorte.edu.co/"
+            }
+          ],
+          "memberOf": {
+            "@type": "Organization",
+            "name": "Wiqonn",
+            "url": "https://www.wiqonn.com/"
+          },
+          "sameAs": [
+            "https://github.com/waybarrios",
+            "https://www.linkedin.com/in/waybarrios/",
+            "https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en",
+            "https://orcid.org/0009-0005-1013-5130"
+          ],
+          "knowsAbout": [
+            "Multimodal artificial intelligence",
+            "Video understanding",
+            "Multimodal reasoning",
+            "Large language model inference",
+            "Reinforcement learning post-training",
+            "Efficient AI systems"
+          ],
+          "knowsLanguage": [
+            "en",
+            "es"
+          ],
+          "nationality": {
+            "@type": "Country",
+            "name": "Colombia"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://waybarrios.com/#profile"
+          }
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://waybarrios.com/open-source/#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://waybarrios.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Open source AI projects",
+              "item": "https://waybarrios.com/open-source/"
+            }
+          ]
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://waybarrios.com/open-source/#list",
+          "name": "Open source AI projects",
+          "numberOfItems": 12,
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "SoftwareSourceCode",
+                "name": "CRYSTAL",
+                "url": "https://github.com/SEE-AI-Lab/crystal",
+                "codeRepository": "https://github.com/SEE-AI-Lab/crystal",
+                "description": "ECCV 2026 benchmark, dataset, and pip-installable metrics for evaluating ordered reasoning traces and training with process rewards."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "SoftwareSourceCode",
+                "name": "MoDA",
+                "url": "https://github.com/waybarrios/MoDA",
+                "codeRepository": "https://github.com/waybarrios/MoDA",
+                "description": "Official implementation of MoDA (ICML 2026) — instruction-guided channel modulation for fine-grained visual grounding in instructional MLLMs, with under 1% additional FLOPs."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "SoftwareSourceCode",
+                "name": "vLLM-MLX",
+                "url": "https://github.com/waybarrios/vllm-mlx",
+                "codeRepository": "https://github.com/waybarrios/vllm-mlx",
+                "description": "High-throughput, OpenAI- and Anthropic-compatible LLM and MLLM inference for Apple Silicon, with continuous batching, tool calling, vision, audio, and video support."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "SoftwareSourceCode",
+                "name": "DGX Spark Fine-tune LLM",
+                "url": "https://github.com/waybarrios/dgx-spark-finetune-llm",
+                "codeRepository": "https://github.com/waybarrios/dgx-spark-finetune-llm",
+                "description": "An experimental end-to-end pipeline for LoRA fine-tuning, NVFP4/MXFP8 quantization, TensorRT-LLM export, and OpenAI-compatible serving on Blackwell GB10."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@type": "SoftwareSourceCode",
+                "name": "Localizing Moments",
+                "url": "https://github.com/waybarrios/guidance-based-video-grounding",
+                "codeRepository": "https://github.com/waybarrios/guidance-based-video-grounding",
+                "description": "Official PyTorch implementation of \"Localizing Moments in Long Video Via Multimodal Guidance\" (ICCV 2023) — identifies describable windows and prunes irrelevant segments before matching a query."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "item": {
+                "@type": "SoftwareSourceCode",
+                "name": "OpenCode Power Pack",
+                "url": "https://github.com/waybarrios/opencode-power-pack",
+                "codeRepository": "https://github.com/waybarrios/opencode-power-pack",
+                "description": "Production workflows for code review, security, feature development, frontend design, and project memory, ported from Claude Code to OpenCode. Website: skills.waybarrios.com"
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "item": {
+                "@type": "SoftwareSourceCode",
+                "name": "ActivityNet",
+                "url": "https://github.com/activitynet/activitynet.github.io",
+                "codeRepository": "https://github.com/activitynet/activitynet.github.io",
+                "description": "Built and maintained the official ActivityNet challenge website — evaluation server, leaderboard, and GPU awards — for the leading video understanding benchmark, where I also filtered videos and measured the QA of the annotation process."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "item": {
+                "@type": "SoftwareSourceCode",
+                "name": "WorldMap",
+                "url": "https://github.com/cga-harvard/worldmap",
+                "codeRepository": "https://github.com/cga-harvard/worldmap",
+                "description": "Harvard CGA's WorldMap. I maintained the GeoNode 2.6-based platform: Django migrations, Dataverse/DataTables integration, and Dockerized deployment — 66 commits and 6 merged PRs."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 9,
+              "item": {
+                "@type": "SoftwareSourceCode",
+                "name": "GeoNode",
+                "url": "https://github.com/GeoNode/geonode",
+                "codeRepository": "https://github.com/GeoNode/geonode",
+                "description": "GeoNode, the leading open-source geospatial platform. I contributed Docker/GeoServer OAuth2 integration and the notification refactor (3 merged PRs), plus the Dockerized project skeleton (33 commits) and fixes across the GeoNode Docker stack."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 10,
+              "item": {
+                "@type": "SoftwareSourceCode",
+                "name": "Hypermap Registry",
+                "url": "https://github.com/cga-harvard/Hypermap-Registry",
+                "codeRepository": "https://github.com/cga-harvard/Hypermap-Registry",
+                "description": "ElasticSearch API, aggregations, and time faceting for Harvard CGA's Hypermap Registry — remote map services made easy for spatial data infrastructures."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 11,
+              "item": {
+                "@type": "SoftwareSourceCode",
+                "name": "MapProxy",
+                "url": "https://github.com/mapproxy/mapproxy",
+                "codeRepository": "https://github.com/mapproxy/mapproxy",
+                "description": "Added dimension-layer caching for WMS and WMTS to MapProxy — the tile cache and WMS proxy at the core of OpenStreetMap infrastructure."
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 12,
+              "item": {
+                "@type": "SoftwareSourceCode",
+                "name": "GPT4All",
+                "url": "https://github.com/nomic-ai/gpt4all",
+                "codeRepository": "https://github.com/nomic-ai/gpt4all",
+                "description": "One merged commit (2023): a DatasetDict dataset-handling fix for GPT4All's local LLM runtime."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="wordmark" href="/" aria-label="Wayner Barrios, home">
+      <svg class="brand-mark" viewBox="0 0 95 64" aria-hidden="true" focusable="false">
+        <path class="brand-trace brand-trace-back" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+        <path class="brand-trace brand-trace-mid" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+        <path class="brand-final" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+      </svg>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="/#about">About</a><a href="/research/">Research</a><a href="/open-source/" class="is-active" aria-current="page">Open source</a><!--email_off--><a href="mailto:waybarrios@gmail.com">Contact</a><!--/email_off-->
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M14 9.3A6 6 0 1 1 6.7 2 4.8 4.8 0 0 0 14 9.3Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3.1"/><path d="M8 1.2v1.5M8 13.3v1.5M1.2 8h1.5M13.3 8h1.5M3 3l1.1 1.1M11.9 11.9 13 13M13 3l-1.1 1.1M4.1 11.9 3 13"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <header class="page-intro">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><span aria-current="page">Open source AI projects</span></nav>
+      <h1 id="page-title">Open source AI projects</h1>
+      <p>Open source AI projects and contributions by Wayner Barrios: inference engines, research benchmarks, model training tools, and geospatial platforms. Read the <a href="/research/">research publications</a> behind the models and benchmarks.</p>
+    </header>
+    <section class="content-section projects collection-section" id="projects" aria-labelledby="projects-title">
+      <div class="section-heading"><p class="section-index"><span class="idx-badge" aria-hidden="true">03</span>Open source</p><h2 id="projects-title"><span class="section-title-line"><span>Built in</span></span><span class="section-title-line"><span>the open.</span></span></h2><p class="section-note">My research and tools first, then contributions to open-source communities — video, geospatial, and LLM infrastructure.</p></div>
+      <div class="project-list">
+        <a class="project" href="https://github.com/SEE-AI-Lab/crystal" target="_blank" rel="noopener"><span class="project-number">01</span><span class="project-copy"><span class="project-name">CRYSTAL</span><span class="project-description">ECCV 2026 benchmark, dataset, and pip-installable metrics for evaluating ordered reasoning traces and training with process rewards.</span></span><span class="project-proof"><span class="project-stat" data-count="6372" data-format="comma">6,372</span><small>instances</small><span class="project-stat">pip</span><small>package</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/waybarrios/MoDA" target="_blank" rel="noopener"><span class="project-number">02</span><span class="project-copy"><span class="project-name">MoDA</span><span class="project-description">Official implementation of MoDA (ICML 2026) — instruction-guided channel modulation for fine-grained visual grounding in instructional MLLMs, with under 1% additional FLOPs.</span></span><span class="project-proof"><span class="project-stat">ICML</span><small>2026</small><span class="project-stat">&lt;1%</span><small>extra FLOPs</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/waybarrios/vllm-mlx" target="_blank" rel="noopener"><span class="project-number">03</span><span class="project-copy"><span class="project-name">vLLM-MLX</span><span class="project-description">High-throughput, OpenAI- and Anthropic-compatible LLM and MLLM inference for Apple Silicon, with continuous batching, tool calling, vision, audio, and video support.</span></span><span class="project-proof"><span class="project-stat" data-count="1.5" data-format="decimal" data-suffix="k+">1.5k+</span><small>stars</small><span class="project-stat" data-count="400" data-suffix="+">400+</span><small>tok/s</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/waybarrios/dgx-spark-finetune-llm" target="_blank" rel="noopener"><span class="project-number">04</span><span class="project-copy"><span class="project-name">DGX Spark Fine-tune LLM</span><span class="project-description">An experimental end-to-end pipeline for LoRA fine-tuning, NVFP4/MXFP8 quantization, TensorRT-LLM export, and OpenAI-compatible serving on Blackwell GB10.</span></span><span class="project-proof"><span class="project-stat">4/8</span><small>bit training</small><span class="project-stat">GB10</span><small>Blackwell</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/waybarrios/guidance-based-video-grounding" target="_blank" rel="noopener"><span class="project-number">05</span><span class="project-copy"><span class="project-name">Localizing Moments</span><span class="project-description">Official PyTorch implementation of "Localizing Moments in Long Video Via Multimodal Guidance" (ICCV 2023) — identifies describable windows and prunes irrelevant segments before matching a query.</span></span><span class="project-proof"><span class="project-stat">ICCV</span><small>2023</small><span class="project-stat" data-count="23">23</span><small>stars</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/waybarrios/opencode-power-pack" target="_blank" rel="noopener"><span class="project-number">06</span><span class="project-copy"><span class="project-name">OpenCode Power Pack</span><span class="project-description">Production workflows for code review, security, feature development, frontend design, and project memory, ported from Claude Code to OpenCode. Website: skills.waybarrios.com</span></span><span class="project-proof"><span class="project-stat" data-count="11">11</span><small>skills</small><span class="project-stat" data-count="450" data-suffix="+">450+</span><small>stars</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/activitynet/activitynet.github.io" target="_blank" rel="noopener"><span class="project-number">07</span><span class="project-copy"><span class="project-name">ActivityNet <span class="project-tag">Contribution</span></span><span class="project-description">Built and maintained the official ActivityNet challenge website — evaluation server, leaderboard, and GPU awards — for the leading video understanding benchmark, where I also filtered videos and measured the QA of the annotation process.</span></span><span class="project-proof"><span class="project-stat" data-count="114">114</span><small>commits</small><span class="project-stat">2016</span><small>challenge site</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/cga-harvard/worldmap" target="_blank" rel="noopener"><span class="project-number">08</span><span class="project-copy"><span class="project-name">WorldMap <span class="project-tag">Contribution</span></span><span class="project-description">Harvard CGA's WorldMap. I maintained the GeoNode 2.6-based platform: Django migrations, Dataverse/DataTables integration, and Dockerized deployment — 66 commits and 6 merged PRs.</span></span><span class="project-proof"><span class="project-stat" data-count="66">66</span><small>commits</small><span class="project-stat" data-count="6">6</span><small>PRs merged</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/GeoNode/geonode" target="_blank" rel="noopener"><span class="project-number">09</span><span class="project-copy"><span class="project-name">GeoNode <span class="project-tag">Contribution</span></span><span class="project-description">GeoNode, the leading open-source geospatial platform. I contributed Docker/GeoServer OAuth2 integration and the notification refactor (3 merged PRs), plus the Dockerized project skeleton (33 commits) and fixes across the GeoNode Docker stack.</span></span><span class="project-proof"><span class="project-stat" data-count="1.7" data-format="decimal" data-suffix="k">1.7k</span><small>stars</small><span class="project-stat" data-count="3">3</span><small>merged PRs</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/cga-harvard/Hypermap-Registry" target="_blank" rel="noopener"><span class="project-number">10</span><span class="project-copy"><span class="project-name">Hypermap Registry <span class="project-tag">Contribution</span></span><span class="project-description">ElasticSearch API, aggregations, and time faceting for Harvard CGA's Hypermap Registry — remote map services made easy for spatial data infrastructures.</span></span><span class="project-proof"><span class="project-stat" data-count="15">15</span><small>PRs</small><span class="project-stat" data-count="9">9</span><small>merged</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/mapproxy/mapproxy" target="_blank" rel="noopener"><span class="project-number">11</span><span class="project-copy"><span class="project-name">MapProxy <span class="project-tag">Contribution</span></span><span class="project-description">Added dimension-layer caching for WMS and WMTS to MapProxy — the tile cache and WMS proxy at the core of OpenStreetMap infrastructure.</span></span><span class="project-proof"><span class="project-stat" data-count="666">666</span><small>stars</small><span class="project-stat" data-count="10">10</span><small>commits</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <a class="project" href="https://github.com/nomic-ai/gpt4all" target="_blank" rel="noopener"><span class="project-number">12</span><span class="project-copy"><span class="project-name">GPT4All <span class="project-tag">Contribution</span></span><span class="project-description">One merged commit (2023): a DatasetDict dataset-handling fix for GPT4All's local LLM runtime.</span></span><span class="project-proof"><span class="project-stat" data-count="1">1</span><small>commit</small><span class="project-stat">2023</span><small>merged</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+      </div>
+    </section>
+    <section class="availability" aria-label="Availability and contact">
+      <p><span class="availability-dot" aria-hidden="true"></span>Building Wiqonn and researching multimodal perception, video understanding, and efficient inference.</p>
+      <!--email_off--><a href="mailto:waybarrios@gmail.com">Get in touch <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a><!--/email_off-->
+    </section>
+  </main>
+
+  <footer class="site-footer"><p>© 2026 Wayner Barrios · Updated September 2026</p><div><a href="/research/">Research</a><a href="/open-source/">Open source</a><a href="https://github.com/waybarrios" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/waybarrios/" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a><a href="https://www.wiqonn.com/" target="_blank" rel="noopener">Wiqonn</a></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script src="/script.js?v=325b048b9adf"></script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 # Wayner Barrios
 
 > Multimodal AI researcher building models that perceive and reason about the world more like we do — from transparent reasoning benchmarks to production-grade inference engines on Apple Silicon.
-> Updated: 2026-08-03
+> Updated: 2026-09-05
 
 ## Quick facts
 
@@ -71,16 +71,16 @@ His work has appeared at CVPR, ICCV, ECCV, ICML, WACV, and other leading venues,
 
 8. **Bladder Cancer Prognosis Using Deep Neural Networks and Histopathology Images** — Journal of Pathology Informatics 2022. Wayner Barrios, B. Abdollahi, M. Goyal, Q. Song, et al.
    Abstract: Introduces Bladder4Net to classify whole-slide histopathology images into low-risk and high-risk bladder cancer groups for prognosis support.
-   Link: https://pubmed.ncbi.nlm.nih.gov/36268091/
+   Link: https://pmc.ncbi.nlm.nih.gov/articles/PMC9577122/
 9. **Medical Decision Support System Using Weakly-Labeled Lung CT Scans** — Frontiers in Medical Technology 2022. A. Murillo-González, D. González, L. Jaramillo, et al., Wayner Barrios, et al., O. L. Quintero. DOI:10.3389/fmedt.2022.980735.
    Abstract: Builds a weakly supervised CT pipeline for COVID-19 classification, lesion segmentation, and quantification from scan-level labels.
    Link: https://www.frontiersin.org/journals/medical-technology/articles/10.3389/fmedt.2022.980735/full
 10. **Minding the Gaps in a Video Action Analysis Pipeline** — WACV Workshop 2019. J. Chen, J. Liu, J. Liang, T. Y. Hu, W. Ke, Wayner Barrios, D. Huang, A. G. Hauptmann.
     Abstract: Analyzes the training and testing gaps between proposal, classification, and localization modules in event detection pipelines, then introduces practical fixes.
-    Link: https://ieeexplore.ieee.org/abstract/document/8638326/
+    Link: https://publications.ri.cmu.edu/minding-the-gaps-in-a-video-action-analysis-pipeline
 11. **SCC: Semantic Context Cascade for Efficient Action Detection** — CVPR 2017. F. Caba, Wayner Barrios, V. Escorcia, B. Ghanem.
     Abstract: Uses object and scene semantics to generate class-specific action proposals and prune unrelated activities in real time on ActivityNet.
-    Link: https://ieeexplore.ieee.org/abstract/document/8099821
+    Link: https://openaccess.thecvf.com/content_cvpr_2017/html/Heilbron_SCC_Semantic_Context_CVPR_2017_paper.html
 
 Complete publication record: https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&hl=en
 
@@ -116,6 +116,9 @@ Complete publication record: https://scholar.google.com.co/citations?user=MPJZRm
 - Wiqonn: https://www.wiqonn.com
 
 ## Files
+
+- Research publications: https://waybarrios.com/research/
+- Open source projects: https://waybarrios.com/open-source/
 
 - Portfolio: https://waybarrios.com/
 - This file: https://waybarrios.com/llms-full.txt
