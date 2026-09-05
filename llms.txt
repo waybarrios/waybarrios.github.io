@@ -81,6 +81,10 @@ His work has appeared at CVPR, ICCV, ECCV, ICML, WACV, and other leading venues,
 
 ## Files
 
+- CRYSTAL project guide: https://waybarrios.com/projects/crystal/
+- MoDA project guide: https://waybarrios.com/projects/moda/
+- vLLM-MLX project guide: https://waybarrios.com/projects/vllm-mlx/
+
 - Research publications: https://waybarrios.com/research/
 - Open source projects: https://waybarrios.com/open-source/
 

@@ -43,7 +43,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/style.css?v=68cd60239a94">
+  <link rel="stylesheet" href="/style.css?v=48e8705860ba">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -156,7 +156,7 @@
               "item": {
                 "@type": "SoftwareSourceCode",
                 "name": "CRYSTAL",
-                "url": "https://github.com/SEE-AI-Lab/crystal",
+                "url": "https://waybarrios.com/projects/crystal/",
                 "codeRepository": "https://github.com/SEE-AI-Lab/crystal",
                 "description": "ECCV 2026 benchmark, dataset, and pip-installable metrics for evaluating ordered reasoning traces and training with process rewards."
               }
@@ -167,7 +167,7 @@
               "item": {
                 "@type": "SoftwareSourceCode",
                 "name": "MoDA",
-                "url": "https://github.com/waybarrios/MoDA",
+                "url": "https://waybarrios.com/projects/moda/",
                 "codeRepository": "https://github.com/waybarrios/MoDA",
                 "description": "Official implementation of MoDA (ICML 2026) — instruction-guided channel modulation for fine-grained visual grounding in instructional MLLMs, with under 1% additional FLOPs."
               }
@@ -178,7 +178,7 @@
               "item": {
                 "@type": "SoftwareSourceCode",
                 "name": "vLLM-MLX",
-                "url": "https://github.com/waybarrios/vllm-mlx",
+                "url": "https://waybarrios.com/projects/vllm-mlx/",
                 "codeRepository": "https://github.com/waybarrios/vllm-mlx",
                 "description": "High-throughput, OpenAI- and Anthropic-compatible LLM and MLLM inference for Apple Silicon, with continuous batching, tool calling, vision, audio, and video support."
               }
@@ -298,6 +298,7 @@
         <path class="brand-trace brand-trace-mid" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
         <path class="brand-final" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
       </svg>
+      <span class="wordmark-label">Wayner Barrios</span>
     </a>
     <nav aria-label="Primary navigation">
       <a href="/#about">About</a><a href="/research/">Research</a><a href="/open-source/" class="is-active" aria-current="page">Open source</a><!--email_off--><a href="mailto:waybarrios@gmail.com">Contact</a><!--/email_off-->
@@ -314,12 +315,18 @@
       <h1 id="page-title">Open source AI projects</h1>
       <p>Open source AI projects and contributions by Wayner Barrios: inference engines, research benchmarks, model training tools, and geospatial platforms. Read the <a href="/research/">research publications</a> behind the models and benchmarks.</p>
     </header>
+    <section class="collection-context" aria-labelledby="project-context-title">
+      <h2 id="project-context-title">Choose a starting point</h2>
+      <p>If you want to run language or multimodal models locally on a Mac, start with the <a href="/projects/vllm-mlx/">vLLM-MLX inference guide</a>. It explains the serving workflow, the role of continuous batching and caching, and the measurements that matter when comparing models on your own hardware. The repository remains the reference for installation and supported features.</p>
+      <p>If you are evaluating the steps in a model's explanation, explore <a href="/projects/crystal/">CRYSTAL</a>. Its benchmark and metrics separate final-answer correctness from the coverage and ordering of reasoning steps. For work on instruction-guided visual features, the <a href="/projects/moda/">MoDA guide</a> introduces the adapter and points to the model-family-specific training and evaluation resources.</p>
+      <p>The remaining projects cover training workflows, video research, development tools, and contributions to geospatial software. Entries marked as contributions describe my work within a larger project. Their repository links lead to the upstream projects, where you can inspect the code, documentation, and development history. The <a href="/research/">research publications</a> provide context for the implementations associated with papers.</p>
+    </section>
     <section class="content-section projects collection-section" id="projects" aria-labelledby="projects-title">
       <div class="section-heading"><p class="section-index"><span class="idx-badge" aria-hidden="true">03</span>Open source</p><h2 id="projects-title"><span class="section-title-line"><span>Built in</span></span><span class="section-title-line"><span>the open.</span></span></h2><p class="section-note">My research and tools first, then contributions to open-source communities — video, geospatial, and LLM infrastructure.</p></div>
       <div class="project-list">
-        <a class="project" href="https://github.com/SEE-AI-Lab/crystal" target="_blank" rel="noopener"><span class="project-number">01</span><span class="project-copy"><span class="project-name">CRYSTAL</span><span class="project-description">ECCV 2026 benchmark, dataset, and pip-installable metrics for evaluating ordered reasoning traces and training with process rewards.</span></span><span class="project-proof"><span class="project-stat" data-count="6372" data-format="comma">6,372</span><small>instances</small><span class="project-stat">pip</span><small>package</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-        <a class="project" href="https://github.com/waybarrios/MoDA" target="_blank" rel="noopener"><span class="project-number">02</span><span class="project-copy"><span class="project-name">MoDA</span><span class="project-description">Official implementation of MoDA (ICML 2026) — instruction-guided channel modulation for fine-grained visual grounding in instructional MLLMs, with under 1% additional FLOPs.</span></span><span class="project-proof"><span class="project-stat">ICML</span><small>2026</small><span class="project-stat">&lt;1%</span><small>extra FLOPs</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
-        <a class="project" href="https://github.com/waybarrios/vllm-mlx" target="_blank" rel="noopener"><span class="project-number">03</span><span class="project-copy"><span class="project-name">vLLM-MLX</span><span class="project-description">High-throughput, OpenAI- and Anthropic-compatible LLM and MLLM inference for Apple Silicon, with continuous batching, tool calling, vision, audio, and video support.</span></span><span class="project-proof"><span class="project-stat" data-count="1.5" data-format="decimal" data-suffix="k+">1.5k+</span><small>stars</small><span class="project-stat" data-count="400" data-suffix="+">400+</span><small>tok/s</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
+        <article class="project"><span class="project-number">01</span><div class="project-copy"><h3 class="project-name"><a href="/projects/crystal/">CRYSTAL</a></h3><p class="project-description">ECCV 2026 benchmark, dataset, and pip-installable metrics for evaluating ordered reasoning traces and training with process rewards.</p><div class="text-links"><a href="/projects/crystal/">CRYSTAL guide</a><a href="https://github.com/SEE-AI-Lab/crystal" target="_blank" rel="noopener">CRYSTAL code</a></div></div><span class="project-proof"><span class="project-stat" data-count="6372" data-format="comma">6,372</span><small>instances</small><span class="project-stat">pip</span><small>package</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></article>
+        <article class="project"><span class="project-number">02</span><div class="project-copy"><h3 class="project-name"><a href="/projects/moda/">MoDA</a></h3><p class="project-description">Official implementation of MoDA (ICML 2026) — instruction-guided channel modulation for fine-grained visual grounding in instructional MLLMs, with under 1% additional FLOPs.</p><div class="text-links"><a href="/projects/moda/">MoDA guide</a><a href="https://github.com/waybarrios/MoDA" target="_blank" rel="noopener">MoDA code</a></div></div><span class="project-proof"><span class="project-stat">ICML</span><small>2026</small><span class="project-stat">&lt;1%</span><small>extra FLOPs</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></article>
+        <article class="project"><span class="project-number">03</span><div class="project-copy"><h3 class="project-name"><a href="/projects/vllm-mlx/">vLLM-MLX</a></h3><p class="project-description">High-throughput, OpenAI- and Anthropic-compatible LLM and MLLM inference for Apple Silicon, with continuous batching, tool calling, vision, audio, and video support.</p><div class="text-links"><a href="/projects/vllm-mlx/">vLLM-MLX guide</a><a href="https://github.com/waybarrios/vllm-mlx" target="_blank" rel="noopener">vLLM-MLX code</a></div></div><span class="project-proof"><span class="project-stat" data-count="1.5" data-format="decimal" data-suffix="k+">1.5k+</span><small>stars</small><span class="project-stat" data-count="400" data-suffix="+">400+</span><small>tok/s</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></article>
         <a class="project" href="https://github.com/waybarrios/dgx-spark-finetune-llm" target="_blank" rel="noopener"><span class="project-number">04</span><span class="project-copy"><span class="project-name">DGX Spark Fine-tune LLM</span><span class="project-description">An experimental end-to-end pipeline for LoRA fine-tuning, NVFP4/MXFP8 quantization, TensorRT-LLM export, and OpenAI-compatible serving on Blackwell GB10.</span></span><span class="project-proof"><span class="project-stat">4/8</span><small>bit training</small><span class="project-stat">GB10</span><small>Blackwell</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
         <a class="project" href="https://github.com/waybarrios/guidance-based-video-grounding" target="_blank" rel="noopener"><span class="project-number">05</span><span class="project-copy"><span class="project-name">Localizing Moments</span><span class="project-description">Official PyTorch implementation of "Localizing Moments in Long Video Via Multimodal Guidance" (ICCV 2023) — identifies describable windows and prunes irrelevant segments before matching a query.</span></span><span class="project-proof"><span class="project-stat">ICCV</span><small>2023</small><span class="project-stat" data-count="23">23</span><small>stars</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>
         <a class="project" href="https://github.com/waybarrios/opencode-power-pack" target="_blank" rel="noopener"><span class="project-number">06</span><span class="project-copy"><span class="project-name">OpenCode Power Pack</span><span class="project-description">Production workflows for code review, security, feature development, frontend design, and project memory, ported from Claude Code to OpenCode. Website: skills.waybarrios.com</span></span><span class="project-proof"><span class="project-stat" data-count="11">11</span><small>skills</small><span class="project-stat" data-count="450" data-suffix="+">450+</span><small>stars</small></span><span class="project-arrow" aria-hidden="true"><svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></span></a>

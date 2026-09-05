@@ -476,3 +476,27 @@ html[data-theme="dark"] .theme-toggle .icon-sun { animation: icon-in 320ms var(-
 .page-intro h1 { margin: 24px 0; font-size: clamp(2.3rem, 5.5vw, 4.5rem); font-weight: 500; letter-spacing: -.05em; line-height: 1.08; }
 .page-intro > p { margin: 0; color: var(--prose-body); font-size: 1rem; line-height: 1.75; }
 .collection-section { padding-top: 0; }
+
+/* Text labels and project guides follow the existing portfolio typography. */
+.wordmark { gap: 18px; }
+.wordmark-label { font-size: .72rem; font-weight: 600; white-space: nowrap; }
+.text-links { flex-wrap: wrap; gap: 10px 20px; }
+.project-copy .project-name, .project-description { margin: 0; }
+.project-name a { text-decoration: none; }
+.project-copy .text-links { margin-top: 4px; }
+.collection-context { max-width: 800px; margin-bottom: 72px; }
+.collection-context h2 { margin: 0 0 18px; font-size: 1.35rem; font-weight: 500; letter-spacing: -.03em; }
+.collection-context p, .case-copy p { margin: 0 0 22px; color: var(--prose-body); font-size: .95rem; line-height: 1.8; }
+.collection-context p:last-child, .case-copy p:last-child { margin-bottom: 0; }
+.collection-context a:hover, .case-copy a:hover, .page-intro a:hover { color: var(--accent); }
+.page-intro .guide-kicker { margin-top: 32px; color: var(--accent); font-family: var(--font-mono); font-size: .7rem; text-transform: uppercase; }
+.page-intro .guide-byline { margin-top: 20px; color: var(--muted); font-size: .8rem; }
+.guide-links { margin-top: 24px; }
+.case-section { padding: 64px 0; }
+.case-section .section-heading h2 { margin-top: 20px; font-size: clamp(1.75rem, 3vw, 2.5rem); }
+.case-copy { min-width: 0; }
+@media (max-width: 620px) {
+  .wordmark-label { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+  .case-section { padding: 48px 0; gap: 30px; }
+  .collection-context { margin-bottom: 56px; }
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore MoDA with Wayner Barrios: instruction-guided visual grounding, reported benchmark gains, available model families, and evaluation resources.">
+  <meta name="author" content="Wayner Barrios">
+  <meta name="robots" content="index, follow">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f5f3ed">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.dataset.theme = 'dark';
+          var m = document.querySelector('meta[name="color-scheme"]');
+          if (m) m.content = 'dark';
+          var t = document.querySelector('meta[name="theme-color"]');
+          if (t) t.content = '#171613';
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="canonical" href="https://waybarrios.com/projects/moda/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://waybarrios.com/projects/moda/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Wayner Barrios">
+  <meta property="og:title" content="MoDA Visual Grounding Guide | Wayner Barrios">
+  <meta property="og:description" content="Explore MoDA with Wayner Barrios: instruction-guided visual grounding, reported benchmark gains, available model families, and evaluation resources.">
+  <meta property="og:image" content="https://waybarrios.com/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wayner Barrios — AI researcher working on multimodal reasoning and video understanding">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MoDA Visual Grounding Guide | Wayner Barrios">
+  <meta name="twitter:description" content="Explore MoDA with Wayner Barrios: instruction-guided visual grounding, reported benchmark gains, available model families, and evaluation resources.">
+  <meta name="twitter:image" content="https://waybarrios.com/img/og.jpg">
+  <title>MoDA Visual Grounding Guide | Wayner Barrios</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+  <link rel="apple-touch-icon" href="/img/icon-192.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=48e8705860ba">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://waybarrios.com/#website",
+          "name": "Wayner Barrios",
+          "url": "https://waybarrios.com/"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://waybarrios.com/projects/moda/#page",
+          "url": "https://waybarrios.com/projects/moda/",
+          "name": "MoDA Visual Grounding Guide | Wayner Barrios",
+          "description": "Explore MoDA with Wayner Barrios: instruction-guided visual grounding, reported benchmark gains, available model families, and evaluation resources.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://waybarrios.com/#website"
+          },
+          "mainEntity": {
+            "@id": "https://waybarrios.com/projects/moda/#guide"
+          },
+          "breadcrumb": {
+            "@id": "https://waybarrios.com/projects/moda/#breadcrumbs"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://waybarrios.com/#wayner",
+          "name": "Wayner Barrios",
+          "url": "https://waybarrios.com/"
+        },
+        {
+          "@type": "TechArticle",
+          "@id": "https://waybarrios.com/projects/moda/#guide",
+          "headline": "MoDA: a guide to visual grounding",
+          "description": "Explore MoDA with Wayner Barrios: instruction-guided visual grounding, reported benchmark gains, available model families, and evaluation resources.",
+          "author": {
+            "@id": "https://waybarrios.com/#wayner"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://waybarrios.com/projects/moda/#page"
+          },
+          "about": {
+            "@id": "https://waybarrios.com/projects/moda/#software"
+          },
+          "citation": "https://arxiv.org/abs/2506.01850",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://waybarrios.com/projects/moda/#software",
+          "name": "MoDA",
+          "description": "MoDA, the Modulation Adapter, uses a language instruction to adjust visual feature channels before they reach a multimodal language model. This guide explains where it fits, what the experiments show, and how to choose an implementation.",
+          "url": "https://github.com/waybarrios/MoDA",
+          "codeRepository": "https://github.com/waybarrios/MoDA"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://waybarrios.com/projects/moda/#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://waybarrios.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Open source",
+              "item": "https://waybarrios.com/open-source/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "MoDA",
+              "item": "https://waybarrios.com/projects/moda/"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="wordmark" href="/" aria-label="Wayner Barrios, home">
+      <svg class="brand-mark" viewBox="0 0 95 64" aria-hidden="true" focusable="false">
+        <path class="brand-trace brand-trace-back" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+        <path class="brand-trace brand-trace-mid" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+        <path class="brand-final" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+      </svg>
+      <span class="wordmark-label">Wayner Barrios</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="/#about">About</a><a href="/research/">Research</a><a href="/open-source/">Open source</a><!--email_off--><a href="mailto:waybarrios@gmail.com">Contact</a><!--/email_off-->
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M14 9.3A6 6 0 1 1 6.7 2 4.8 4.8 0 0 0 14 9.3Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3.1"/><path d="M8 1.2v1.5M8 13.3v1.5M1.2 8h1.5M13.3 8h1.5M3 3l1.1 1.1M11.9 11.9 13 13M13 3l-1.1 1.1M4.1 11.9 3 13"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <header class="page-intro">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/open-source/">Open source</a><span aria-hidden="true">/</span><span aria-current="page">MoDA</span></nav>
+      <p class="guide-kicker">ICML 2026 · Visual grounding</p>
+      <h1 id="page-title">MoDA: a guide to visual grounding</h1>
+      <p>MoDA, the Modulation Adapter, uses a language instruction to adjust visual feature channels before they reach a multimodal language model. This guide explains where it fits, what the experiments show, and how to choose an implementation.</p>
+      <p class="guide-byline">A project guide by <a href="/#about">Wayner Barrios</a>.</p>
+      <div class="text-links guide-links"><a href="https://arxiv.org/abs/2506.01850" target="_blank" rel="noopener">Read the MoDA paper</a><a href="https://github.com/waybarrios/MoDA" target="_blank" rel="noopener">MoDA repository</a></div>
+    </header>
+    <section class="content-section case-section" id="question" aria-labelledby="question-title">
+      <div class="section-heading"><p class="section-index"><span class="idx-badge" aria-hidden="true">01</span>MoDA</p><h2 id="question-title">Why instructions matter</h2></div>
+      <div class="case-copy"><p>Two questions about the same image can require different visual evidence. Identifying an object, comparing its size, and reading a nearby label place different demands on a model's visual representation. When a visual feature mixes several kinds of information, passing the same representation to the language model can make those distinctions harder to preserve.</p>
+<p>MoDA investigates instruction-guided modulation as a way to address this problem. The research by Wayner Barrios and collaborators focuses on fine-grained visual grounding: connecting the question to the image details that support an answer. The module operates on features that the existing visual adapter has already aligned with the language model. It can therefore complement that adapter within the evaluated model architectures.</p></div>
+    </section>
+    <section class="content-section case-section" id="method" aria-labelledby="method-title">
+      <div class="section-heading"><p class="section-index"><span class="idx-badge" aria-hidden="true">02</span>MoDA</p><h2 id="method-title">Where MoDA fits</h2></div>
+      <div class="case-copy"><p>The model's visual adapter first produces aligned image features. MoDA then conditions on the language instruction to predict a soft mask over individual feature channels. Multiplying the aligned features by that mask changes the contribution of different embedding dimensions before autoregressive decoding begins. This is a channel-level operation on the representation, rather than simply choosing a subset of image tokens.</p>
+<p>The <a href="https://arxiv.org/abs/2506.01850">MoDA paper</a> describes the modulation network and training setup. In the documented LLaVA training protocol, visual alignment is learned first; MoDA is introduced during instruction tuning and trained jointly with the language model. This distinction matters when reproducing the work: using a trained adapter involves the corresponding model weights and preprocessing, not just adding a new prompt to an unchanged model.</p></div>
+    </section>
+    <section class="content-section case-section" id="results" aria-labelledby="results-title">
+      <div class="section-heading"><p class="section-index"><span class="idx-badge" aria-hidden="true">03</span>MoDA</p><h2 id="results-title">Reported evaluation</h2></div>
+      <div class="case-copy"><p>The study covers LLaVA-1.5, LLaVA-MoRE, and Qwen3-VL across 12 benchmarks. These evaluations include visual question answering, tasks that require detailed image understanding, and checks for hallucinated visual content. The reported computational overhead is below 1% additional FLOPs. That is a compute measure for the evaluated configurations, not a statement that model memory or every inference latency remains unchanged.</p>
+<p>Selected comparisons in the <a href="https://github.com/waybarrios/MoDA#results">official results table</a> include an MMVP increase from 24.0 to 36.0 for the LLaVA-1.5 family and a ScienceQA increase from 77.1 to 81.9 for LLaVA-MoRE with SigLIP-S2. The Qwen3-VL-2B comparison reports ScienceQA improving from 79.3 to 84.2. These are benchmark score changes for named configurations; consult the full evaluation when selecting a baseline.</p></div>
+    </section>
+    <section class="content-section case-section" id="use" aria-labelledby="use-title">
+      <div class="section-heading"><p class="section-index"><span class="idx-badge" aria-hidden="true">04</span>MoDA</p><h2 id="use-title">Choose a model family</h2></div>
+      <div class="case-copy"><p>Begin with the <a href="https://github.com/waybarrios/MoDA">MoDA repository</a> and choose the implementation that matches the model family you want to study. Its model table links released checkpoints and identifies the language model and vision encoder used in each configuration. Matching those components matters because feature dimensions, image processing, and evaluation settings differ across families.</p>
+<p>The <a href="https://github.com/waybarrios/MoDA/tree/main/llava-more">LLaVA-MoRE implementation</a> provides its own training and evaluation instructions. The <a href="https://github.com/waybarrios/MoDA/tree/main/qwen3-vl">Qwen3-VL implementation</a> has a separate workflow for integration and evaluation. Follow the selected family's instructions and reproduce a documented comparison before changing encoders, training data, or checkpoints. For an initial inspection, compare answers to questions that refer to different details in the same image.</p></div>
+    </section>
+    <section class="content-section case-section" id="scope" aria-labelledby="scope-title">
+      <div class="section-heading"><p class="section-index"><span class="idx-badge" aria-hidden="true">05</span>MoDA</p><h2 id="scope-title">Scope and related work</h2></div>
+      <div class="case-copy"><p>MoDA targets the interface between visual features and the language model. Better grounding on the tested benchmarks does not establish that every generated explanation is complete or that the model will generalize to an unfamiliar image domain. Evaluation should distinguish changes in visual evidence use from changes in answer style and should retain the same protocol when comparing model variants.</p>
+<p>The <a href="/projects/crystal/">CRYSTAL reasoning guide</a> addresses a complementary question: whether the intermediate steps in an explanation are relevant and correctly ordered. The <a href="/projects/vllm-mlx/">vLLM-MLX serving guide</a> discusses efficient local inference, a separate systems concern. Find the paper among the <a href="/research/">research publications</a> and browse the <a href="/open-source/">open source projects</a> for the other implementations.</p></div>
+    </section>
+    <section class="availability" aria-label="Availability and contact">
+      <p><span class="availability-dot" aria-hidden="true"></span>Building Wiqonn and researching multimodal perception, video understanding, and efficient inference.</p>
+      <!--email_off--><a href="mailto:waybarrios@gmail.com">Get in touch <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a><!--/email_off-->
+    </section>
+  </main>
+
+  <footer class="site-footer"><p>© 2026 Wayner Barrios · Updated September 2026</p><div><a href="/research/">Research</a><a href="/open-source/">Open source</a><a href="https://github.com/waybarrios" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/waybarrios/" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a><a href="https://www.wiqonn.com/" target="_blank" rel="noopener">Wiqonn</a></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script src="/script.js?v=325b048b9adf"></script>
+</body>
+</html>

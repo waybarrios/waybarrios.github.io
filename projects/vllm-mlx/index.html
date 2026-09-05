@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore vLLM-MLX by Wayner Barrios: Apple Silicon inference, compatible APIs, continuous batching, caching, and practical benchmark guidance.">
+  <meta name="author" content="Wayner Barrios">
+  <meta name="robots" content="index, follow">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#f5f3ed">
+  <script>
+    (function () {
+      try {
+        if (localStorage.getItem('theme') === 'dark') {
+          document.documentElement.dataset.theme = 'dark';
+          var m = document.querySelector('meta[name="color-scheme"]');
+          if (m) m.content = 'dark';
+          var t = document.querySelector('meta[name="theme-color"]');
+          if (t) t.content = '#171613';
+        }
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="canonical" href="https://waybarrios.com/projects/vllm-mlx/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://waybarrios.com/projects/vllm-mlx/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Wayner Barrios">
+  <meta property="og:title" content="vLLM-MLX Apple Silicon Inference Guide | Wayner Barrios">
+  <meta property="og:description" content="Explore vLLM-MLX by Wayner Barrios: Apple Silicon inference, compatible APIs, continuous batching, caching, and practical benchmark guidance.">
+  <meta property="og:image" content="https://waybarrios.com/img/og.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wayner Barrios — AI researcher working on multimodal reasoning and video understanding">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="vLLM-MLX Apple Silicon Inference Guide | Wayner Barrios">
+  <meta name="twitter:description" content="Explore vLLM-MLX by Wayner Barrios: Apple Silicon inference, compatible APIs, continuous batching, caching, and practical benchmark guidance.">
+  <meta name="twitter:image" content="https://waybarrios.com/img/og.jpg">
+  <title>vLLM-MLX Apple Silicon Inference Guide | Wayner Barrios</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+  <link rel="apple-touch-icon" href="/img/icon-192.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css?v=48e8705860ba">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://waybarrios.com/#website",
+          "name": "Wayner Barrios",
+          "url": "https://waybarrios.com/"
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://waybarrios.com/projects/vllm-mlx/#page",
+          "url": "https://waybarrios.com/projects/vllm-mlx/",
+          "name": "vLLM-MLX Apple Silicon Inference Guide | Wayner Barrios",
+          "description": "Explore vLLM-MLX by Wayner Barrios: Apple Silicon inference, compatible APIs, continuous batching, caching, and practical benchmark guidance.",
+          "inLanguage": "en",
+          "isPartOf": {
+            "@id": "https://waybarrios.com/#website"
+          },
+          "mainEntity": {
+            "@id": "https://waybarrios.com/projects/vllm-mlx/#guide"
+          },
+          "breadcrumb": {
+            "@id": "https://waybarrios.com/projects/vllm-mlx/#breadcrumbs"
+          }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://waybarrios.com/#wayner",
+          "name": "Wayner Barrios",
+          "url": "https://waybarrios.com/"
+        },
+        {
+          "@type": "TechArticle",
+          "@id": "https://waybarrios.com/projects/vllm-mlx/#guide",
+          "headline": "vLLM-MLX: inference on Apple Silicon",
+          "description": "Explore vLLM-MLX by Wayner Barrios: Apple Silicon inference, compatible APIs, continuous batching, caching, and practical benchmark guidance.",
+          "author": {
+            "@id": "https://waybarrios.com/#wayner"
+          },
+          "mainEntityOfPage": {
+            "@id": "https://waybarrios.com/projects/vllm-mlx/#page"
+          },
+          "about": {
+            "@id": "https://waybarrios.com/projects/vllm-mlx/#software"
+          },
+          "citation": "https://arxiv.org/abs/2601.19139",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "SoftwareSourceCode",
+          "@id": "https://waybarrios.com/projects/vllm-mlx/#software",
+          "name": "vLLM-MLX",
+          "description": "vLLM-MLX is an inference server built by Wayner Barrios for language and multimodal models on Apple Silicon. It combines a native MLX runtime with familiar client APIs and systems for sharing work across requests.",
+          "url": "https://github.com/waybarrios/vllm-mlx",
+          "codeRepository": "https://github.com/waybarrios/vllm-mlx"
+        },
+        {
+          "@type": "BreadcrumbList",
+          "@id": "https://waybarrios.com/projects/vllm-mlx/#breadcrumbs",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://waybarrios.com/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "name": "Open source",
+              "item": "https://waybarrios.com/open-source/"
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "name": "vLLM-MLX",
+              "item": "https://waybarrios.com/projects/vllm-mlx/"
+            }
+          ]
+        }
+      ]
+    }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"></div>
+  <header class="site-header">
+    <a class="wordmark" href="/" aria-label="Wayner Barrios, home">
+      <svg class="brand-mark" viewBox="0 0 95 64" aria-hidden="true" focusable="false">
+        <path class="brand-trace brand-trace-back" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+        <path class="brand-trace brand-trace-mid" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+        <path class="brand-final" d="M3 5h12l14 27 9-21h4l9 21L65 5h12L53 59 40 34 27 59Z"/>
+      </svg>
+      <span class="wordmark-label">Wayner Barrios</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="/#about">About</a><a href="/research/">Research</a><a href="/open-source/">Open source</a><!--email_off--><a href="mailto:waybarrios@gmail.com">Contact</a><!--/email_off-->
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="false" aria-label="Switch to dark theme">
+        <svg class="icon-moon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M14 9.3A6 6 0 1 1 6.7 2 4.8 4.8 0 0 0 14 9.3Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="3.1"/><path d="M8 1.2v1.5M8 13.3v1.5M1.2 8h1.5M13.3 8h1.5M3 3l1.1 1.1M11.9 11.9 13 13M13 3l-1.1 1.1M4.1 11.9 3 13"/></svg>
+      </button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <header class="page-intro">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/open-source/">Open source</a><span aria-hidden="true">/</span><span aria-current="page">vLLM-MLX</span></nav>
+      <p class="guide-kicker">Open source · Inference systems</p>
+      <h1 id="page-title">vLLM-MLX: inference on Apple Silicon</h1>
+      <p>vLLM-MLX is an inference server built by Wayner Barrios for language and multimodal models on Apple Silicon. It combines a native MLX runtime with familiar client APIs and systems for sharing work across requests.</p>
+      <p class="guide-byline">A project guide by <a href="/#about">Wayner Barrios</a>.</p>
+      <div class="text-links guide-links"><a href="https://arxiv.org/abs/2601.19139" target="_blank" rel="noopener">Read the vLLM-MLX paper</a><a href="https://github.com/waybarrios/vllm-mlx" target="_blank" rel="noopener">vLLM-MLX repository</a></div>
+    </header>
+    <section class="content-section case-section" id="question" aria-labelledby="question-title">
+      <div class="section-heading"><p class="section-index"><span class="idx-badge" aria-hidden="true">01</span>vLLM-MLX</p><h2 id="question-title">From a model to a service</h2></div>
+      <div class="case-copy"><p>Running one prompt through a model is different from serving an application. A service must accept new requests while others are generating, handle repeated context, and expose an interface that existing tools can use. On a Mac, those tasks also need to fit the model and its working memory into the machine's available unified memory.</p>
+<p>vLLM-MLX brings these serving concerns to Apple's MLX ecosystem. It exposes OpenAI-compatible and Anthropic-compatible APIs from a single process and supports language models as well as supported image, video, and audio workflows. The project is useful when building local applications or evaluating models on Apple hardware and when the application benefits from a server interface instead of direct model calls.</p></div>
+    </section>
+    <section class="content-section case-section" id="method" aria-labelledby="method-title">
+      <div class="section-heading"><p class="section-index"><span class="idx-badge" aria-hidden="true">02</span>vLLM-MLX</p><h2 id="method-title">Batching and shared context</h2></div>
+      <div class="case-copy"><p>Continuous batching lets the server schedule requests as they arrive and finish, so concurrent users can share model execution. Prefix caching reuses previously computed context when later requests have matching prefixes. The server also provides paged cache management and an optional SSD cache tier. These mechanisms address different parts of the workload; a cache hit and a faster decoding step are not the same result.</p>
+<p>Multimodal prefix caching is particularly useful for repeated questions about the same image or shared visual context. The <a href="https://arxiv.org/abs/2601.19139">inference paper</a> studies this setting alongside native model execution and scheduling on Apple Silicon. Whether caching helps a particular application depends on how its inputs repeat, how much cache can be retained, and how requests are distributed over time.</p></div>
+    </section>
+    <section class="content-section case-section" id="results" aria-labelledby="results-title">
+      <div class="section-heading"><p class="section-index"><span class="idx-badge" aria-hidden="true">03</span>vLLM-MLX</p><h2 id="results-title">Read the benchmark in context</h2></div>
+      <div class="case-copy"><p>The paper reports up to 525 tokens per second for text models on an Apple M4 Max and a 28x speedup for repeated image queries in its evaluated configuration. Those measurements describe particular models and workloads. They should not be read as the expected speed of every model or as the latency of a cold request that cannot reuse visual context.</p>
+<p>The <a href="https://github.com/waybarrios/vllm-mlx/tree/main/docs/benchmarks">benchmark documentation</a> provides more detailed serving comparisons. When testing your own setup, record the chip, memory, model, quantization, prompt length, generated tokens, concurrency, and cache state. Measure time to the first token separately from decoding throughput. A small model's tokens-per-second number alone cannot tell you whether a larger multimodal workload will meet an application's latency needs.</p></div>
+    </section>
+    <section class="content-section case-section" id="use" aria-labelledby="use-title">
+      <div class="section-heading"><p class="section-index"><span class="idx-badge" aria-hidden="true">04</span>vLLM-MLX</p><h2 id="use-title">Start with a small workload</h2></div>
+      <div class="case-copy"><p>Use the installation and quickstart instructions in the <a href="https://github.com/waybarrios/vllm-mlx#quick-start-30-seconds">vLLM-MLX repository</a>. Begin with a supported model that fits comfortably in your Mac's memory, start the server, and send a short request through the client API you plan to use. This checks the complete path from application to model before you add larger prompts, multiple users, or image inputs.</p>
+<p>Next, try a representative sample of your actual workload. Compare cold and repeated requests, then increase concurrency gradually to see how batching affects throughput and latency. The repository documents a built-in serving benchmark and metrics endpoint for these measurements. For image, audio, tool calling, or structured output, check the relevant model support and configuration rather than assuming that every feature is available for every checkpoint.</p></div>
+    </section>
+    <section class="content-section case-section" id="scope" aria-labelledby="scope-title">
+      <div class="section-heading"><p class="section-index"><span class="idx-badge" aria-hidden="true">05</span>vLLM-MLX</p><h2 id="scope-title">What the server does and does not change</h2></div>
+      <div class="case-copy"><p>The runtime targets Apple Silicon and MLX. Its API compatibility makes integration easier, but it does not make a locally loaded model identical to a hosted model. Reasoning quality, visual understanding, context limits, and tool behavior still depend on the selected model and configuration. Serving efficiency and model quality should be measured separately when deciding whether a deployment is useful.</p>
+<p>For work on model behavior, see <a href="/projects/moda/">MoDA for visual grounding</a> and <a href="/projects/crystal/">CRYSTAL for reasoning evaluation</a>. These are related research directions, not claims that their checkpoints run unchanged in this server. The <a href="/research/">research collection</a> includes the inference paper, and the <a href="/open-source/">open source collection</a> links the other tools and contributions.</p></div>
+    </section>
+    <section class="availability" aria-label="Availability and contact">
+      <p><span class="availability-dot" aria-hidden="true"></span>Building Wiqonn and researching multimodal perception, video understanding, and efficient inference.</p>
+      <!--email_off--><a href="mailto:waybarrios@gmail.com">Get in touch <svg class="arrow-icon" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4 12 12 4M6 4h6v6"/></svg></a><!--/email_off-->
+    </section>
+  </main>
+
+  <footer class="site-footer"><p>© 2026 Wayner Barrios · Updated September 2026</p><div><a href="/research/">Research</a><a href="/open-source/">Open source</a><a href="https://github.com/waybarrios" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/waybarrios/" target="_blank" rel="noopener">LinkedIn</a><a href="https://scholar.google.com.co/citations?user=MPJZRmsAAAAJ&amp;hl=en" target="_blank" rel="noopener">Scholar</a><a href="https://www.wiqonn.com/" target="_blank" rel="noopener">Wiqonn</a></div></footer>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+  <script src="/script.js?v=325b048b9adf"></script>
+</body>
+</html>
