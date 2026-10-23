@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Wayner Barrios split W</title>
+  <style>
+    .mark { fill: #333; }
+    @media (prefers-color-scheme: dark) { .mark { fill: #f5f5f5; } }
+  </style>
+  <g class="mark">
+    <polygon points="6,16 13,16 19,40 25,16 31,16 23,48 15,48"/>
+    <polygon points="33,16 39,16 45,40 51,16 58,16 49,48 41,48"/>
+  </g>
+</svg>

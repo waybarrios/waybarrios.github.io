@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Wayner Barrios monoline W</title>
+  <style>
+    .mark { stroke: #333; }
+    @media (prefers-color-scheme: dark) { .mark { stroke: #f5f5f5; } }
+  </style>
+  <polyline class="mark" points="12,18 22,46 32,26 42,46 52,18" fill="none" stroke-width="6" stroke-linecap="square" stroke-linejoin="bevel"/>
+</svg>

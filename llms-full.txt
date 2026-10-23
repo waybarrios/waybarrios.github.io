@@ -1,7 +1,7 @@
 # Wayner Barrios
 
 > Multimodal AI researcher building models that perceive and reason about the world more like we do — from transparent reasoning benchmarks to production-grade inference engines on Apple Silicon.
-> Updated: 2026-09-05
+> Updated: 2026-10-23
 
 ## Quick facts
 
@@ -28,7 +28,7 @@ His work has appeared at CVPR, ICCV, ECCV, ICML, WACV, and other leading venues,
 ## What I'm known for
 
 - **CRYSTAL** (ECCV 2026): benchmark and training framework for transparent multimodal reasoning evaluation — 6,372 instances, every intermediate step checked across 20 models (none maintained more than 60% ordered step accuracy); Causal Process Reward improves step-level consistency by 32% without manual annotations.
-- **vLLM-MLX**: OpenAI- and Anthropic-compatible LLM/MLLM inference server for Apple Silicon — 400+ tokens per second, 1.5k+ GitHub stars, continuous batching, tool calling, vision, audio, and video support.
+- **vLLM-MLX**: OpenAI- and Anthropic-compatible LLM/MLLM inference server for Apple Silicon — 400+ tokens per second, 1.6k+ GitHub stars, continuous batching, tool calling, vision, audio, and video support.
 - **MoDA** (ICML 2026): instruction-guided channel modulation for fine-grained visual grounding in instructional MLLMs — better grounding across 3 MLLM families and 12 benchmarks with less than 1% additional FLOPs.
 - **Native MLX inference at scale**: 525 tokens per second with multimodal prefix caching (28x faster repeated image queries on M4 Max).
 
@@ -86,10 +86,12 @@ Complete publication record: https://scholar.google.com.co/citations?user=MPJZRm
 
 ## Open source
 
-1. **vLLM-MLX** — https://github.com/waybarrios/vllm-mlx — High-throughput, OpenAI- and Anthropic-compatible LLM and MLLM inference for Apple Silicon, with continuous batching, tool calling, vision, audio, and video support. 1.5k+ stars, 400+ tok/s.
+Engineering articles by Wayner Barrios at Wiqonn: https://www.wiqonn.com/blog
+
+1. **vLLM-MLX** — https://github.com/waybarrios/vllm-mlx — High-throughput, OpenAI- and Anthropic-compatible LLM and MLLM inference for Apple Silicon, with continuous batching, tool calling, vision, audio, and video support. 1.6k+ stars, 400+ tok/s. Version 0.6.0 released October 20, 2026: https://github.com/waybarrios/vllm-mlx/releases/tag/v0.6.0 Wiqonn article: https://www.wiqonn.com/blog/vllm-mlx
 2. **GPT4All** (Contribution) — https://github.com/nomic-ai/gpt4all — Merged a dataset-handling fix into GPT4All's local LLM runtime (77k+ stars) — the most widely adopted on-device LLM stack. 1 merged PR.
 3. **GeoNode** (Contribution) — https://github.com/GeoNode/geonode — Docker/GeoServer OAuth2 integration and notification refactor (3 merged PRs), Dockerized project skeleton (33 commits), and fixes across the GeoNode Docker stack. 1.7k stars.
-4. **OpenCode Power Pack** — https://github.com/waybarrios/opencode-power-pack — Production workflows for code review, security, feature development, frontend design, and project memory, ported from Claude Code to OpenCode. 11 skills, 450+ stars. Website: https://skills.waybarrios.com/
+4. **OpenCode Power Pack**: https://github.com/waybarrios/opencode-power-pack. I maintain skills for code review, security audits, feature development, and writing across Claude Code, Codex, OpenCode, and Pi. 55 skills on main, 500+ stars. Website: https://skills.waybarrios.com/
 5. **MapProxy** (Contribution) — https://github.com/mapproxy/mapproxy — Added dimension-layer caching for WMS and WMTS to MapProxy — the tile cache and WMS proxy at the core of OpenStreetMap infrastructure. 666 stars, 10 commits.
 6. **CRYSTAL** — https://github.com/SEE-AI-Lab/crystal — ECCV 2026 benchmark, dataset, and pip-installable metrics for evaluating ordered reasoning traces and training with process rewards. 6,372 instances.
 7. **MoDA** — https://github.com/waybarrios/MoDA — Official implementation of MoDA (ICML 2026) — instruction-guided channel modulation for fine-grained visual grounding in instructional MLLMs, with under 1% additional FLOPs.
@@ -97,7 +99,19 @@ Complete publication record: https://scholar.google.com.co/citations?user=MPJZRm
 9. **Hypermap Registry** (Contribution) — https://github.com/cga-harvard/Hypermap-Registry — ElasticSearch API, aggregations, and time faceting for Harvard CGA's Hypermap Registry. 15 PRs, 9 merged.
 10. **WorldMap** (Contribution) — https://github.com/cga-harvard/worldmap — Maintained the GeoNode 2.6-based platform: Django migrations, Dataverse/DataTables integration, Dockerized deployment. 66 commits, 6 merged PRs.
 11. **ActivityNet** (Contribution) — https://github.com/activitynet/activitynet.github.io — Built and maintained the official ActivityNet challenge website — evaluation server, leaderboard, and GPU awards — for the leading video understanding benchmark, plus video filtering and annotation process QA. 114 commits.
-12. **DGX Spark Fine-tune LLM** — https://github.com/waybarrios/dgx-spark-finetune-llm — End-to-end pipeline for LoRA fine-tuning, NVFP4/MXFP8 quantization, TensorRT-LLM export, and OpenAI-compatible serving on Blackwell GB10. 4/8-bit training.
+12. **DGX Spark Fine-tune LLM** — https://github.com/waybarrios/dgx-spark-finetune-llm — End-to-end pipeline for LoRA fine-tuning, NVFP4/MXFP8 quantization, TensorRT-LLM export, and OpenAI-compatible serving on Blackwell GB10. 4/8-bit training. Wiqonn article: https://www.wiqonn.com/blog/dgx-spark-finetune
+13. **cyber-agent**: https://github.com/waybarrios/cyber-agent. I work on penetration testing workflows and security reporting with Claude Code agents, through RedTeam Barranquilla.
+14. **Qwen Code** (Contribution): https://github.com/QwenLM/qwen-code. I contribute to coding-agent workflows, shell command safety, OpenAI-compatible backends, and DOCX generation through MCP. 1 merged PR: https://github.com/QwenLM/qwen-code/pull/12497. 3 open PRs: https://github.com/QwenLM/qwen-code/pulls?q=is%3Apr%20author%3Awaybarrios%20is%3Aopen. Checked October 23, 2026.
+15. **SameBoy MCP** (Contribution): https://github.com/huehuehuehueing/sameboy_mcp. I worked on agent prompts, tool filtering, prompt caching, macOS support, and the debugging interface for a Game Boy emulator connected through MCP. 6 merged PRs: https://github.com/huehuehuehueing/sameboy_mcp/pulls?q=is%3Apr%20author%3Awaybarrios%20is%3Amerged
+
+## Community
+
+Wayner enjoys mentoring and sharing what he learns. He has helped organize LXAI mentorship and contributed to Python Barranquilla, Python Colombia, and RedTeam Barranquilla.
+
+- LXAI: mentorship organizer at ICML 2022 (https://www.latinxinai.org/icml-2022) and part of the Doctoral Consortium and Mentoring Program team at ECCV 2022 (https://www.latinxinai.org/eccv-2022).
+- Python Barranquilla: listed among previous contributors (https://pybaq.co/nosotros/), with community talks on machine learning with Python and Flappy Bird in 2017 and multimodal video analytics in 2019.
+- Python Colombia: community participation and talks listed on the community event archive (https://www.python.org.co/eventos/2017/05/aprende-machine-learning-basico-jugando-con-python-y-flappy-bird/ and https://www.python.org.co/eventos/2019/08/multimodal-video-analytics-data-science-the-new-age-revolution/).
+- RedTeam Barranquilla (https://redteambq.co/): work on Claude Code agents for penetration testing and security reporting through cyber-agent (https://github.com/waybarrios/cyber-agent).
 
 ## Experience highlights
 

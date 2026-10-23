@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="color-scheme" content="light">
+  <title>W logo variants | Wayner Barrios</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=07017545d8dc">
+  <style>
+    :root { color-scheme: light; --paper: #fff; --ink: #333; --muted: #666; --dark: #171816; --line: #ededed; --space: 1.5rem; }
+    * { box-sizing: border-box; }
+    body { margin: 0; padding: 3rem; background: var(--paper); color: var(--ink); font: .875rem/1.6 Consolas, "Liberation Mono", Menlo, monospace; }
+    main { max-width: 64rem; margin-inline: auto; }
+    h1 { margin: 0 0 .5rem; font-size: 1.5rem; letter-spacing: -.03em; }
+    p { margin: 0 0 2rem; color: var(--muted); }
+    .variants { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space); }
+    article { min-width: 0; }
+    h2 { margin: 0 0 1rem; font-size: .875rem; font-weight: 400; }
+    .swatch { display: grid; place-items: center; height: 14rem; border: 1px solid var(--line); }
+    .swatch img { display: block; width: 11rem; height: 11rem; filter: brightness(0); opacity: .8; }
+    .swatch.dark { border-color: var(--dark); background: var(--dark); }
+    .swatch.dark img { filter: brightness(0) invert(.96); opacity: 1; }
+    .sizes { display: flex; align-items: center; gap: 1rem; min-height: 4rem; }
+    .sizes img { display: block; filter: brightness(0); opacity: .8; }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+    a:focus-visible { outline: 2px solid var(--ink); outline-offset: 4px; }
+    footer { margin-top: 2rem; }
+    @media (max-width: 42rem) { body { padding: var(--space); } .variants { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>W / Wayner Barrios</h1>
+    <p>Three SVG variants on light and dark backgrounds, with previews at 16, 24, and 32px.</p>
+    <div class="variants">
+      <article aria-labelledby="geometric-title">
+        <h2 id="geometric-title">A / Geometric</h2>
+        <div class="swatch"><img src="w-geometric.svg" alt="Geometric W with flat terminals"></div>
+        <div class="swatch dark"><img src="w-geometric.svg" alt="Geometric W in light ink on dark"></div>
+        <div class="sizes" aria-label="Geometric W at small sizes"><img src="w-geometric.svg" width="16" height="16" alt="16px"><img src="w-geometric.svg" width="24" height="24" alt="24px"><img src="w-geometric.svg" width="32" height="32" alt="32px"></div>
+        <a href="w-geometric.svg" download>Download SVG</a>
+      </article>
+      <article aria-labelledby="monoline-title">
+        <h2 id="monoline-title">B / Monoline</h2>
+        <div class="swatch"><img src="w-monoline.svg" alt="Thin W drawn with one continuous line"></div>
+        <div class="swatch dark"><img src="w-monoline.svg" alt="Monoline W in light ink on dark"></div>
+        <div class="sizes" aria-label="Monoline W at small sizes"><img src="w-monoline.svg" width="16" height="16" alt="16px"><img src="w-monoline.svg" width="24" height="24" alt="24px"><img src="w-monoline.svg" width="32" height="32" alt="32px"></div>
+        <a href="w-monoline.svg" download>Download SVG</a>
+      </article>
+      <article aria-labelledby="terminal-title">
+        <h2 id="terminal-title">C / Terminal</h2>
+        <div class="swatch"><img src="w-terminal.svg" alt="Squared W made from horizontal and vertical lines"></div>
+        <div class="swatch dark"><img src="w-terminal.svg" alt="Terminal W in light ink on dark"></div>
+        <div class="sizes" aria-label="Terminal W at small sizes"><img src="w-terminal.svg" width="16" height="16" alt="16px"><img src="w-terminal.svg" width="24" height="24" alt="24px"><img src="w-terminal.svg" width="32" height="32" alt="32px"></div>
+        <a href="w-terminal.svg" download>Download SVG</a>
+      </article>
+    </div>
+    <footer><a href="/">Back to website</a></footer>
+  </main>
+</body>
+</html>

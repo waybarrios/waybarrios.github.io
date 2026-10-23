@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">Wayner Barrios W mark</title>
+  <style>
+    .mark { fill: #333; }
+    @media (prefers-color-scheme: dark) { .mark { fill: #f5f5f5; } }
+  </style>
+  <polygon class="mark" points="8,16 16,16 24,42 29,26 35,26 40,42 48,16 56,16 44,50 36,50 32,36 28,50 20,50"/>
+</svg>

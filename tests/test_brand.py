@@ -9,8 +9,6 @@ from PIL import Image
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PAPER_DARK = (23, 22, 19)
-PAPER_LIGHT = (245, 243, 237)
 
 
 def relative_luminance(rgb):
@@ -26,12 +24,10 @@ def contrast_ratio(first, second):
     return (lighter + 0.05) / (darker + 0.05)
 
 
-def render_page(dark=False):
+def render_page(width=1200):
     source = (ROOT / "index.html").read_text()
-    if dark:
-        source = source.replace('<html lang="en">', '<html lang="en" data-theme="dark">', 1)
 
-    page = ROOT / ".brand-render-test.html"
+    page = ROOT / ".profile-render-test.html"
     page.write_text(source)
     try:
         with tempfile.TemporaryDirectory(dir=ROOT) as temp_dir:
@@ -48,7 +44,7 @@ def render_page(dark=False):
                     "--screenshot",
                     str(screenshot),
                     "--window-size",
-                    "1200,300",
+                    f"{width},900",
                     page.as_uri(),
                 ],
                 check=True,
@@ -71,56 +67,44 @@ class BrandTests(unittest.TestCase):
         self.assertIsNotNone(stylesheet, "page must include a versioned stylesheet URL")
         self.assertEqual(stylesheet.group(1), f"style.css?v={css_hash}")
 
-    def assert_logo_visible(self, dark):
-        image = render_page(dark=dark)
-        # The 1120px header is centered in a 1200px viewport, placing the mark near x=40.
-        crop = image.crop((38, 14, 115, 78))
-        background = PAPER_DARK if dark else PAPER_LIGHT
+    def assert_profile_readable(self, width):
+        image = render_page(width=width)
+        background = (255, 255, 255)
+        self.assertEqual(image.getpixel((0, 0)), background)
         visible_pixels = sum(
-            contrast_ratio(pixel, background) >= 3 for pixel in crop.get_flattened_data()
+            contrast_ratio(pixel, background) >= 4.5 for pixel in image.get_flattened_data()
         )
         self.assertGreater(
             visible_pixels,
-            100,
-            f"expected a visible header mark in {'dark' if dark else 'light'} mode, got {visible_pixels} contrasting pixels",
+            1000,
+            f"expected readable profile text at {width}px, got {visible_pixels} contrasting pixels",
         )
 
-    def test_header_logo_is_visible_in_light_mode(self):
-        self.assert_logo_visible(dark=False)
+    def test_profile_is_readable_on_desktop(self):
+        self.assert_profile_readable(width=1200)
 
-    def test_header_logo_is_visible_in_dark_mode(self):
-        self.assert_logo_visible(dark=True)
+    def test_profile_is_readable_on_mobile(self):
+        self.assert_profile_readable(width=320)
 
-    def test_manifest_icons_use_converging_frames_identity(self):
-        small = Image.open(ROOT / "img/icon.png").convert("RGBA")
-        large = Image.open(ROOT / "img/icon-192.png").convert("RGBA")
-
-        self.assertEqual(small.size, (32, 32))
-        self.assertEqual(large.size, (192, 192))
-
-        small_ink = sum(
-            alpha > 128 and red < 55 and green < 55 and blue < 55
-            for red, green, blue, alpha in small.get_flattened_data()
-        )
-        self.assertGreater(small_ink, 30, "32px icon must use the simplified ink W")
-
-        large_pixels = list(large.get_flattened_data())
-        large_ink = sum(
-            alpha > 128 and red < 55 and green < 55 and blue < 55
-            for red, green, blue, alpha in large_pixels
-        )
-        large_blue = sum(
-            alpha > 128 and blue > red * 1.5 and blue > green * 1.2
-            for red, green, blue, alpha in large_pixels
-        )
-        corner = large.getpixel((0, 0))[:3]
-
-        self.assertGreater(large_ink, 800, "192px icon must contain the dominant final W")
-        self.assertGreater(large_blue, 800, "192px icon must contain the two observation traces")
-        self.assertTrue(
-            all(abs(actual - expected) <= 3 for actual, expected in zip(corner, PAPER_LIGHT)),
-            f"192px icon must use the paper background, got {corner}",
-        )
+    def test_manifest_icons_use_white_w_on_black_circle(self):
+        for name, size in [("icon.png", 32), ("icon-192.png", 192)]:
+            with self.subTest(icon=name):
+                image = Image.open(ROOT / "img" / name).convert("RGBA")
+                self.assertEqual(image.size, (size, size))
+                self.assertEqual(image.getpixel((0, 0))[3], 0, "circle corners must be transparent")
+                self.assertEqual(image.getpixel((size // 2, size // 8)), (0, 0, 0, 255))
+                pixels = list(image.get_flattened_data())
+                white = sum(
+                    alpha > 128 and red > 230 and green > 230 and blue > 230
+                    for red, green, blue, alpha in pixels
+                )
+                black = sum(
+                    alpha > 128 and red < 25 and green < 25 and blue < 25
+                    for red, green, blue, alpha in pixels
+                )
+                self.assertGreater(white, size * size * .015, "the white W must remain visible")
+                self.assertGreater(black, size * size * .5, "the circular background must be black")
+                self.assertTrue(all(red == green == blue for red, green, blue, _ in pixels))
 
 
 if __name__ == "__main__":

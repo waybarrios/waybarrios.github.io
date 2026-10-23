@@ -1,7 +1,7 @@
 # Wayner Barrios
 
 > Multimodal AI researcher building models that perceive and reason about the world more like we do — from transparent reasoning benchmarks to production-grade inference engines on Apple Silicon.
-> Updated: 2026-09-05
+> Updated: 2026-10-23
 
 ## Quick facts
 
@@ -27,7 +27,7 @@ His work has appeared at CVPR, ICCV, ECCV, ICML, WACV, and other leading venues,
 ## What I'm known for
 
 - **CRYSTAL** (ECCV 2026): benchmark and training framework for transparent multimodal reasoning evaluation — 6,372 instances, every intermediate step checked across 20 models (none maintained more than 60% ordered step accuracy); Causal Process Reward improves step-level consistency by 32% without manual annotations.
-- **vLLM-MLX**: OpenAI- and Anthropic-compatible LLM/MLLM inference server for Apple Silicon — 400+ tokens per second, 1.5k+ GitHub stars, continuous batching, tool calling, vision, audio, and video support.
+- **vLLM-MLX**: OpenAI- and Anthropic-compatible LLM/MLLM inference server for Apple Silicon — 400+ tokens per second, 1.6k+ GitHub stars, continuous batching, tool calling, vision, audio, and video support.
 - **MoDA** (ICML 2026): instruction-guided channel modulation for fine-grained visual grounding in instructional MLLMs — better grounding across 3 MLLM families and 12 benchmarks with less than 1% additional FLOPs.
 - **Native MLX inference at scale**: 525 tokens per second with multimodal prefix caching (28x faster repeated image queries on M4 Max).
 
@@ -56,12 +56,27 @@ His work has appeared at CVPR, ICCV, ECCV, ICML, WACV, and other leading venues,
 
 ## Open source
 
-- [vLLM-MLX](https://github.com/waybarrios/vllm-mlx): high-throughput OpenAI/Anthropic-compatible inference for Apple Silicon — continuous batching, tool calling, vision, audio, video; 1.5k+ stars, 400+ tok/s.
+Engineering articles by Wayner Barrios at Wiqonn: https://www.wiqonn.com/blog
+
+- [vLLM-MLX](https://github.com/waybarrios/vllm-mlx): high-throughput OpenAI/Anthropic-compatible inference for Apple Silicon — continuous batching, tool calling, vision, audio, video; 1.6k+ stars, 400+ tok/s. Wiqonn article: https://www.wiqonn.com/blog/vllm-mlx
 - [CRYSTAL](https://github.com/SEE-AI-Lab/crystal): ECCV 2026 benchmark, dataset, and pip-installable metrics for ordered reasoning traces and process-reward training.
 - [MoDA](https://github.com/waybarrios/MoDA): official ICML 2026 implementation — instruction-guided channel modulation for visual grounding.
 - [Localizing Moments](https://github.com/waybarrios/guidance-based-video-grounding): official ICCV 2023 implementation — describable windows and segment pruning for long-video grounding.
-- [DGX Spark Fine-tune LLM](https://github.com/waybarrios/dgx-spark-finetune-llm): LoRA fine-tuning, NVFP4/MXFP8 quantization, TensorRT-LLM export, OpenAI-compatible serving on Blackwell GB10.
-- Contributions: GPT4All (77k+ stars), GeoNode (3 merged PRs), MapProxy (dimension-layer caching, 10 commits), Harvard CGA Hypermap Registry (9 merged PRs) and WorldMap (66 commits, 6 PRs), ActivityNet (114 commits, video filtering and annotation QA), OpenCode Power Pack (skills.waybarrios.com).
+- [DGX Spark Fine-tune LLM](https://github.com/waybarrios/dgx-spark-finetune-llm): LoRA fine-tuning, NVFP4/MXFP8 quantization, TensorRT-LLM export, OpenAI-compatible serving on Blackwell GB10. Wiqonn article: https://www.wiqonn.com/blog/dgx-spark-finetune
+- [OpenCode Power Pack](https://github.com/waybarrios/opencode-power-pack): I maintain skills for code review, security audits, feature development, and writing across Claude Code, Codex, OpenCode, and Pi. 55 skills on main, 500+ stars.
+- [cyber-agent](https://github.com/waybarrios/cyber-agent): I work on penetration testing workflows and security reporting with Claude Code agents, through RedTeam Barranquilla.
+- [Qwen Code](https://github.com/QwenLM/qwen-code) (contribution): I contribute to coding-agent workflows, shell command safety, OpenAI-compatible backends, and DOCX generation through MCP. [1 merged PR](https://github.com/QwenLM/qwen-code/pull/12497) and [3 open PRs](https://github.com/QwenLM/qwen-code/pulls?q=is%3Apr%20author%3Awaybarrios%20is%3Aopen), checked October 23, 2026.
+- [SameBoy MCP](https://github.com/huehuehuehueing/sameboy_mcp) (contribution): I worked on agent prompts, tool filtering, prompt caching, macOS support, and the debugging interface for a Game Boy emulator connected through MCP. [6 merged PRs](https://github.com/huehuehuehueing/sameboy_mcp/pulls?q=is%3Apr%20author%3Awaybarrios%20is%3Amerged).
+- Contributions: GPT4All (77k+ stars), GeoNode (3 merged PRs), MapProxy (dimension-layer caching, 10 commits), Harvard CGA Hypermap Registry (9 merged PRs) and WorldMap (66 commits, 6 PRs), ActivityNet (114 commits, video filtering and annotation QA).
+
+## Community
+
+Wayner enjoys mentoring and sharing what he learns. He has helped organize LXAI mentorship and contributed to Python Barranquilla, Python Colombia, and RedTeam Barranquilla.
+
+- LXAI: mentorship organizer at ICML 2022 (https://www.latinxinai.org/icml-2022) and part of the Doctoral Consortium and Mentoring Program team at ECCV 2022 (https://www.latinxinai.org/eccv-2022).
+- Python Barranquilla: listed among previous contributors (https://pybaq.co/nosotros/), with community talks on machine learning with Python and Flappy Bird in 2017 and multimodal video analytics in 2019.
+- Python Colombia: community participation and talks listed on the community event archive (https://www.python.org.co/eventos/2017/05/aprende-machine-learning-basico-jugando-con-python-y-flappy-bird/ and https://www.python.org.co/eventos/2019/08/multimodal-video-analytics-data-science-the-new-age-revolution/).
+- RedTeam Barranquilla (https://redteambq.co/): work on Claude Code agents for penetration testing and security reporting through cyber-agent (https://github.com/waybarrios/cyber-agent).
 
 ## Experience highlights
 
