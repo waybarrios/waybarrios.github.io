@@ -38,3 +38,21 @@
 .kernel-post .scope { font-size: .9375rem; }
 .kernel-post figcaption { font-size: .875rem; }
 .chart-controls label, .chart-controls select { font-size: .875rem; }
+
+/* Example pairs */
+.pair-example { margin: 1.5rem 0; }
+.pair-request { margin-bottom: .75rem; font-style: italic; }
+.pair-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.kernel-post .scene { margin: 0; }
+.scene img { display: block; width: 100%; max-width: 320px; aspect-ratio: 1 / 1; object-fit: cover; border: 1px solid #dedede; }
+.scene figcaption { margin-top: .5rem; font-size: .8125rem; color: var(--ink); }
+.tag { display: inline-block; margin-right: .35rem; padding: 0 .35rem; font-size: .75rem; color: #fff; }
+.tag-safe { background: #23617d; }
+.tag-unsafe { background: #9b3b2a; }
+.kernel-post .pair-credit { font-size: .8125rem; color: var(--muted); }
+@media (max-width: 40rem) {
+  .pair-grid { gap: .5rem; }
+  .scene figcaption { font-size: .75rem; }
+  .tag { display: block; width: fit-content; margin-bottom: .2rem; }
+}
+.kernel-post pre.wrap code { white-space: pre-wrap; }
