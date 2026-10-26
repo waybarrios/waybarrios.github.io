@@ -1,0 +1,366 @@
+{
+ "shortcut": [
+  {
+   "name": "Claude Opus 5.5",
+   "rule": false,
+   "original": 88.4,
+   "corrected": 92.0
+  },
+  {
+   "name": "Muse Spark 1.3",
+   "rule": false,
+   "original": 81.8,
+   "corrected": 81.8
+  },
+  {
+   "name": "DeepSeek-V4.1-Flash",
+   "rule": false,
+   "original": 79.2,
+   "corrected": 79.5
+  },
+  {
+   "name": "Claude Sonnet 5.5",
+   "rule": false,
+   "original": 78.8,
+   "corrected": 83.0
+  },
+  {
+   "name": "Qwen3.8-Flash",
+   "rule": false,
+   "original": 78.3,
+   "corrected": 84.1
+  },
+  {
+   "name": "GPT-6.1 Sol",
+   "rule": false,
+   "original": 74.2,
+   "corrected": 71.0
+  },
+  {
+   "name": "GPT-6 Luna",
+   "rule": false,
+   "original": 65.8,
+   "corrected": 66.5
+  },
+  {
+   "name": "Image-size rule (> 640 px)",
+   "rule": true,
+   "original": 82.3,
+   "corrected": 50.0
+  }
+ ],
+ "gap": [
+  {
+   "model": "Qwen3.5-2B",
+   "ranked": 88.0,
+   "both_labelled": 40.0
+  },
+  {
+   "model": "LFM2.5-VL-3B",
+   "ranked": 89.5,
+   "both_labelled": 47.8
+  },
+  {
+   "model": "Qwen3.5-0.8B",
+   "ranked": 67.3,
+   "both_labelled": 31.3
+  },
+  {
+   "model": "MiniCPM-V-4.6",
+   "ranked": 66.2,
+   "both_labelled": 36.7
+  },
+  {
+   "model": "North-Micro-Vision",
+   "ranked": 70.8,
+   "both_labelled": 36.0
+  },
+  {
+   "model": "Janus-Pro-1B",
+   "ranked": 76.7,
+   "both_labelled": 2.2
+  },
+  {
+   "model": "SmolVLM2-500M",
+   "ranked": 52.8,
+   "both_labelled": 10.3
+  },
+  {
+   "model": "Qwen3.5-4B",
+   "ranked": 82.5,
+   "both_labelled": 47.2
+  },
+  {
+   "model": "Qwen3.5-9B",
+   "ranked": 88.3,
+   "both_labelled": 41.0
+  },
+  {
+   "model": "Gemma-4-E4B",
+   "ranked": 81.0,
+   "both_labelled": 27.7
+  },
+  {
+   "model": "InternVL3.5-2B",
+   "ranked": 76.7,
+   "both_labelled": 14.2
+  },
+  {
+   "model": "InternVL3.5-8B",
+   "ranked": 82.8,
+   "both_labelled": 44.7
+  },
+  {
+   "model": "LLaVA-1.6-7B",
+   "ranked": 72.8,
+   "both_labelled": 7.0
+  },
+  {
+   "model": "Molmo2-O-7B",
+   "ranked": 87.8,
+   "both_labelled": 51.5
+  }
+ ],
+ "situation": [
+  {
+   "model": "Qwen3.5-4B",
+   "direct": 79.2,
+   "shuffled": 81.1,
+   "own_query": 89.7
+  },
+  {
+   "model": "Qwen3.5-9B",
+   "direct": 76.3,
+   "shuffled": 78.3,
+   "own_query": 89.1
+  },
+  {
+   "model": "InternVL3.5-8B",
+   "direct": 76.3,
+   "shuffled": 78.1,
+   "own_query": 85.5
+  },
+  {
+   "model": "MiniCPM-V-4.6",
+   "direct": 74.4,
+   "shuffled": 76.5,
+   "own_query": 84.8
+  },
+  {
+   "model": "Qwen3.5-2B",
+   "direct": 75.6,
+   "shuffled": 77.3,
+   "own_query": 83.9
+  },
+  {
+   "model": "Molmo2-O-7B",
+   "direct": 72.4,
+   "shuffled": 74.6,
+   "own_query": 83.7
+  },
+  {
+   "model": "Gemma-4-E4B",
+   "direct": 71.3,
+   "shuffled": 74.6,
+   "own_query": 83.1
+  },
+  {
+   "model": "LFM2.5-VL-3B",
+   "direct": 70.6,
+   "shuffled": 72.3,
+   "own_query": 79.9
+  },
+  {
+   "model": "InternVL3.5-2B",
+   "direct": 66.1,
+   "shuffled": 72.6,
+   "own_query": 79.5
+  },
+  {
+   "model": "North-Micro-Vision",
+   "direct": 71.3,
+   "shuffled": 72.3,
+   "own_query": 78.7
+  },
+  {
+   "model": "Qwen3.5-0.8B",
+   "direct": 63.6,
+   "shuffled": 69.5,
+   "own_query": 78.3
+  },
+  {
+   "model": "LLaVA-1.6-7B",
+   "direct": 51.2,
+   "shuffled": 54.4,
+   "own_query": 59.5
+  },
+  {
+   "model": "Janus-Pro-1B",
+   "direct": 52.8,
+   "shuffled": 54.7,
+   "own_query": 57.7
+  },
+  {
+   "model": "SmolVLM2-500M",
+   "direct": 48.4,
+   "shuffled": 48.1,
+   "own_query": 47.0
+  },
+  {
+   "model": "Two-model average",
+   "direct": 76.1,
+   "shuffled": 77.8,
+   "own_query": 85.4
+  }
+ ],
+ "benchmarks": [
+  "MSSBench chat",
+  "MSSBench embodied",
+  "VSCBench",
+  "ASIMOV",
+  "MOSSBench+SIUO",
+  "HoliSafe"
+ ],
+ "auroc": [
+  {
+   "model": "Qwen3.5-9B",
+   "mean": 0.809,
+   "MSSBench chat": 0.817,
+   "MSSBench embodied": 0.711,
+   "VSCBench": 0.848,
+   "ASIMOV": 0.875,
+   "MOSSBench+SIUO": 0.719,
+   "HoliSafe": 0.884
+  },
+  {
+   "model": "LFM2.5-VL-3B",
+   "mean": 0.763,
+   "MSSBench chat": 0.86,
+   "MSSBench embodied": 0.662,
+   "VSCBench": 0.773,
+   "ASIMOV": 0.769,
+   "MOSSBench+SIUO": 0.691,
+   "HoliSafe": 0.823
+  },
+  {
+   "model": "Molmo2-O-7B",
+   "mean": 0.76,
+   "MSSBench chat": 0.838,
+   "MSSBench embodied": 0.707,
+   "VSCBench": 0.799,
+   "ASIMOV": 0.721,
+   "MOSSBench+SIUO": 0.619,
+   "HoliSafe": 0.874
+  },
+  {
+   "model": "Gemma-4-E4B",
+   "mean": 0.757,
+   "MSSBench chat": 0.754,
+   "MSSBench embodied": 0.671,
+   "VSCBench": 0.805,
+   "ASIMOV": 0.765,
+   "MOSSBench+SIUO": 0.68,
+   "HoliSafe": 0.868
+  },
+  {
+   "model": "Qwen3.5-2B",
+   "mean": 0.751,
+   "MSSBench chat": 0.859,
+   "MSSBench embodied": 0.666,
+   "VSCBench": 0.832,
+   "ASIMOV": 0.682,
+   "MOSSBench+SIUO": 0.605,
+   "HoliSafe": 0.864
+  },
+  {
+   "model": "Qwen3.5-4B",
+   "mean": 0.75,
+   "MSSBench chat": 0.792,
+   "MSSBench embodied": 0.672,
+   "VSCBench": 0.873,
+   "ASIMOV": 0.754,
+   "MOSSBench+SIUO": 0.658,
+   "HoliSafe": 0.748
+  },
+  {
+   "model": "InternVL3.5-8B",
+   "mean": 0.741,
+   "MSSBench chat": 0.801,
+   "MSSBench embodied": 0.694,
+   "VSCBench": 0.837,
+   "ASIMOV": 0.758,
+   "MOSSBench+SIUO": 0.589,
+   "HoliSafe": 0.769
+  },
+  {
+   "model": "LLaVA-1.6-7B",
+   "mean": 0.732,
+   "MSSBench chat": 0.685,
+   "MSSBench embodied": 0.715,
+   "VSCBench": 0.553,
+   "ASIMOV": 0.759,
+   "MOSSBench+SIUO": 0.791,
+   "HoliSafe": 0.89
+  },
+  {
+   "model": "InternVL3.5-2B",
+   "mean": 0.719,
+   "MSSBench chat": 0.725,
+   "MSSBench embodied": 0.64,
+   "VSCBench": 0.775,
+   "ASIMOV": 0.706,
+   "MOSSBench+SIUO": 0.62,
+   "HoliSafe": 0.85
+  },
+  {
+   "model": "Qwen3.5-0.8B",
+   "mean": 0.671,
+   "MSSBench chat": 0.658,
+   "MSSBench embodied": 0.694,
+   "VSCBench": 0.745,
+   "ASIMOV": 0.581,
+   "MOSSBench+SIUO": 0.585,
+   "HoliSafe": 0.762
+  },
+  {
+   "model": "MiniCPM-V-4.6",
+   "mean": 0.656,
+   "MSSBench chat": 0.659,
+   "MSSBench embodied": 0.591,
+   "VSCBench": 0.829,
+   "ASIMOV": 0.649,
+   "MOSSBench+SIUO": 0.516,
+   "HoliSafe": 0.689
+  },
+  {
+   "model": "North-Micro-Vision",
+   "mean": 0.639,
+   "MSSBench chat": 0.689,
+   "MSSBench embodied": 0.598,
+   "VSCBench": 0.777,
+   "ASIMOV": 0.591,
+   "MOSSBench+SIUO": 0.518,
+   "HoliSafe": 0.663
+  },
+  {
+   "model": "Janus-Pro-1B",
+   "mean": 0.563,
+   "MSSBench chat": 0.712,
+   "MSSBench embodied": 0.5,
+   "VSCBench": 0.562,
+   "ASIMOV": 0.583,
+   "MOSSBench+SIUO": 0.463,
+   "HoliSafe": 0.559
+  },
+  {
+   "model": "SmolVLM2-500M",
+   "mean": 0.488,
+   "MSSBench chat": 0.512,
+   "MSSBench embodied": 0.426,
+   "VSCBench": 0.472,
+   "ASIMOV": 0.479,
+   "MOSSBench+SIUO": 0.517,
+   "HoliSafe": 0.524
+  }
+ ]
+}

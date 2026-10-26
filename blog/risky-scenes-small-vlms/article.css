@@ -1,0 +1,40 @@
+.kernel-post .page-intro { margin-bottom: 2.5rem; }
+.kernel-post .guide-kicker { margin-bottom: .75rem; }
+.kernel-post .guide-byline { margin-top: 1.25rem; }
+.kernel-post section { margin-bottom: 2.5rem; }
+.kernel-post h2 { margin-bottom: 1rem; }
+.kernel-post figure { margin: 1.75rem 0 2rem; }
+.kernel-post figcaption { margin-top: .75rem; font-size: .75rem; color: var(--muted); line-height: 1.6; }
+.kernel-post code { font-family: inherit; font-size: .8125rem; }
+.kernel-post pre { margin: 1.25rem 0; padding: 1rem; border: 1px solid #dedede; background: #fafafa; overflow-x: auto; line-height: 1.65; }
+.kernel-post pre code { font-size: .75rem; white-space: pre; overflow-wrap: normal; }
+.code-label { margin-bottom: -.75rem; font-size: .6875rem; color: var(--muted); }
+.kernel-post .scope { color: var(--muted); font-size: .8125rem; }
+.data-links { display: flex; flex-wrap: wrap; gap: .5rem 1rem; font-size: .75rem; margin: 1.5rem 0; }
+
+.chart-controls { display: flex; flex-wrap: wrap; align-items: end; gap: .75rem 1.25rem; margin: 1rem 0 .5rem; }
+.chart-controls label { display: grid; gap: .25rem; font-size: .75rem; }
+.chart-controls select { font: inherit; font-size: .75rem; padding: .35rem 1.6rem .35rem .5rem; color: var(--ink); background: white; border: 1px solid var(--line); border-radius: 0; }
+.chart-controls select:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; }
+
+.plot { width: 100%; height: 340px; position: relative; }
+.plot-short { height: 280px; }
+.plot-square { height: 360px; }
+.plot-error { padding: 1rem 0; font-size: .75rem; color: var(--muted); }
+
+@media (max-width: 40rem) {
+  .plot { height: 300px; }
+  .plot-square { height: 320px; }
+  .kernel-post pre { padding: .75rem; }
+  .kernel-post h1 { font-size: 1.7rem; }
+}
+.plot-tall { height: 460px; }
+
+/* Larger type for this post (researcher request, 2026-10-26). */
+.kernel-post article { font-size: 1rem; line-height: 1.75; }
+.kernel-post h1 { font-size: 2.125rem; }
+.kernel-post h2 { font-size: 1.3125rem; }
+.kernel-post .guide-kicker, .kernel-post .guide-byline { font-size: .875rem; }
+.kernel-post .scope { font-size: .9375rem; }
+.kernel-post figcaption { font-size: .875rem; }
+.chart-controls label, .chart-controls select { font-size: .875rem; }

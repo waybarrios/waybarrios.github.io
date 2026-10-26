@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Write-up of a BlueDot Impact project: small open vision-language models often notice which scene is riskier and still answer wrong. Qwen3.5 does the most with few parameters, one benchmark falls to an image-size rule, and other photos of the same situation help.">
+  <meta name="author" content="Wayner Barrios">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://waybarrios.com/blog/risky-scenes-small-vlms/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Testing small vision models on risky scenes | Wayner Barrios">
+  <meta property="og:description" content="Small open vision models often notice which scene is riskier and still give the wrong answer. Notes from a BlueDot Impact project, with interactive charts.">
+  <meta property="og:url" content="https://waybarrios.com/blog/risky-scenes-small-vlms/">
+  <meta property="og:image" content="https://waybarrios.com/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Testing small vision models on risky scenes | Wayner Barrios</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=07017545d8dc">
+  <link rel="apple-touch-icon" href="/img/icon-192.png?v=5dea2904ea7c">
+  <link rel="manifest" href="/site.webmanifest?v=6d5086e2dfb7">
+  <link rel="stylesheet" href="/style.css?v=1cbe1515768d">
+  <link rel="stylesheet" href="article.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Testing small vision models on risky scenes","datePublished":"2026-10-26","inLanguage":"en","author":{"@type":"Person","name":"Wayner Barrios","url":"https://waybarrios.com/"},"url":"https://waybarrios.com/blog/risky-scenes-small-vlms/","description":"Notes from a BlueDot Impact project on whether small open vision-language models can tell when a scene makes a request unsafe."}</script>
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-cartesian-dist-min@2.35.2/plotly-cartesian.min.js" integrity="sha384-gKF7EaMDoWW1zLWkouldmVWF5jqEKrAswAciW73iNzqlomabVVPO60XkJvL5q/Ie" crossorigin="anonymous" defer></script>
+  <script src="charts.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="/">Wayner Barrios</a>
+    <nav aria-label="Primary navigation"><a href="/">Home</a><a href="/research/">Research</a><a href="/open-source/">Open source</a><a href="/blog/">Blog</a></nav>
+  </header>
+  <main id="main" class="kernel-post">
+    <article aria-labelledby="page-title">
+      <header class="page-intro">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a></nav>
+        <p class="guide-kicker">AI safety notes · Vision-language models · BlueDot Impact</p>
+        <h1 id="page-title">Testing small vision models on risky scenes</h1>
+        <p>I started this as my project for BlueDot Impact's AI safety course. Every result raised a new question, so I kept working on it after the course ended. This post is the write-up of where it stands now.</p>
+        <p>I wanted to know whether a small vision-language model can tell when a photo turns an ordinary request into a dangerous one. Asking how to dry your hair faster is fine in a bedroom. It is a different question when the hair dryer sits on the edge of a full bathtub. Models like these are moving onto phones, glasses and robots, and they have to be small to fit there. When one of them gives the wrong answer in the wrong room, there may be no one around to catch it.</p>
+        <p>The short version: small open models often notice which of two scenes is riskier and still answer wrong, usually by giving both scenes the same label. The Qwen3.5 models notice best for their size. Much of the error comes from a badly placed cut-off, which can be moved without any labels, and comparing a photo with other photos of the same situation helps more. Before any of that, though, I had to check the benchmarks. On one popular test set, image size alone beats most commercial models.</p>
+        <p class="guide-byline">Wayner Barrios · <time datetime="2026-10-26">26 October 2026</time></p>
+        <p class="scope">Setup: fourteen open models from 0.5B to under 10B parameters, run locally with no fine-tuning, on six public situational-safety benchmarks. For each scene I read the probability the model gives to the word UNSAFE. That shows both its answer and how well it ranks scenes by risk. Seven commercial models answered the chat part of one benchmark.</p>
+      </header>
+
+      <section aria-labelledby="shortcut-title">
+        <h2 id="shortcut-title">Check the benchmark first</h2>
+        <p>The benchmark I started with was MSSBench. Its chat part has 1,200 cases, each a request paired with a safe or an unsafe photo. Before trusting any model score, I tried a rule that never looks at what is in the photo: if the longest side is above 640 pixels, answer UNSAFE. It gets about 82% right. Six of the seven commercial models score at or below that, and only Claude Opus 5.5 does clearly better.</p>
+        <p>The safe and unsafe photos were collected from different sources, so their size and metadata carry the label. That is an easy trap whenever a dataset is built from two pools of images. On a smaller set I rebuilt with size-matched images, the rule drops to a coin flip and the commercial models change places.</p>
+        <figure aria-labelledby="shortcut-caption">
+          <div class="chart-controls" role="group" aria-label="Which split">
+            <label>Cases<select id="shortcut-split"><option value="original">Original chat set (1,200 cases)</option><option value="corrected">Size-matched set (88 pairs)</option></select></label>
+          </div>
+          <div id="chart-shortcut" class="plot" role="img" aria-label="Accuracy of seven commercial models and of an image-size rule"></div>
+          <figcaption id="shortcut-caption">Accuracy on the chat cases. The red bar never looks at what is in the image. The size-matched set is small, so gaps under about 8 points there are noise.</figcaption>
+        </figure>
+        <p>The other five benchmarks have no size cue this strong. Some have other cues: in one, the source of a case fixes its label, and in another, the request text alone ranks the pairs about as well as the photo does. A few rules that ignore the scene are cheap to run, and I now try them before comparing models on any benchmark.</p>
+      </section>
+
+      <section aria-labelledby="gap-title">
+        <h2 id="gap-title">Models notice more than they say</h2>
+        <p>The benchmarks pair a safe and an unsafe scene under the same request, which allows two separate questions. Does the model give more probability to UNSAFE for the unsafe scene? And does it label both scenes correctly? Most models do much better on the first. Qwen3.5-2B puts more risk on the unsafe scene in 88% of the chat pairs but labels both right in only 40%.</p>
+        <figure aria-labelledby="gap-caption">
+          <div id="chart-gap" class="plot plot-tall" role="img" aria-label="Share of pairs ranked correctly and labelled correctly for fourteen open models"></div>
+          <figcaption id="gap-caption">MSSBench chat pairs. Blue: the model gives the unsafe scene a higher UNSAFE probability. Red: it labels both scenes correctly.</figcaption>
+        </figure>
+        <p>The gap also shows up in normal use. Two of the best rankers answered the plain requests with no safety instructions, and three other models judged the answers without seeing the scene or the label. Read as SAFE or UNSAFE, the answers were close to a coin flip, while the same models ranked at least 92% of those pairs correctly.</p>
+      </section>
+
+      <section aria-labelledby="qwen-title">
+        <h2 id="qwen-title">Qwen gets the most out of few parameters</h2>
+        <p>Across the fourteen models, the Qwen3.5 family stood out. Qwen3.5-9B ranks scenes best on average over the six benchmarks, and Qwen3.5-4B is the best on VSCBench. The result that surprised me most was Qwen3.5-2B. On MSSBench chat it ties for first place (AUROC 0.859) and beats every 7B to 9B model, including its bigger sibling. On the six-benchmark average it lands slightly above InternVL3.5-8B and LLaVA-1.6-7B, which are three to four times its size.</p>
+        <figure aria-labelledby="family-caption">
+          <div class="chart-controls" role="group" aria-label="Benchmark">
+            <label>Benchmark<select id="family-bench"></select></label>
+          </div>
+          <div id="chart-family" class="plot plot-tall" role="img" aria-label="Ranking quality of fourteen open models, Qwen models highlighted"></div>
+          <figcaption id="family-caption">How well each model ranks scenes by risk (AUROC: the chance that a random unsafe scene gets a higher UNSAFE probability than a random safe one). Bars start at 0.5, a coin flip. Blue: Qwen3.5 models.</figcaption>
+        </figure>
+        <p>Size is the hard limit on a robot or a phone. A 2B model that ranks scenes as well as models three or four times larger leaves room on the device for everything else it has to run.</p>
+        <p>Where Qwen3.5-2B falls down is the final answer. Of the chat pairs it ranked right but labelled wrong, it called both scenes SAFE in 280 of 288. A cut-off in the wrong place is the easiest error to fix. Batch calibration, a known label-free trick, moves the cut-off to the average score of the batch, and it takes Qwen3.5-2B on HoliSafe from 68.6% to 80.3% balanced accuracy. It has a weak spot: it assumes the batch is roughly half unsafe, and when only one scene in ten is unsafe it recovers much less. Qwen is also not the best everywhere. On robot camera photos (ASIMOV) and on MOSSBench+SIUO, LFM2.5-VL-3B and the larger Qwen rank better than the 2B.</p>
+      </section>
+
+      <section aria-labelledby="situation-title">
+        <h2 id="situation-title">Comparing a photo with others from the same situation</h2>
+        <p>One shared cut-off cannot account for requests that start at different levels of risk. "How do I light this?" scores riskier than "How do I clean this?" whatever the photo shows. VSCBench has six photos per request, three safe and three unsafe, so I set each request's cut-off at the average score of its own six photos, still with no labels.</p>
+        <p>This raises balanced accuracy for 13 of 14 models. As a control I ran the same rule on groups of six random photos with the same three-and-three mix. Grouping by request beats the random groups by about 7 points on average. For most models it also beats the best single cut-off that could be picked with the labels in hand. Qwen3.5-4B reaches 89.7%.</p>
+        <figure aria-labelledby="situation-caption">
+          <div id="chart-situation" class="plot plot-tall" role="img" aria-label="Balanced accuracy on VSCBench with three thresholding rules"></div>
+          <figcaption id="situation-caption">VSCBench, 250 requests with three safe and three unsafe photos each. Grey: the model's plain answer. Dark diamond: cut-off at the average score of six random photos. Blue: cut-off at the average score of the six photos of the same request. Dotted line: coin flip. No rule here uses labels.</figcaption>
+        </figure>
+        <p>The per-request cut-off needs several views of the same situation, and the mix of safe and unsafe views changes the result. A robot looking around a room gets several views anyway, so I think this is worth testing outside a benchmark.</p>
+      </section>
+
+      <section aria-labelledby="limits-title">
+        <h2 id="limits-title">Limitations</h2>
+        <p>Everything here is test-time only, with one safety prompt and models under 10B. Rewording the prompt moves the cut-off. The same-situation result rests on a single benchmark. Most of my attempts at a new method failed: a scoring method of my own landed at chance, and fixed rules for mixing image and text scores helped on one benchmark and hurt on another. Batch calibration did nothing on a test set where the model could barely tell the scenes apart, since a better cut-off cannot help a model that does not rank. I wrote down each analysis and what I expected from it before running it, and I report the misses along with the wins.</p>
+      </section>
+
+      <section aria-labelledby="next-title">
+        <h2 id="next-title">What comes next</h2>
+        <p>A longer write-up is on the way, with the size-matched chat set, per-case scores and the code. If you build situational-safety benchmarks or run small vision models on robots, I would like to know whether you see the same pattern, and whether your setup gives you several views of the same situation.</p>
+        <p>Thanks to BlueDot Impact for the course that got this started.</p>
+        <nav class="data-links" aria-label="Data"><a href="data/results.json">Data behind every chart (JSON)</a></nav>
+        <noscript><p>The charts need JavaScript. The JSON link above has every number they show.</p></noscript>
+      </section>
+    </article>
+  </main>
+  <footer class="site-footer"><p>© 2026 Wayner Barrios</p><div><a href="/">Home</a><a href="/blog/">All notes</a><a href="/research/">Research</a><a href="https://github.com/waybarrios">GitHub</a></div></footer>
+</body>
+</html>
