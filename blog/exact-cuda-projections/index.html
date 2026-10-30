@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CUDA projection experiments on an RTX 3070 Ti Laptop: exact weights, FP32 accumulation, strong vendor baselines, and the limits of the measured gains.">
+  <meta name="author" content="Wayner Barrios">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://waybarrios.com/blog/exact-cuda-projections/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="When custom CUDA beats vendor baselines | Wayner Barrios">
+  <meta property="og:description" content="Measured projection latency with original weights, FP32 accumulation, and explicit failed cases.">
+  <meta property="og:url" content="https://waybarrios.com/blog/exact-cuda-projections/">
+  <meta property="og:image" content="https://waybarrios.com/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>When custom CUDA beats vendor baselines | Wayner Barrios</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=07017545d8dc">
+  <link rel="apple-touch-icon" href="/img/icon-192.png?v=5dea2904ea7c">
+  <link rel="manifest" href="/site.webmanifest?v=6d5086e2dfb7">
+  <link rel="stylesheet" href="/style.css?v=1cbe1515768d">
+  <link rel="stylesheet" href="article.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"When custom CUDA beats vendor baselines","datePublished":"2026-10-25","inLanguage":"en","author":{"@type":"Person","name":"Wayner Barrios","url":"https://waybarrios.com/"},"url":"https://waybarrios.com/blog/exact-cuda-projections/","description":"CUDA projection experiments with exact weights, FP32 accumulation and audited vendor comparisons."}</script>
+  <script type="module" src="charts.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="/">Wayner Barrios</a>
+    <nav aria-label="Primary navigation"><a href="/research/">Research</a><a href="/open-source/">Open source</a><a href="/blog/">Blog</a></nav>
+  </header>
+  <main id="main" class="kernel-post">
+    <article aria-labelledby="page-title">
+      <header class="page-intro">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a></nav>
+        <p class="guide-kicker">Systems notes · CUDA · Numerical fidelity</p>
+        <h1 id="page-title">When custom CUDA beats vendor baselines</h1>
+        <p>I measured custom CUDA projections against cuBLAS, cuBLASLt and PyTorch on a stock RTX 3070 Ti Laptop GPU. A fused lossless BF16 kernel saved 17.70 to 20.45% of GPU latency on the registered large single-token cases. Small native BF16 reductions reached 28.34 to 29.77% on one shape.</p>
+        <p class="guide-byline">Wayner Barrios · <time datetime="2026-10-25">25 October 2026</time></p>
+        <p class="scope">These are streaming CUDA graph measurements on one SM86 GPU, with observed memory clocks of 810 MHz. The numbers describe GPU operations under this regime. Full-model throughput and energy savings remain unmeasured.</p>
+      </header>
+
+      <section aria-labelledby="operation-title">
+        <h2 id="operation-title">Projection shapes and numerical fidelity</h2>
+        <p>The projection is <code>Y = XWᵀ</code>, with <code>X[M,K]</code> and <code>W[N,K]</code>. Small M is common during autoregressive decoding. I kept each tensor in its supplied dtype and required exact weight reconstruction. All kernels accumulate in FP32.</p>
+        <p>The native suite samples synthetic tensors directly in FP32, FP16 or BF16. FP32 weights stay FP32. Output checks use an FP64 reference and fixed tolerances of <code>1e-5 + 1e-4 × |reference|</code>; BF16 output uses the corresponding rounded interval.</p>
+        <p>Two kernel families address different costs. Small projections use vectorized loads and warp reductions specialized for the shape. Large checkpoint projections decode losslessly packed BF16 weights inside the dot product, reducing weight traffic.</p>
+        <p class="code-label">CUDA C++ · reduction structure, with indexing and vector loads omitted</p>
+        <pre><code>float acc = 0.0f;
+for (int k = lane; k &lt; K; k += 32)
+    acc = fmaf(x[k], weight[k], acc);
+
+for (int offset = 16; offset; offset /= 2)
+    acc += __shfl_down_sync(0xffffffffu, acc, offset);</code></pre>
+        <p>The measured kernels handle native dtype loads and explicit output contracts. Their block sizes and vector widths were frozen before the held-out runs.</p>
+      </section>
+
+      <section aria-labelledby="native-title">
+        <h2 id="native-title">Small projections and the 10% criterion</h2>
+        <p>The native-input suite contains six small shapes and three additional large FP32 shapes. Each dtype and power profile has three fresh processes. Filled points identify shapes that pass the complete three-process criterion; crosses retain the other results.</p>
+        <figure aria-labelledby="native-caption">
+          <div class="chart-controls">
+            <label>Native inputs and weights<select id="native-dtype"><option value="bf16">BF16</option><option value="fp16">FP16</option><option value="fp32">FP32</option></select></label>
+            <label>System power profile<select id="native-profile"><option value="performance">Performance (AC)</option></select></label>
+          </div>
+          <div id="native-chart" class="plot" aria-busy="true"><p class="scope">Loading audited measurements.</p></div>
+          <div class="chart-legend" aria-label="Process seeds"><span><i style="--dot:#333"></i>971</span><span><i style="--dot:#686868"></i>977</span><span><i style="--dot:#959595"></i>983</span><span>● qualifies across all three processes</span><span>× unqualified</span></div>
+          <output id="native-detail" class="chart-detail" aria-live="polite">Focus or hover over a point for its timing, vendor and confidence interval.</output>
+          <figcaption id="native-caption">Latency saved against the fastest numerically eligible tested vendor. Each interval belongs to one process, with 31 paired rounds. The dashed line marks 10% latency saved.</figcaption>
+          <p id="native-summary" class="chart-note"></p>
+        </figure>
+        <p>Under Performance on AC, eight dtype/shape combinations qualify. BF16 at <code>4×256×256</code> saves 28.34 to 29.77%. Native FP32 at <code>1×128×128</code> passes narrowly, with a lowest per-process confidence bound of 10.003%. Its large FP32 projections save 9.09 to 9.75%, below the acceptance target.</p>
+        <details><summary>Absolute time examples</summary><div class="table-scroll"><table>
+          <caption class="scope">Audited Performance-profile process, seed 971</caption>
+          <thead><tr><th>Case</th><th>Vendor</th><th>Custom</th><th>Saved</th></tr></thead>
+          <tbody><tr><td>FP32 · 1×256×256</td><td>10.32 µs</td><td>9.69 µs</td><td>0.63 µs</td></tr>
+          <tr><td>FP16 · 1×512×512</td><td>16.80 µs</td><td>16.33 µs</td><td>0.47 µs</td></tr>
+          <tr><td>FP32 · 1×11008×4096</td><td>4.486 ms</td><td>4.049 ms</td><td>0.437 ms</td></tr>
+          <tr><td>BF16 · 4×256×256</td><td>9.24 µs</td><td>6.62 µs</td><td>2.62 µs</td></tr></tbody>
+        </table></div></details>
+      </section>
+
+      <section aria-labelledby="packing-title">
+        <h2 id="packing-title">Fusing lossless decoding and projection</h2>
+        <p>The checkpoint experiment uses original BF16 weights from <code>Qwen/Qwen2.5-0.5B-Instruct</code> and controlled synthetic BF16 activations. For each block of 64 weights, a coded block stores the sign, seven fraction bits and a four-bit exponent delta. Blocks whose exponent range does not fit keep their original BF16 bits.</p>
+        <p>A coded block occupies 96 payload bytes plus four metadata bytes, compared with 128 bytes for the original weights. The retained tensors occupy about 78.2% of their original storage, including raw fallback blocks and metadata. The CUDA kernel reconstructs each weight before its FP32 multiply-add.</p>
+        <p class="code-label">CUDA C++ · decoder used by the measured kernel</p>
+        <pre><code>__device__ __forceinline__ float cbf16_decode(
+    unsigned code, unsigned base) {
+    return __uint_as_float(
+        ((code &amp; 0x7fu) &lt;&lt; 16) |
+        ((code &amp; 0x80u) &lt;&lt; 24) |
+        (base + ((code &amp; 0xf00u) &lt;&lt; 15)));
+}</code></pre>
+        <p>Here <code>base</code> already occupies the FP32 exponent bit positions. The code restores the fraction, sign and exponent without a lossy conversion. Both raw and coded templates use the same reduction order.</p>
+        <figure aria-labelledby="checkpoint-caption">
+          <div class="chart-controls"><label>Output dtype<select id="checkpoint-output"><option value="bf16">BF16 output</option><option value="fp32">FP32 output</option></select></label></div>
+          <div id="checkpoint-chart" class="plot" aria-busy="true"><p class="scope">Loading held-out checkpoint cases.</p></div>
+          <div class="chart-legend"><span><i style="--dot:#333"></i>919</span><span><i style="--dot:#686868"></i>929</span><span><i style="--dot:#959595"></i>937</span><span>● case checks pass</span><span>× unqualified</span></div>
+          <output id="checkpoint-detail" class="chart-detail" aria-live="polite">Focus or hover over a point to inspect the held-out case.</output>
+          <figcaption id="checkpoint-caption">Registered large M=1 projections in layers 8, 16 and 23. Inputs and weights are native BF16; accumulation is FP32. All points use Performance on AC.</figcaption>
+          <p id="checkpoint-summary" class="chart-note"></p>
+        </figure>
+        <p>BF16 output passes all 27 primary cases at 17.70 to 20.45% latency saved. FP32 output passes 24 of 27; three vendor A/A controls fail in the last process. That combined milestone remains unaccepted.</p>
+        <p>The full grid contains 396 cases per output contract, including small K/V regressions and poor larger-M results. Small K/V currently uses a vendor fallback. A separate, bias-free M=1 K/V fusion experiment saves 20.43 to 20.67% with FP32 output by making one vendor call for both projections.</p>
+        <details><summary>Inspect the full checkpoint shape grid</summary><p class="chart-note">Ranges span all measured point estimates for the selected output dtype. A shape qualifies only when every registered case passes.</p><div class="table-scroll"><table id="checkpoint-grid"><thead><tr><th>M × N × K</th><th>Latency saved</th><th>Cases passing</th><th>Qualified</th></tr></thead><tbody></tbody></table></div></details>
+      </section>
+
+      <section aria-labelledby="measurement-title">
+        <h2 id="measurement-title">Timing protocol and statistical checks</h2>
+        <p>Each timing uses a rotating physical weight ring of at least 80 MiB and 20 times L2. CUDA graph replay excludes packing, allocation and Python dispatch. The baseline pool includes original and transposed cuBLASLt layouts, strict FP32-compute cuBLAS, PyTorch, and FP32 GEMV where applicable. Every vendor route has its own independent A/A twin.</p>
+        <p>A shape qualifies only when every registered process passes the numerical and weight-bit checks, its winning vendor A/A difference stays within 1%, and its paired 95% latency-saved lower bound exceeds 10%. The bootstrap selects the best eligible vendor again in every draw. Native runs use seeds 971, 977 and 983; checkpoint validation uses 919, 929 and 937 on held-out layers.</p>
+        <p class="code-label">Python · replay a registered experiment in the experiment checkout</p>
+        <pre><code>python native_precision.py \
+    --dtype bf16 --seed 971 \
+    --power-profile performance \
+    --output results/my-native-bf16-run.json --wait</code></pre>
+        <p>Use a fresh registered study for new measurements. Failed runs and failed controls stay in the record; another run cannot replace them. Both system power profiles use AC power. The observed GPU regime was P5 with memory at 810 MHz even in Performance mode.</p>
+      </section>
+
+      <section aria-labelledby="time-title">
+        <h2 id="time-title">Latency savings and energy limits</h2>
+        <p>The reported percentage is <code>100 × (1 − Tcustom / Tvendor)</code>. A sub-10% result can still save useful time. The large FP32 example drops from 4.486 ms to 4.049 ms, saving 0.437 ms. At the same measured streaming latency, one million operations would save about 437 seconds of GPU work. This is an extrapolation of operation time.</p>
+        <p>Energy is the integral of power over time. Equal average power would make percentage energy savings equal percentage time savings. The local total-energy counter failed a query-cadence check, so these experiments do not establish joules or kWh saved. Full-model timing and a qualified energy measurement remain open.</p>
+      </section>
+
+      <section aria-labelledby="open-title">
+        <h2 id="open-title">Reproducibility and open experiments</h2>
+        <p>All results here use the stock GPU software state. A matched hardware-unlocked comparison is still pending. Other useful next steps include a faster custom K/V path, guarded integration into a model, and measurements at other memory-clock regimes.</p>
+        <p>The code and experiment protocols are in <a href="https://github.com/waybarrios/klab">klab</a>. Reproductions, numerical counterexamples and negative results are welcome. If you want to explore a case, open an issue with its shape, precision contract and baseline so we can discuss a useful comparison.</p>
+        <nav class="data-links" aria-label="Experiment data"><a href="data/measurements.csv" download>All case summaries (CSV)</a><a href="data/timing-rounds.json.gz" download>Raw timing rounds (gzip JSON)</a><a href="data/manifest.json">Checksums and sources</a></nav>
+        <noscript><p>The interactive figures require JavaScript. The CSV and raw timing downloads contain every case, including failed comparisons.</p></noscript>
+      </section>
+    </article>
+  </main>
+  <footer class="site-footer"><p>© 2026 Wayner Barrios</p><div><a href="/blog/">All notes</a><a href="/research/">Research</a><a href="https://github.com/waybarrios/klab">Code and collaboration</a></div></footer>
+</body>
+</html>

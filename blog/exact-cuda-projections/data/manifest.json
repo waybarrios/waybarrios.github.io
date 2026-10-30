@@ -1,0 +1,66 @@
+{
+  "kind": "klab-blog-data-manifest",
+  "date": "2026-10-25",
+  "files": [
+    {
+      "name": "results.json",
+      "sha256": "3a6480366bdb4a41399212c41f347c2fa9e94956c8aff9bf40b61a20e46a12db",
+      "bytes": 488933
+    },
+    {
+      "name": "measurements.csv",
+      "sha256": "3bf94613fce5328d517bb71fbd2c67fb9498312e7f724963334198fd9b9d09b7",
+      "bytes": 277952
+    },
+    {
+      "name": "timing-rounds.json.gz",
+      "sha256": "ecc245b6a605cbfd8868aec6553f53e7e8c6dd961b81bedebf472d37ad840ca8",
+      "bytes": 4296928
+    }
+  ],
+  "exporter_sha256": "65084392cf35664bbe11348b6143fc4af3a09a3809dd9bf92e169516fdc2e492",
+  "native_cases": 126,
+  "checkpoint_cases": 792,
+  "original_cohorts": [
+    {
+      "name": "native-precision-performance-fp32-evidence-r1.json",
+      "sha256": "53e3b1a9f149dc86b66e202a6adc94d47306fcb73a0e53914817f0f2738809ba"
+    },
+    {
+      "name": "native-precision-performance-fp16-evidence-r1.json",
+      "sha256": "d2bc8f19109d3cb3d9d53642dbe1dda20f6cd886575b6f85f5776f59ab13df4a"
+    },
+    {
+      "name": "native-precision-performance-bf16-evidence-r1.json",
+      "sha256": "306c79cc89d0ecfa6c63c84b82c0d89197c2b4b9da16a6aaa770e7a9c47dd9ba"
+    },
+    {
+      "name": "native-precision-battery-fp32-evidence-r1.json",
+      "sha256": "2529031fc9e37976a1deaadb38443c2c8ad95bada2b88bcece877f14af1788eb"
+    },
+    {
+      "name": "native-precision-battery-fp16-evidence-r1.json",
+      "sha256": "989d712c1d9c3a1ef172d1bebeaede174d362df7f640abe525379b826008ca17"
+    },
+    {
+      "name": "native-precision-battery-bf16-evidence-r1.json",
+      "sha256": "3227cbe1af9d4dba2563889442484f812f774222962c5df6a45054dd57edfb70"
+    },
+    {
+      "name": "compressed-performance-bf16-evidence-r2.json",
+      "sha256": "8e94f9b8e4fc8054061f91ff1de5176df76e76be96080a92e64b97d7e5029c57"
+    },
+    {
+      "name": "compressed-performance-fp32-evidence-r2.json",
+      "sha256": "b91f66596e6e07fce8924fd2cd32d9c6f91e2ad6b8557facf941343378355f0d"
+    },
+    {
+      "name": "kv-pair-performance-evidence-r1.json",
+      "sha256": "b44a23c24ff64c1a779da2629be9464a50aff2a0d7f9744db9aec9924eae36ed"
+    },
+    {
+      "name": "kv-large-composition-evidence-r1.json",
+      "sha256": "50fc902938a3fe2961a63e088af320fc8d9c8902b287febe58c6378a4d8b425d"
+    }
+  ]
+}

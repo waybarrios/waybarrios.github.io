@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="How I made small PyTorch ops faster on an RTX 3070 Ti Laptop: a power daemon that capped memory at 810 MHz, cross-op L2 weight prefetch, and a single-launch decode attention kernel. Measured, replicated, and with the cases that did not work.">
+  <meta name="author" content="Wayner Barrios">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://waybarrios.com/blog/small-ops-l2-prefetch/">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Making small PyTorch ops faster on a laptop GPU | Wayner Barrios">
+  <meta property="og:description" content="A power daemon, an L2 prefetch trick and a decode attention kernel: what helped small GPU ops, what did not, and the numbers behind both.">
+  <meta property="og:url" content="https://waybarrios.com/blog/small-ops-l2-prefetch/">
+  <meta property="og:image" content="https://waybarrios.com/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Making small PyTorch ops faster on a laptop GPU | Wayner Barrios</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=07017545d8dc">
+  <link rel="apple-touch-icon" href="/img/icon-192.png?v=5dea2904ea7c">
+  <link rel="manifest" href="/site.webmanifest?v=6d5086e2dfb7">
+  <link rel="stylesheet" href="/style.css?v=1cbe1515768d">
+  <link rel="stylesheet" href="article.css">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Making small PyTorch ops faster on a laptop GPU","datePublished":"2026-10-26","inLanguage":"en","author":{"@type":"Person","name":"Wayner Barrios","url":"https://waybarrios.com/"},"url":"https://waybarrios.com/blog/small-ops-l2-prefetch/","description":"Cross-op L2 weight prefetch and a single-launch decode attention kernel for latency-bound PyTorch work on an RTX 3070 Ti Laptop GPU."}</script>
+  <script src="https://cdn.jsdelivr.net/npm/plotly.js-cartesian-dist-min@2.35.2/plotly-cartesian.min.js" integrity="sha384-gKF7EaMDoWW1zLWkouldmVWF5jqEKrAswAciW73iNzqlomabVVPO60XkJvL5q/Ie" crossorigin="anonymous" defer></script>
+  <script src="charts.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="/">Wayner Barrios</a>
+    <nav aria-label="Primary navigation"><a href="/">Home</a><a href="/research/">Research</a><a href="/open-source/">Open source</a><a href="/blog/">Blog</a></nav>
+  </header>
+  <main id="main" class="kernel-post">
+    <article aria-labelledby="page-title">
+      <header class="page-intro">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="/">Home</a><span aria-hidden="true">/</span><a href="/blog/">Blog</a></nav>
+        <p class="guide-kicker">Systems notes · CUDA · PyTorch</p>
+        <h1 id="page-title">Making small PyTorch ops faster on a laptop GPU</h1>
+        <p>I spent a few nights trying to make tiny GPU operations faster on my laptop: a batch-1 linear layer, a small MLP block, one decode step of a small language model. These are the cases where the GPU mostly waits instead of computing.</p>
+        <p>The biggest speedup came before I changed any kernel. A power daemon was holding my GPU's memory at 810 MHz. After that, two ideas held up under replication: prefetching the next layer's weights into L2 while the current layer runs, and a decode attention kernel that does its job in one launch. Plenty of other ideas failed, and I kept those too. Language models are only part of the story: MLP blocks and small-batch training benefit too, and convolutions and ViTs showed me where the idea stops.</p>
+        <p class="guide-byline">Wayner Barrios · <time datetime="2026-10-26">26 October 2026</time></p>
+        <p class="scope">Everything here was measured on one RTX 3070 Ti Laptop GPU (GA104, 46 SMs, 4 MiB of L2) with PyTorch 2.11 and CUDA 12.8, inside CUDA graphs. Model weights are random. The code, protocols and raw results are in <a href="https://github.com/waybarrios/klab">klab</a>.</p>
+      </header>
+
+      <section aria-labelledby="regime-title">
+        <h2 id="regime-title">First, check what your GPU is actually running at</h2>
+        <p>My earlier kernel numbers all came from a GPU stuck in performance state P5, with memory at 810 MHz, even in the laptop's Performance profile. I assumed it was a laptop thing. Then I ran a six-second copy that saturates memory and watched the clocks: still P5, still 810 MHz, and a "SW Power Cap" flag active while the GPU drew 46 W of an 80 W limit. Locking the memory clock with <code>nvidia-smi</code> was accepted and ignored.</p>
+        <p>The culprit was <code>nvidia-powerd</code>, the Dynamic Boost daemon. Stopping it took the same copy from 35.8 GB/s to 356 GB/s. Idle still drops back to P8, so nothing is pinned high. It needs no BIOS change, firmware or install, and a reboot brings the daemon back.</p>
+        <p class="code-label">Shell · check, then stop the daemon for this boot</p>
+        <pre><code>systemctl is-active nvidia-powerd
+nvidia-smi --query-gpu=pstate,clocks.mem --format=csv
+sudo systemctl stop nvidia-powerd     # undo: sudo systemctl start nvidia-powerd</code></pre>
+        <figure aria-labelledby="regime-caption">
+          <div class="chart-controls" role="group" aria-label="Precision">
+            <label>Precision<select id="regime-dtype"><option value="bf16">BF16</option><option value="fp16">FP16</option><option value="fp32">FP32</option></select></label>
+          </div>
+          <div id="chart-regime" class="plot" role="img" aria-label="Kernel latency with nvidia-powerd running and stopped"></div>
+          <figcaption id="regime-caption">The same frozen custom kernels, timed with the daemon running (P5, 810 MHz) and stopped (P0, 6001 MHz). Log scale. Latency drops 2.3 to 7.4 times.</figcaption>
+        </figure>
+        <p>If you benchmark on a laptop with an NVIDIA GPU, it is worth checking this before trusting any number. All results below are in the faster P0 state, and every experiment checks that the daemon is inactive before it times anything.</p>
+      </section>
+
+      <section aria-labelledby="floor-title">
+        <h2 id="floor-title">Where the time goes in a small op</h2>
+        <p>Inside a CUDA graph, an empty kernel costs about 0.64 µs per launch on this GPU. Add one round trip to DRAM and it is 1.17 µs. My hand-tuned GEMV kernels for shapes up to 256×256 were already within 0 to 5% of that floor, so there was little left to win inside a single kernel. The waiting happens between kernels: each op starts, asks DRAM for its weights, and waits.</p>
+      </section>
+
+      <section aria-labelledby="prefetch-title">
+        <h2 id="prefetch-title">Prefetching the next layer while this one runs</h2>
+        <p>While layer <code>i</code> runs, a tiny kernel on a second CUDA stream asks L2 to fetch the weights that layer <code>i+1</code> will read. When layer <code>i+1</code> starts, its weights are already close. The consumer kernels stay unchanged (cuBLAS through <code>F.linear</code>, cuDNN, autograd), and the prefetch never writes memory, so every output stays bit-identical. I checked that on every prefetch result in this post.</p>
+        <p class="code-label">CUDA C++ · the whole prefetch kernel</p>
+        <pre><code>extern "C" __global__ void l2_hint(const char* p, long long bytes, int stride, unsigned* sink) {
+    long long step = (long long)gridDim.x * blockDim.x * stride;
+    for (long long off = (long long)(blockIdx.x * blockDim.x + threadIdx.x) * stride; off &lt; bytes; off += step)
+        asm volatile("prefetch.global.L2 [%0];" :: "l"(p + off));
+}</code></pre>
+        <p class="code-label">Python · run op i on the main stream, prefetch op i+1 on a side stream</p>
+        <pre><code>for i, op in enumerate(self.ops):
+    j = i + self.distance
+    if j &lt; len(self.ops) and self.plans[j]:
+        self.side.wait_stream(main)          # starts when op i starts
+        with torch.cuda.stream(self.side):
+            for t in self.reads[j]:
+                prefetch(t, **self.plans[j])
+    y = op(y)
+main.wait_stream(self.side)</code></pre>
+        <p>To be sure the effect came from L2 and not from some scheduling side effect, I ran a decoy: the same prefetch traffic aimed at the wrong layer. The decoy always made things slower. Then I mapped where the real thing helps.</p>
+        <figure aria-labelledby="heatmap-caption">
+          <div id="chart-heatmap" class="plot plot-square" role="img" aria-label="Best latency saved by layer size and rows"></div>
+          <figcaption id="heatmap-caption">Best fixed configuration per layer size and number of rows M, for a chain of BF16 <code>F.linear</code> layers that starts cold in L2. Gains need two layers to fit in the 4 MiB L2 at once; at 4.5 MiB per layer every configuration loses.</figcaption>
+        </figure>
+        <p>Three things decide the outcome. The current and next layer have to fit in L2 together. The prefetch has to finish before the current op does, and one 256-thread block issues roughly 140 GB/s of prefetches. Every extra block competes with the op you are trying to speed up. Near the L2 limit the best setting jumps around: at one shape, one block lost 14%, two blocks gained 15% and four blocks lost 9.5%.</p>
+      </section>
+
+      <section aria-labelledby="tune-title">
+        <h2 id="tune-title">Measuring instead of predicting</h2>
+        <p>My first policy was a formula built from those three constraints. On shapes it had never seen it saved 5.5% on average, short of the 8% target I wrote down before running it. It never hurt anything, but it left most of the gain on the table.</p>
+        <p>What worked was measuring. When the CUDA graph is captured, the wrapper times a handful of candidate plans for each distinct layer shape on throwaway weights, keeps the best one only if its 95% confidence interval clears +1%, and otherwise runs plain PyTorch. That takes 0.2 to 0.6 seconds per shape.</p>
+        <figure aria-labelledby="heldout-caption">
+          <div id="chart-heldout" class="plot" role="img" aria-label="Latency saved on 20 held-out shapes across four runs"></div>
+          <figcaption id="heldout-caption">Capture-time tuning on 20 layer shapes it had never seen, against the same PyTorch chain without prefetch. Four separate runs: 13.84%, 13.98%, 13.97% and, with a 2-second warm-up before every measurement, 12.81% geometric mean. Grey bars are shapes where the tuner chose plain PyTorch.</figcaption>
+        </figure>
+      </section>
+
+      <section aria-labelledby="training-title">
+        <h2 id="training-title">It works in training too</h2>
+        <p>In the backward pass the order flips: computing the gradient of layer <code>i</code> reads <code>W_i</code> again, so the prefetch should fetch <code>W_{i-1}</code>. With small batches that saved 8.84% of forward plus backward time on held-out shapes, with gradients that match plain PyTorch bit for bit.</p>
+        <p>You can install this on an unmodified model with hooks. They only act inside the model's own forward and backward, so calling a submodule on its own behaves exactly like plain PyTorch.</p>
+        <p class="code-label">Python · prefetch hooks on an existing model, then capture a training step</p>
+        <pre><code>from api import PrefetchHooks
+
+def step(model, x):
+    for p in model.parameters():
+        p.grad = None
+    model(x).float().square().mean().backward()
+
+# warm up on a side stream first (a PyTorch rule for capturing backward)
+hooks = PrefetchHooks(model, x, backward=True, step=step)
+graph = torch.cuda.CUDAGraph()
+with torch.cuda.graph(graph):
+    step(model, x)
+graph.replay()
+hooks.remove()   # back to plain PyTorch</code></pre>
+        <figure aria-labelledby="training-caption">
+          <div id="chart-training" class="plot plot-short" role="img" aria-label="Training step latency saved on held-out shapes"></div>
+          <figcaption id="training-caption">Forward plus backward of a deep Linear + GELU stack in one CUDA graph, batch 4 or 8. Small FP32 layers gain the most.</figcaption>
+        </figure>
+      </section>
+
+      <section aria-labelledby="beyond-title">
+        <h2 id="beyond-title">Beyond language models</h2>
+        <p>None of this is specific to transformers. The prefetch works on any chain of layers that read weights, so I tried it on MLP blocks, convolutions, a ViT, text encoders, a recommendation MLP and a reinforcement learning policy. Some of it worked well and some of it did nothing, and the split follows the same rule as before.</p>
+        <p class="code-label">Python · any list of modules, tuned when it is first called</p>
+        <pre><code>from api import PrefetchSequential
+
+blocks = [nn.Sequential(nn.LayerNorm(768), nn.Linear(768, 768), nn.GELU()) for _ in range(72)]
+model = PrefetchSequential([b.cuda().bfloat16() for b in blocks], example_input)
+
+graph = torch.cuda.CUDAGraph()
+with torch.cuda.graph(graph):
+    y = model(static_x)       # same output bits as nn.Sequential(*blocks)</code></pre>
+        <figure aria-labelledby="beyond-caption">
+          <div id="chart-beyond" class="plot plot-tall" role="img" aria-label="Latency saved on non-LLM workloads"></div>
+          <figcaption id="beyond-caption">Every non-LLM workload I measured, against the same PyTorch code without prefetch. Accent bars saved at least 5%. MLP blocks and batch-1 convolutions are exploratory chains with the best plan shown; the training row is a confirmatory test on held-out shapes; the last five are end-to-end models.</figcaption>
+        </figure>
+        <p>MLP blocks with a LayerNorm, a linear layer and a GELU saved 8 to 12% at batch 4 and 16, and a generic <code>nn.Sequential</code> of such blocks saved 7.6% at width 512 and batch 4, and 10% at width 768 and batch 8. Small-batch training of MLP stacks saved 8.84%. Each of those layers weighs 1 to 1.5 MiB.</p>
+        <p>The convolutions and the end-to-end models barely moved. Batch-1 convolutions spend 14 to 35 µs inside cuDNN for at most 1.2 MiB of weights, so there is little fetch latency to hide. The text encoders and the ViT carry 3.4 to 6 MiB per layer, and the FP32 1024×1024 layers in the recommendation and RL models weigh 4 MiB, so two consecutive layers never fit in 4 MiB of L2. The ViT also runs 197 tokens per layer, which keeps the GPU busy already. Going finer, with hooks on every submodule, forced me to switch off PyTorch's fused attention fast path in the encoders, which costs 4 to 5% by itself.</p>
+        <figure aria-labelledby="nonllm-caption">
+          <div id="chart-nonllm" class="plot plot-short" role="img" aria-label="End-to-end non-LLM models, per layer and per submodule"></div>
+          <figcaption id="nonllm-caption">The five end-to-end models in detail: prefetch per layer and per submodule. The per-submodule bars for the encoders include the cost of disabling the fused fast path.</figcaption>
+        </figure>
+        <p>On a GPU with 4 MiB of L2, cross-op prefetch pays for chains of layers up to roughly 2.6 MiB each, at small batch, whatever the model family.</p>
+      </section>
+
+      <section aria-labelledby="decode-title">
+        <h2 id="decode-title">A full decode step is a different story</h2>
+        <p>Next I tried prefetch on whole decoder layers with the dimensions of SmolLM2-135M and Qwen2.5-0.5B. It saved 1.3%. A profile explained why: the large MLP projections already run at about 60% of peak memory bandwidth, and attention plus norms and elementwise ops took a third of the step. In the smallest model, attention alone was 45% of the gap between the step time and the time needed just to read the weights and KV cache.</p>
+        <p>So I wrote a decode attention kernel that handles one new token in a single launch: it appends the new key and value to the cache, computes the softmax in FP32, splits the cache across blocks, and lets the last block to finish merge the partial results. PyTorch's path for the same work is two copies plus a two-kernel flash attention. My first version was 2.4 times slower than PyTorch, because each warp waited on memory once per token. Keeping more loads in flight fixed that.</p>
+        <p class="code-label">CUDA C++ · the last block for each head merges the partial softmax results</p>
+        <pre><code>if (tid == 0) ticket = atomicAdd(tickets + head, 1u);
+__syncthreads();
+if (ticket != (unsigned)(splits - 1)) return;   // not the last block for this head
+__threadfence();
+// merge (max, sum, acc[64]) from every split, write the output,
+// then reset the ticket so the same CUDA graph can be replayed
+if (tid == 0) tickets[head] = 0u;</code></pre>
+        <figure aria-labelledby="versions-caption">
+          <div id="chart-versions" class="plot plot-short" role="img" aria-label="Attention kernel versions"></div>
+          <figcaption id="versions-caption">Time per call for 512 cached tokens, kernel only. v1 serialized memory waits, v2 removed per-token shuffles, v3 added an L2 prefetch of V, v4 split the cache across blocks with an in-kernel merge.</figcaption>
+        </figure>
+        <p>v4 loses with long caches and many heads, where PyTorch's flash path uses tensor cores and mine does plain FP32 math. The same trick as before handles that: time both at capture and fall back to PyTorch when mine does not win. Against the strongest PyTorch setup I could build (<code>torch.compile</code> for the elementwise ops, SDPA attention, the whole step in one CUDA graph), that choice plus the prefetch saved 12.66% on 12 model and context combinations it had not seen, up to 30.6% for SmolLM2-135M with 192 cached tokens. Repeating it with the GPU cooled down before each configuration gave 12.36%. A stricter repeat, where every single measurement waited for the GPU to reach 60 °C, gave 12.35%. The worst case, TinyLlama with 1280 cached tokens, came out even with PyTorch, and it is the one place where the dispatch kept SDPA.</p>
+        <figure aria-labelledby="decode-caption">
+          <div class="chart-controls" role="group" aria-label="Run">
+            <label>Run<select id="decode-run"></select></label>
+          </div>
+          <div id="chart-decode" class="plot" role="img" aria-label="Decode step latency saved by model and context length"></div>
+          <figcaption id="decode-caption">Full decode step against <code>torch.compile</code> + SDPA in a CUDA graph. Dark bars: attention choice only. Accent bars: attention choice plus prefetch. Where the bar sits at zero, the tuner kept PyTorch's attention.</figcaption>
+        </figure>
+        <p>My hand-written fused RMSNorm and SiLU kernels beat eager PyTorch by 5.4% and lost to <code>torch.compile</code> by up to 5.3%, so I left elementwise fusion to the compiler.</p>
+        <p>I also compared against FlashInfer 0.7.2, built locally with a conda copy of nvcc 12.8. It beat PyTorch's path everywhere it ran, and my kernel beat it in 8 of 9 cases up to 1280 tokens. It does not support a GQA group of 7, which is what Qwen2.5-0.5B uses. I added it as a third option: it got picked in 3 of 12 configurations and never made anything slower.</p>
+        <figure aria-labelledby="fi-caption">
+          <div class="chart-controls" role="group" aria-label="Head layout">
+            <label>Query / KV heads<select id="fi-heads"></select></label>
+          </div>
+          <div id="chart-flashinfer" class="plot plot-short" role="img" aria-label="FlashInfer, PyTorch and v4 attention latency"></div>
+          <figcaption id="fi-caption">Attention for one new token, kernel only, 24 layer caches. Lower is better.</figcaption>
+        </figure>
+      </section>
+
+      <section aria-labelledby="try-title">
+        <h2 id="try-title">Try it on your GPU</h2>
+        <p>All of it lives in <a href="https://github.com/waybarrios/klab">klab</a>, my small CUDA kernel lab, under <code>research/l2-prefetch</code>. The experiments run on klab's own pieces: its NVRTC kernel loader, its CUDA graph timing harness and its GPU lock. Confirmatory tests had their success criteria fixed and hashed before they ran, and the ones that failed are reported here as results too.</p>
+        <p class="code-label">Shell · run the GPU tests on your machine</p>
+        <pre><code>git clone https://github.com/waybarrios/klab &amp;&amp; cd klab
+python -m unittest research/l2-prefetch/tests/test_prefetch.py \
+                   research/l2-prefetch/tests/test_decode.py</code></pre>
+        <p>The open question I care most about is what happens on GPUs with a much larger L2. Ada and Hopper cards have tens of megabytes, so layers that fail here might fit there. If you run the tests or the experiments on another GPU, or find a shape where this makes things worse, please open an issue with the shape, the precision and what you saw. Results that disagree with mine are just as welcome.</p>
+        <nav class="data-links" aria-label="Data"><a href="data/results.json">Data behind every chart (JSON)</a><a href="data/manifest.json">Source files and checksum</a><a href="https://github.com/waybarrios/klab/tree/main/research/l2-prefetch">Code and raw results</a></nav>
+        <noscript><p>The charts need JavaScript. The JSON link above has every number they show.</p></noscript>
+      </section>
+      <section aria-labelledby="wip-title">
+        <h2 id="wip-title">Still in progress</h2>
+        <p>This is a snapshot of ongoing work. Next on my list: larger models, where reading fewer bytes matters more than hiding latency, head sizes other than 64 in the attention kernel, and wiring all of this into the klab command line.</p>
+        <p>I will keep posting updates to the <a href="https://github.com/waybarrios/klab">klab repository</a> as they land, and this post will change when the numbers do. If something here looks wrong to you, I would like to hear about it.</p>
+      </section>
+    </article>
+  </main>
+  <footer class="site-footer"><p>© 2026 Wayner Barrios</p><div><a href="/">Home</a><a href="/blog/">All notes</a><a href="/research/">Research</a><a href="https://github.com/waybarrios/klab">Code and collaboration</a></div></footer>
+</body>
+</html>

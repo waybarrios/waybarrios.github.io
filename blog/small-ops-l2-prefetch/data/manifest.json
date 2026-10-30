@@ -1,0 +1,33 @@
+{
+ "generated_from": "https://github.com/waybarrios/klab (research/l2-prefetch)",
+ "results_sha256": "1301b2abcb75f5e7452468fc666371ab6da07ab30575e35b4d54bfb221cd44de",
+ "source_files": [
+  "research/l2-prefetch/data/p0_rebaseline.json",
+  "research/l2-prefetch/experiments/G2-training-confirm/results/g2.json",
+  "research/l2-prefetch/experiments/G7-non-llm-models/results/g7.json",
+  "research/l2-prefetch/experiments/G7b-hooks/results/explore.json",
+  "research/l2-prefetch/experiments/H1-characterization/results/sweep.json",
+  "research/l2-prefetch/experiments/H10-decode-gap/results/decompose.json",
+  "research/l2-prefetch/experiments/H11-decode-attention/results/h11-v1.json",
+  "research/l2-prefetch/experiments/H11-decode-attention/results/h11-v2.json",
+  "research/l2-prefetch/experiments/H11-decode-attention/results/h11.json",
+  "research/l2-prefetch/experiments/H12-attention-heldout/results/h12.json",
+  "research/l2-prefetch/experiments/H14-attention-dispatch/results/h14.json",
+  "research/l2-prefetch/experiments/H15-elementwise-fusion/results/h15.json",
+  "research/l2-prefetch/experiments/H16-strong-baseline/results/h16.json",
+  "research/l2-prefetch/experiments/H17-flashinfer/results/step2.json",
+  "research/l2-prefetch/experiments/H2-heldout-policy/results/heldout.json",
+  "research/l2-prefetch/experiments/H2b-autotune/results/autotune.json",
+  "research/l2-prefetch/experiments/H3-generic-ops/results/generic.json",
+  "research/l2-prefetch/experiments/H4-training/results/train.json",
+  "research/l2-prefetch/experiments/H5-stack-klab/results/stack.json",
+  "research/l2-prefetch/experiments/H7-decoder-layers/results/decoder.json",
+  "research/l2-prefetch/experiments/H8-idle-windows/results/dose.json",
+  "research/l2-prefetch/experiments/R1-replicate-H2b/results/replica1.json",
+  "research/l2-prefetch/experiments/R1-replicate-H2b/results/replica2.json",
+  "research/l2-prefetch/experiments/R2-warm-recheck/results/warm.json",
+  "research/l2-prefetch/experiments/R3-thermal-H16/results/r3-temps.json",
+  "research/l2-prefetch/experiments/R3-thermal-H16/results/r3.json",
+  "research/l2-prefetch/experiments/R4-strict-thermal/results/r4.json"
+ ]
+}

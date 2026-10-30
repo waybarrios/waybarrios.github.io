@@ -1,4 +1,5 @@
 # Backup / scratch files that must never be published
+.scratch/
 *.original
 *~
 website_claude.txt
